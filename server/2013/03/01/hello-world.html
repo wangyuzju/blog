@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <title>关于github Pages和jekyll</title>
+</head>
+<body>
+  <h1 id='id1'>建立自己的博客系统</h1>
+
+<h2 id='id2'>基本教程</h2>
+
+<p>01 Mar 2013<br />参照了<a href='http://www.ruanyifeng.com/blog/2012/08/blogging_with_jekyll.html'>阮一峰</a>的教程，总结步骤如下：</p>
+
+<blockquote>
+<ul>
+<li>新建一个git仓库，并且切换的gh-pages分支，只有该分支中的页面才会生成网页文件</li>
+
+<li>根目录下新建jekyll的配置文件<code>_config.yml</code>，baseurl:/blog <em>将来位于github上的repo名</em></li>
+
+<li>创建模板文件<code>_layouts</code>文件夹下</li>
+
+<li>创建正文文件<code>_posts</code>文件夹下，文件命名格式为<strong>年-月-日-标题.后缀</strong></li>
+
+<li>创建默认页面index.html/index.md，可以在其中引用正文</li>
+
+<li>git push remote gh-pages提交到github上，就可以通过wangyuzju.github.com/blog访问了</li>
+</ul>
+</blockquote>
+<hr />
+<h2 id='id3'>关于本地调试</h2>
+
+<p>只要在根目录下面jekyll &#8211;server就会根据<code>_config.yml</code>配置在4000端口提供服务， 比如访问127.0.0.1:4000/blog/index.html就可以访问到主页面，有几点需要注意：</p>
+
+<ul>
+<li>每次调用jekyll &#8211;server都是基于当前文件提供web服务，文件的变化不会自动刷新服务器文件</li>
+
+<li>直接调用jekyll会将页面生成到_sites文件夹下面，由于其他静态文件和路径设置的原因，在调试中并没有什么特别的意义</li>
+</ul>
+
+<h2 id='id4'>一些目标</h2>
+
+<ul>
+<li>
+<p>全面利用CoffeeScript,LESS等技术，利用NODE实现代码自动部署 + 将我的个人博客打造成为一个响应式的网页</p>
+</li>
+
+<li>
+<p>考虑做一个DailyDone性质的模块，整合到个人博客中</p>
+</li>
+
+<li>
+<p>主要用MarkDown进行创作，<strong><a href='http://ux.etao.com/posts/620#main'>这篇教程</a></strong>非常不错</p>
+
+<blockquote>
+<ul>
+<li>反撇号`包裹成为代码片段，或者行首缩进4空格 + 使用\来对特殊字符进行转义</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+</body>
+</html>
