@@ -2,10 +2,15 @@
 @gray: #ccc;
 @bgImage: url("../images/bg.png");
 
+body {margin: 0}
+
 body {
+  background: @bgImage;
+}
+
+#wrapper {
   margin: auto;
   width: @wrapWidth;
-  background: @bgImage;
 }
 
 header {
@@ -37,9 +42,14 @@ header {
   margin: 10px 0 0 10px;
   float: left;
   width: 22.708333%;
-}
 
+  h4 {margin: 0 0 20px;}
+}
+.side-content {
+  margin-left: 30%;
+}
 #pagination {
+  text-align: center;
   margin-left: 10px;
   display: inline-block;
   font-size: 14px;
@@ -47,6 +57,8 @@ header {
   border: 1px solid rgba(0, 0, 0, 0.11);
   border-radius: 2px;
   background: rgba(255, 255, 255, 0.11);
+
+
 
   a {
     color: rgba(0, 0, 0, 0.66);
@@ -60,6 +72,9 @@ header {
   .disabled {
     color: #999;
     color: rgba(0, 0, 0, 0.44);
+  }
+  .prev-page,.next-page{
+    width: 60px;
   }
   .next-page {
     border: none;
@@ -75,4 +90,19 @@ header {
   margin-top: 20px;
   color: @gray;
   border-top: 1px solid @gray;
+}
+
+/*Mobile Device*/
+@media screen and ( max-width: 500px ){
+  .main {width: 100%}
+  .sidebar {width: 100%; margin: auto; box-sizing: content-box;}
+
+  #pagination {
+    position: relative;
+    left: 50%;
+    margin-left: -90px;
+
+    a {display: none};
+    .prev-page, .next-page {display: inline};
+  }
 }

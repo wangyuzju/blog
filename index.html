@@ -22,12 +22,12 @@ title: 我的Blog
     <!--向前翻页-->
     {% if paginator.previous_page %}
     {% if paginator.previous_page == 1 %}
-    <a href="../index.html"> &laquo;&nbsp;Previous </a>
+    <a class="prev-page" href="../index.html"> &laquo;&nbsp;Previous </a>
     {% else %}
-    <a href="../page{{ paginator.previous_page }}"> &laquo;&nbsp;Previous </a>
+    <a class="prev-page" href="{{ site.url }}/page{{ paginator.previous_page }}"> &laquo;&nbsp;Previous </a>
     {% endif %}
     {% else %}
-    <a class="disabled">&laquo;&nbsp;Previous</a>
+    <a class="prev-page disabled">&laquo;&nbsp;Previous</a>
     {% endif %}
     <!-- 所有页码 -->
     {% if paginator.page == 1 %}
@@ -53,6 +53,8 @@ title: 我的Blog
 </div>
 
 <div class="sidebar">
-  {% include plugin/category.html %}
+  <div class="side-content">
+    {% include plugin/category.html %}
+  </div>
 </div>
 <div class="clear"></div>
