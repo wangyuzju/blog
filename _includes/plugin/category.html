@@ -1,0 +1,11 @@
+<!--
+tips:
+  -直接/last都是分类下的内容
+  -first: 分类名称
+  -last.size:该分类下的数量
+-->
+
+<h4>分类列表</h4>
+{% for category in site.categories %}
+  <div><a href="{{ site.url }}/category/{{ category.first }}.html">{{ category.first }} ({{ category.last.size }})</a></div>
+{% endfor %}

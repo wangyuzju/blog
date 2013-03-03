@@ -1,4 +1,4 @@
 auto: true #Enable recreating the site when files are modified
 paginate: 10
-exclude: dev
+exclude: dev, myblig.iml, CNAME, product.sh
 permalink: ./:year-:month-:day/:title.html

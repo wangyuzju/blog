@@ -1,6 +1,7 @@
 ---
 layout: default
 title: 今天做的事情
+category: dailyDone
 ---
 
 ##今天一整天下来，做的事情主要又如下几点:
