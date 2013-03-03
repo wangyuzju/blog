@@ -1,1 +1,4 @@
+auto: true #Enable recreating the site when files are modified
+paginate: 10
+exclude: dev
 permalink: ./:year-:month-:day/:title.html
