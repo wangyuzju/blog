@@ -1,3 +1,7 @@
+@import "import/mixins";
+@import "import/reset";
+//注：直接@ import “reset.css”即相当于生成的css中是@ import "reset.css"，即不会进行编译处理
+
 @wrapWidth: 96%;
 @gray: #ccc;
 @bgImage: url("../images/bg.png");
@@ -5,7 +9,22 @@
 body {margin: 0}
 
 body {
+  font: 16px/1.5 tahoma,arial,"微软雅黑",sans-serif;
   background: @bgImage;
+}
+
+code {
+  display: inline-block;
+  background: white;
+  font-size: 0.8em;
+  line-height: 1.5em;
+  color: #555;
+  border: 1px solid #DDD;
+  border-image: initial;
+  border-radius: 0.4em;
+  padding: 0px 0.3em;
+  margin: -1px 0px;
+  white-space: pre-line;
 }
 
 #wrapper {
@@ -101,6 +120,7 @@ nav {
 @media screen and ( max-width: 500px ){
   .main {width: 100%}
   .sidebar {width: 100%; margin: auto; box-sizing: content-box;}
+  .large-screen {display: none}
 
   #pagination {
     position: relative;

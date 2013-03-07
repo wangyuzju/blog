@@ -16,5 +16,5 @@ title: 一些读过的书
 #-content: "正文的字符串内容"
 ---
 {% for article in site.tags.Books %}
-  [{{ article.date | date:"%Y-%m-%d" }}]<a href="{{ site.url }}{{ article.url }}">{{ article.title }}</a>
+  <div>[{{ article.date | date:"%Y-%m-%d" }}]<a href="{{ site.url }}{{ article.url }}">{{ article.title }}</a> </div>
 {% endfor %}
