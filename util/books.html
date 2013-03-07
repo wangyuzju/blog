@@ -1,0 +1,20 @@
+---
+layout: default
+title: 一些读过的书
+
+#这是我已读书目的展示页面，考虑做成timeline的展现形式
+#article其中的某一个示例
+#-layout: default
+#-tags: ["BOOKS"]
+#-title: "Coffee"
+#-url: "/2013/03/07coffee.html"
+#-date: 2013-03-07 00:00:00 +0800
+#-id: "/2013/03/07/coffee"
+#-categories: []
+#-next: nil
+#-previous:
+#-content: "正文的字符串内容"
+---
+{% for article in site.tags.BOOKS %}
+  [{{ article.date | date:"%Y-%m-%d" }}]<a href="{{ site.url }}{{ article.url }}">{{ article.title }}</a>
+{% endfor %}

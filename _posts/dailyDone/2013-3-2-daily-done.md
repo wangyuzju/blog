@@ -11,6 +11,6 @@ category: dailyDone
 从Coffee&LESS到JS&CSS的无缝过度
 
 ##TODO
-+ 完善这套VIM插件+SH自动部署的系统，现在  
++ 完善这套VIM插件+SH自动部署的系统，现在
     Watch ../../product.sh这个命令还是比较麻烦
 + 个人博客尽快收工，马上就要做毕设了

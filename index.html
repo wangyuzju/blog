@@ -2,18 +2,12 @@
 layout: default
 title: 我的Blog
 ---
-{% if paginator.next_page == 2 %}
-{% assign urlprefix='' %}
-{% else %}
-{% assign urlprefix='../' %}
-{%endif %}
-{% assign first=site.posts.first %}
 
 <div class="main">
   {% for post in paginator.posts %}
   <div class="article">
     <div class="title">
-      [{{ post.date | date:"%Y-%m-%d" }}]<a href="{{ urlprefix }}{{ post.url }}">{{ post.title }}</a>
+      [{{ post.date | date:"%Y-%m-%d" }}]<a href="{{ site.url }}{{ post.url }}">{{ post.title }}</a>
     </div>
   </div>
   {% endfor %}
@@ -22,7 +16,7 @@ title: 我的Blog
     <!--向前翻页-->
     {% if paginator.previous_page %}
     {% if paginator.previous_page == 1 %}
-    <a class="prev-page" href="../index.html"> &laquo;&nbsp;Previous </a>
+    <a class="prev-page" href="{{ site.url }}/index.html"> &laquo;&nbsp;Previous </a>
     {% else %}
     <a class="prev-page" href="{{ site.url }}/page{{ paginator.previous_page }}"> &laquo;&nbsp;Previous </a>
     {% endif %}
