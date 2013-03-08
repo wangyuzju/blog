@@ -3,7 +3,7 @@ layout: default
 title: 我的Blog
 ---
 
-<div class="main">
+<div class="main" role="main">
   {% for post in paginator.posts %}
   <div class="article">
     <div class="title">
@@ -46,9 +46,9 @@ title: 我的Blog
   </div>
 </div>
 
-<div class="sidebar">
+<aside>
   <div class="side-content">
     {% include plugin/category.html %}
   </div>
-</div>
+</aside>
 <div class="clear"></div>
