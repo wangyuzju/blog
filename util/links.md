@@ -50,3 +50,7 @@ title: 平时发现的好网站
 ##艺术
 + [台湾的一个大学生][40] -- 非常屌！，专注于HTML5/CSS3/Octopress/...
 [40]: http://zespia.tw/
+
+##我的作品
++ [markitnow][50]-- chrome插件
+[50]: https://chrome.google.com/webstore/detail/%E7%8E%8B%E5%AE%87%E7%9A%84%E6%8F%92%E4%BB%B6/aobnfmbbemdjhbkmfodmhopbbehpiakb

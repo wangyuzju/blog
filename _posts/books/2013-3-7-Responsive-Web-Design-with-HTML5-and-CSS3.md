@@ -49,3 +49,10 @@ tags: Books
     /* 伪元素 使用::来和伪类区分 */
     li::first-line
     li::first-letter
+
+#RGBA和HSLA来设定颜色
++ 使用RGBA可以#不改变子元素的opacity#，而直接设置opacity的话，会使其子元素也透明
++ HSL(360色环中的一个分布，饱和度，亮度)
+
+
+
