@@ -20,3 +20,10 @@ category: Tips
 的wrap块，导致在md文件中写`<??>`的方式不行**而且现在的md parse engine连`<??>`都无法解析为注释**
 + 最终解决方案：通过js，找出具有`pre\>code`结构的code，加上'prettyprint linenums'的className
 + linenums默认为5行显示一次，那是因为pretty.css里面将每四个的list-style都设置为了none，改成decimal就好了
+
+#代码缩进的问题（3.15）
+自从加上两google-code-pretty之后，就对网站的代码高亮寄予了很大的期望，坑爹的是，今天发现写
+的code**居然无法缩进**？一开始还以为是我的markdown parse engine又出了问题，然后转到天外
+天blog看了下，发现它没啥问题啊，晕倒。最后才想到，会不会是引用了别的网站的code的样式表的缘故，
+果然,white-space: pre-line;自动去掉了空格，改成white-space: pre;就OK了
+

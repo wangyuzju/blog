@@ -25,12 +25,14 @@ code {
   border-radius: 0.4em;
   padding: 0px 0.3em;
   margin: -1px 0px;
-  white-space: pre-line;
+  white-space: pre-line; //auto ltrim blank
 }
 /* code block style */
 pre code {
   padding: .5em;
   display: block;
+  white-space: pre-wrap;
+  
   li.L0,li.L1,li.L2,li.L3,li.L5,li.L6,li.L7,li.L8,li.L9 {
     list-style-type: decimal;
   }
