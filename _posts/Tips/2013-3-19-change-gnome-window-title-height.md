@@ -1,6 +1,6 @@
 ---
 layout: default
-title: 修改Gnome窗口标题高度
+title: 修改Gnome窗口标题高度 + fedora18更新后要点
 category: Tips
 ---
 #按住alt+F2输入r就可以完成Gnome界面重启
@@ -31,5 +31,9 @@ category: Tips
 ##最终设置
 仅仅隐藏标题栏会导致残留，索性把填充高度也去掉了，这样窗口标题栏看起来要窄一些，但**效果还不错**
 
-#参考
+##参考
 [Fedora 16的Gnome3个人配置笔记[3月7日更新]](http://imobile365.com/articles/6331)
+
+#fedora18更新后注意事项
+##防火墙不再是iptables
+因此我的主机的web服务就无法被访问了，删除掉防火墙就好了`sudo yum remove firewalld`

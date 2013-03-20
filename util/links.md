@@ -27,6 +27,8 @@ title: 平时发现的好网站
 [030]: http://gsnedders.html5.org/outliner/
   + [**Can I Use**][031] -- 检测CSS3/HTML5被各个浏览器支持的情况
 [031]: http://caniuse.com/
+  + [Emmet/Zen-coding cheat-sheet][032] -- 前端码代码利器
+[032]: http://docs.emmet.io/cheat-sheet/
 ##编辑器相关
 + [Intellij-IDEA新手指南][1] -- 作者[博客](http://ooxx.me/)
 [1]: https://github.com/damao/Intellij-IDEA-F2E "大猫"

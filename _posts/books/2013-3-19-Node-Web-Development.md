@@ -46,14 +46,14 @@ ip，于是想到是不是曾经配置过npm的repo，果然在.npmrc下面，re
 `npm uninstall [-g]`
 
 ##开发npm包
-`npm init`初始化  
-`npm link`设置一个链接到源文件目录的符号链接，可以自由编辑源文件而不需要`npm rebuild <pkg>`
+###`npm init`初始化  
+###`npm link`设置一个链接到源文件目录的符号链接，可以自由编辑源文件而不需要`npm rebuild <pkg>`
 才生效,其使用分两个步骤
 
 1. 将开发项目链接到node安装程序上，在项目根目录执行npm link
 2. 将开发项目链接到应用中 npm link <mod>
 
-`npm publish`就发布到npmjs.org上去了
+###`npm publish`就发布到npmjs.org上去了
 
 ##npm的配置
 1. 通过`npm config`和`npm set/get`在命令行中设定
