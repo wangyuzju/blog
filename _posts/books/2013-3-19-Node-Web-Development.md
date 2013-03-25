@@ -1,11 +1,15 @@
 ---
 layout: default
-title: Node Web开发
+title: Node Web开发 / Node.js开发指南
 tags: Books
 ---
+#前言
+图书馆里来了两本关于Node.js的新书，于是果断借过来看了一下，《Node.js开发指南》是国人编著的，
+因此和《Node Web开发》有很多类似的内容，索性将两者的读书笔记写在一起好了
 
 #Node的优势
-Node应用高性能的关键是要**快速返回事件循环**，确保服务器的利用率
+Node应用高性能的关键是要**快速返回事件循环**，确保服务器的利用率  
+Node不适合计算密集型的程序，单用户多任务型应用，逻辑十分复杂的事务，Unicode和国际化
 
 #Node服务器一直运行的原理
 http.createServer().listen()创建了一个实现HTTP协议的事件监听器，会使当前脚本一直处于执行
@@ -14,8 +18,44 @@ http.createServer().listen()创建了一个实现HTTP协议的事件监听器，
 #Node模块
 模块名就是一个没有文件后缀.js的路径名，Node也支持.node后缀的二进制原生语言库
 
-#Node模块的查找
-Node会在当前目录然后往父级（逐级）查找node_modules目录（而不仅仅是当前目录）
+#Node模块的加载
+Node.js的模块可以分为两大类，一类是核心模块，一类是文件模块。
+##核心模块
+是Node.js标准API中提供的模块，如`fs`，`http`，`net`等，这些都已经编译成两二进制代码，拥有
+最高的加载优先级
+##文件模块
+存储为单独的文件（文件夹），Node.js会分别试图加上`.js`,`.json`,`.node`扩展名
+##加载顺序
+1. 如果是核心模块，直接加载
+2. 如果是以`/` `./` `../`等开头的，按路径加载查找相应的模块
+3. 查找当前目录和父级目录的`node_modules`文件夹下相应的模块，直至找到为止
+
+也就是说我有一个hello的包，可以将其放在`node_modules/`文件夹下，通过`require('hello')`
+来加载，也可以直接放在当前目录下，通过`require('./hello')`来加载，效果是一样的
+
+#Node.js包
+Node.js包是一个目录，包含一个JSON格式的包说明文件`package.json`，具有以下特性
+
++ `./package.json` \[必须的，其余都是推荐的\]
++ `./bin/`下面存放二进制文件
++ `./lib/`下面存放js文件
++ `./doc/`下面存放文档
++ `./test/`下面存放单元测试
+
+实例：创建`hello`目录，并且在hello/lib/interface.js中写入
+
+    module.exports = function(){ 
+      console.log("hello world!") 
+    }
+
+然后，在`hello/package.json`中写入
+
+    {
+      "main": "./lib/interface.js"
+    }
+    
+这样，就可以在与hello同级的目录中，调用`require('./hello')`来加载`hello/lib/interface.js`
+这个模块了，注意，这里`./hello`中的`./`必须要加，否则应该将hello模块放到node_modules文件夹下
 
 #npm包管理器
 ##获取npm的帮助
