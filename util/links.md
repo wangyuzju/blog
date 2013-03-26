@@ -13,7 +13,8 @@ title: 平时发现的好网站
 [03]: http://ued.taobao.com/blog/
 + [新浪UDC][04]
 [04]: http://udc.weibo.com/
-
++ [Node.js高级编程][05] -- Nodejs高级编程的翻译版本
+[05]: http://yaohuiji.com/2013/01/08/pro-node-article-list/
 + **一些好文章**
   + [三个CSS预处理框架(SASS, LESS, stylus)的比较][020] -- by [司徒正美][021]
 [020]: http://www.cnblogs.com/rubylouvre/archive/2013/01/13/2858251.html
