@@ -20,9 +20,9 @@ python的struct模块来完成.可以用 struct来处理c语言中的结构体.
 [点击查看](http://www.cnblogs.com/gala/archive/2011/09/22/2184801.html)
 ##以二进制的方式读取文件
     #coding: UTF-8
-    fileData = open('/home/ubuntu/staff_sample.dat','rb')
+    fileData = open('./sample.dat', 'rb')
 ##读取文件的前4个字节   #将读取的4个字节转换为long
-    data_id = struct.unpack("l",fileData.read(4))
+    data_id = struct.unpack("l", fileData.read(4))
     print data_id
 #二进制文件的输出
 在shell中，直接print二进制文件的string格式会导致乱码，先转换成hex的形式再输出就
@@ -55,3 +55,47 @@ repr()是将一个对象转成字符串显示，注意只是显示用，有些�
 #使用xml.etree.ElementTree读写xml
 ##查找节点
 `Element.getiterator``Element.getchildren``Element.find``Element.findall`
+
+#python连接MySQL
+使用MySQLdb来与数据库进行通信[API][80]MySQL建表操作[API][81][数据类型][82]
+[80]: http://bbs.blueidea.com/thread-2813296-1-1.html
+[81]: http://www.isstudy.com/mysql/436.html
+[82]: http://blog.csdn.net/jiemushe1814/article/details/4716069
+
+用到的awk指令
+`awk -F '\t' '$3!="" {print FNR,$3,$4}' ato_f.lst > awk.lst`
+用到的自动添加分类序号的方法:
+    
+    #!/bin/awk -f
+    #运行前
+    BEGIN {
+        math = 0
+        english = 0
+        computer = 0
+        current = "g"
+    }
+    #运行中
+    {
+        if( $1 == current ){
+            math++
+        }else{
+            current = $1
+            math = 0
+        }
+        printf "%s%d %s %s\n", $1,math, $2, $3
+    }
+    #运行后
+    END {
+    }
+
+##含有自增字段插入时注意问题
+SQL语句的写法应该把除了自增列外的其他对应数据列罗列出来，如下面的形式：
+`INSERT INTO 表名(列名1,列名2,列名3......) VALUES(值1,值2,值3........)`
+或者
+`INSERT INTO 表名(列名1,列名2,列名3......) SELECT 值1,值2,值3........ FROM 表名`
+如果用下面的形式（不带除了字增列外的其他对应数据列）进行插入：
+`INSERT INTO 表名 VALUES(值1,值2,值3........)`
+或者`INSERT INTO 表名 SELECT 值1,值2,值3........ FROM 表名`
+，就会出现提示的错误：**Column count doesn't match value count at row 1**
+
+
