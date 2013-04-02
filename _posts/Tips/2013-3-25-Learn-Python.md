@@ -21,7 +21,7 @@ python的struct模块来完成.可以用 struct来处理c语言中的结构体.
 ##以二进制的方式读取文件
     #coding: UTF-8
     fileData = open('./sample.dat', 'rb')
-##读取文件的前4个字节   #将读取的4个字节转换为long
+##读取文件的前4个字节,将读取的4个字节转换为long
     data_id = struct.unpack("l", fileData.read(4))
     print data_id
 #二进制文件的输出
@@ -98,4 +98,18 @@ SQL语句的写法应该把除了自增列外的其他对应数据列罗列出�
 或者`INSERT INTO 表名 SELECT 值1,值2,值3........ FROM 表名`
 ，就会出现提示的错误：**Column count doesn't match value count at row 1**
 
+##MySQL设置utf8编码
+创建数据库`UTF8: CREATE DATABASE `test2` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci`  
+创建数据表`CREATE TABLE test( ... )ENGINE=MyISAM DEFAULT CHARSET=utf8;`
+
+##python MySQL存放中文字段
+使用`"','".join(LIST)`来封装成字符串的形式，而不是repr或者str之后的结果，因为那
+些方法输出的都是已经转码之后的中文，即本来输出的`车头主系`变成了`u'\u8f66\u5934\u4e3b\u7cfb'`
+相当于`insert into test values(..., u'\u8f66\u5934\u4e3b\u7cfb',...)`,想要通过这个
+语句插入中文显然是错误的，应该是`insert into test values(...,'车头主系',...)`
+**总结：**传入给`cursor.execute()`的应该是原始字符串，而不是python表示的字符串
+
+#sys模块的setdefaultencoding方法
+这个方法可以设定python的默认编码是ascii还是utf-8，直接import sys过来居然找不到
+这个方法，但是reload(sys)之后就有了
 
