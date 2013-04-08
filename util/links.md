@@ -15,6 +15,8 @@ title: 平时发现的好网站
 [04]: http://udc.weibo.com/
 + [Node.js高级编程][05] -- Nodejs高级编程的翻译版本
 [05]: http://yaohuiji.com/2013/01/08/pro-node-article-list/
++ [net.tuts][06] -- 技术教程
+[06]: http://net.tutsplus.com/category/tutorials/
 + **一些好文章**
   + [三个CSS预处理框架(SASS, LESS, stylus)的比较][020] -- by [司徒正美][021]
 [020]: http://www.cnblogs.com/rubylouvre/archive/2013/01/13/2858251.html
@@ -61,3 +63,4 @@ title: 平时发现的好网站
 [50]: https://chrome.google.com/webstore/detail/%E7%8E%8B%E5%AE%87%E7%9A%84%E6%8F%92%E4%BB%B6/aobnfmbbemdjhbkmfodmhopbbehpiakb
 + [本站统计数据][51] -- 百度统计
 [51]: http://tongji.baidu.com/web/6094134/overview/sole?siteId=2484034
++ [linshi](http://net.tutsplus.com/tutorials/other/a-beginners-introduction-to-http-and-rest/)
