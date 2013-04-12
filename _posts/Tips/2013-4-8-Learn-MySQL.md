@@ -46,14 +46,24 @@ MySQL自动加上所有域的标识符%。
 ##撤销用户权限
 `REVOKE ALL ON *.* from dba@localhost;`即将grant to变成revoke from
 
-
-
-#查看用户
+##查看用户
 1. `use mysql`
 2. `select * from user`
 
-#删除用户
+##删除用户
 `DROP USER 用户名;`
 
-#修改密码
+##修改密码
 `UPDATE USER SET PASSWORD=PASSWORD('000000') WHERE USER='xxx';`
+
+#时间字段格式TIMESTAMP，DATETIME，INT
++ DATETIM和TIMESTAMP类型所占的存储空间不同，前者8个字节，后者4个字节，这样造成的后果是
+两者能表示的时间范围不同。前者范围为1000-01-01 00:00:00 ~ 9999-12-31 23:59:59，后者范围
+为1970-01-01 08:00:01到2038-01-19 11:14:07。所以可以看到TIMESTAMP支持的范围比DATATIME
+要小,容易出现超出的情况.
++ 默认情况下，insert、update 数据时，TIMESTAMP列会自动以当前时间（CURRENT_TIMESTAMP）填充/更新。
++ TIMESTAMP比较受时区timezone的影响以及MYSQL版本和服务器的SQL MODE的影响
++ DATETIME和TIMESTAMP相对于int来说有一系列的时间函数可以用
+
+所以一般来说，我比较倾向选择DATETIME，至于你说到索引的问题，选择DATETIME作为索引，
+如果碰到大量数据查询慢的情况，也可以分区表解决。
