@@ -1,6 +1,6 @@
 ---
 layout: default
-title: 学习Django
+title: 学习Django（一）
 category: Tips
 ---
 #摘要
@@ -13,6 +13,9 @@ The Django Book前七章的学习笔记，以及实践中碰到的问题
 系统对app有一个约定： 如果你使用了Django的数据库层（模型），你 必须创建一个Django app
 ##应每次都给成功的POST请求做重定向
 这就是web开发的最佳实践。
+##views.py（视图）中不要硬编码URL
+把URL逻辑放在了视图中并不优雅，因为URL的变更意味着需要对视图作出相应修该。
+优雅的解决方法是，利用URLconf从顶向下的解析顺序这个特点，在URLconf中进行URL的处理
 
 #Django中的MVC -- MTC
 + M 代表模型（Model），即数据存取层。 该层处理与数据相关的所有事务： 如何存取、如何验证有效性、包含哪些行为以及数据之间的关系等。
