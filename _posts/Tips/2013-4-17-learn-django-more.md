@@ -5,8 +5,19 @@ category: Tips
 ---
 
 #添加用户注册、登录、管理等功能
+##数据表的建立
+Django以App的目录名为前缀，然后用`_`连接每一个模型的小写形式，例如`easy_note`这个App里面
+有名为`Note`的模型，Django就会建立名为`easy_note_note`的数据表，因此不要随意改变App的名字
+##Django模板默认`<br>`无效
+因为Django的模板系统在渲染的过程中，对html标签进行了转义，`<br>`实际上变成了`&ltbt&gt`，
+但是在chrome的element面板中看到的是`<br>`，因为它自动将转义符号翻译回来了，而不是原始的
+**HTML源代码**，这里禁用掉Django模板的自动转义就好：`{{ var|safe }}`加上safe标记就行。
+对于模板块加在`{% autoescape off %}{% endautoescape %}`中间就好。
 
-
+##Python中的异常
+try except 语句用于异常的处理，[参考](http://www.cnblogs.com/rubylouvre/archive/2011/06/22/2086644.html)
+`except <ErrorName> <AppendMessage>:`用于捕获指定的异常及该异常附带的信息，BaseException
+包括了所有的异常。
 
 #碰到的问题
 
@@ -35,3 +46,12 @@ category: Tips
 Django模型层查找数据库的API所采用的是关键字参数，即User.objects.get(username='wangyu')
 这就意味者我将username用变量来替代是错误的，这个问题导致我数据库明明有字段了，却还是返回允许，
 之后只好硬编码来解决了，非常丑陋
+
+##无限长度的字符串
+一开始以为用的是`models.CharField(max_length=None)`，结果在syncdb的时候报错：
+`easynote.note: "data": CharFields require a "max_length" attribute that is a positive integer.`
+Google之网上有人说应该用TextField（[出处](https://code.djangoproject.com/ticket/14094)）
+
+##后台重定向提示 XXX didn't return an HttpResponse object
+在views.py中的处理函数中，最后必须要返回HttpResponse对象，`render_to_response`等函数会
+返回HttpResponse对象，如果需要进行重定向，那么必须使用`return redirect('obj_url')`

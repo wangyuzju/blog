@@ -33,7 +33,7 @@ The Django Book前七章的学习笔记，以及实践中碰到的问题
 5. `python manage.py syncdb`向数据库提交上述指令，创建数据表（它会根据 `INSTALLED_APPS` 
 里设置的app来检查数据库， 如果表不存在，它就会创建它。 需要注意的是， syncdb 并不能将模型的
 修改或删除同步到数据库；如果修改或删除了一个模型，并想把它提交到数据库，syncdb并不会做出任何处理。）
-6 然后，就可以`from books.models import Publisher`引入Publisher模型，调用
+6  然后，就可以`from books.models import Publisher`引入Publisher模型，调用
 `p1 = Publisher(key1=value1, key2=value2, ...)`之后，再调用`p1.save()`就可以将数据写入
 数据库，`Publisher.objects`是数据库中和Publisher相关的数据集合的API，
 `Publisher.objects.all()`获取全部对象（使用`Publisher.objects.create(...)`可以创建一条
