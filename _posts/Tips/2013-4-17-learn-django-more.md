@@ -12,7 +12,6 @@ Django以App的目录名为前缀，然后用`_`连接每一个模型的小写�
 因为Django的模板系统在渲染的过程中，对html标签进行了转义，`<br>`实际上变成了`&ltbt&gt`，
 但是在chrome的element面板中看到的是`<br>`，因为它自动将转义符号翻译回来了，而不是原始的
 **HTML源代码**，这里禁用掉Django模板的自动转义就好：`{{ var|safe }}`加上safe标记就行。
-对于模板块加在`{% autoescape off %}{% endautoescape %}`中间就好。
 
 ##Python中的异常
 try except 语句用于异常的处理，[参考](http://www.cnblogs.com/rubylouvre/archive/2011/06/22/2086644.html)
