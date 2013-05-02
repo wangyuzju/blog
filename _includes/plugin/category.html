@@ -1,11 +1,28 @@
+<div class="side-content">
 <!--
 tips:
   -直接/last都是分类下的内容
   -first: 分类名称
   -last.size:该分类下的数量
 -->
-
 <h4>分类列表</h4>
 {% for category in site.categories %}
-  <div><a href="{{ site.url }}/category/{{ category.first }}.html">{{ category.first }} ({{ category.last.size }})</a></div>
+  <span>
+    <a class="{{ category.first }}" href="{{ site.url }}/category/{{ category.first }}.html">
+      {{ category.first }} ({{ category.last.size }})
+    </a>
+  </span>
 {% endfor %}
+  
+  <!--如果是按目录分页，则高亮当前目录-->
+  <script type="text/javascript">
+    var paths = location.pathname.split('/');
+    /*需要进行高亮操作*/
+    if(paths[1] == 'category'){
+      var category = paths[2].slice(0, -5);
+      
+      var obj = document.querySelector('.' + category );
+      obj.className = obj.className + ' ac';
+    }
+  </script>
+</div>

@@ -3,9 +3,17 @@ layout: default
 #处理dailyDone分类
 category: Tips
 ---
-<meta charset="utf-8">
-{% assign total = site.categories[page.category] | size %}
-  {{ total }}
+<div class="main" role="main">
 {% for post in site.categories[page.category] %}
-  <div><a href="{{ site.url }}{{ post.url }}">{{ post.title }}</a></div>
+  {% assign month =  post.date|date:"%Y-%m" %}
+  {% if now != month %}
+    <div class="month">{{ month }}</div>
+    {% assign now = month %}
+  {% endif %}
+  <div>[{{ post.date | date:"%Y-%m-%d" }}]  <a href="{{ site.url }}{{ post.url }}">{{ post.title }}</a></div>
 {% endfor %}
+</div>
+<aside>
+  {% include plugin/category.html %}
+</aside>
+<div class="clear"></div>

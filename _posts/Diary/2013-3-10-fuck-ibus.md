@@ -1,7 +1,7 @@
 ---
 layout: default
 title: 坑爹的Ibus拼音，坑爹的chinese-pinyin
-category: dailyDone
+category: Diary
 ---
 ##昨天更新完软件，今天上来一看，不行了，chrome的development tools出问题了
 点击css的属性，直接清空了，而原先一般都是保留并且选中，一开始还以为是chrome出了问题，更换N个

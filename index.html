@@ -7,7 +7,7 @@ title: 我的Blog
   {% for post in paginator.posts %}
   <div class="article">
     <div class="title">
-      [{{ post.date | date:"%Y-%m-%d" }}]<a href="{{ site.url }}{{ post.url }}">{{ post.title }}</a>
+      [{{ post.date | date:"%Y-%m-%d" }}] <a href="{{ site.url }}{{ post.url }}">{{ post.title }}</a>
     </div>
   </div>
   {% endfor %}
@@ -47,8 +47,6 @@ title: 我的Blog
 </div>
 
 <aside>
-  <div class="side-content">
-    {% include plugin/category.html %}
-  </div>
+  {% include plugin/category.html %}
 </aside>
 <div class="clear"></div>

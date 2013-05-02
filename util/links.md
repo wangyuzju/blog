@@ -48,7 +48,8 @@ title: 平时发现的好网站
 + [傅唯一的日志][24] [源代码][25] -- 本站参考代码
 [24]: http://blog.fuweiyi.com/
 [25]: https://github.com/onlyfu/logs
-
++ [卢克的博客][26] -- 设计得不错的技术博客
+[26]: http://geeklu.com/
 ##Linux相关
 + [Sed][30] [Awk][31]
 [30]: http://coolshell.cn/articles/9104.html "coolshell博文"

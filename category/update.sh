@@ -2,7 +2,7 @@
 #根据当前目录下所有的文件名和原始文件，自动更新原始文件的变动到其它文件中去
 
 #每次改动的文件
-originFile=dailyDone.html
+originFile=Diary.html
 #当前脚本文件名
 self=`basename $0`
 if [ ! -e $originFile ];then
