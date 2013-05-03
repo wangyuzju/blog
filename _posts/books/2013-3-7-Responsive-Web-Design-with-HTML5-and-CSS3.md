@@ -1,6 +1,8 @@
 ---
 layout: default
+title: 响应式Web设计
 tags: Books
+doubanID: 20390374
 ---
 
 #重置样式,rest.css

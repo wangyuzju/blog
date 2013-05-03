@@ -15,6 +15,172 @@ title: 一些读过的书
 #-previous:
 #-content: "正文的字符串内容"
 ---
+<style type="text/css">
+  .book {
+    border-top: 1px dashed #ddd;
+    padding: 20px 0 10px;
+    min-height: 136px;
+  }
+
+  .book .pic {
+    float: left;
+    margin-right: 20px;
+  }
+
+  .book .pic img {
+    width: 109px;
+  }
+
+  .book .info {
+    overflow: hidden;
+  }
+
+    /*直接用优先级最低的，便于移动设备覆盖，因为那些css出现在前面*/
+  .douban-info {
+    padding: 1em 0;
+  }
+
+  .red {
+    color: #dd4b39;
+  }
+
+  .summary {
+    width: 50%;
+    height: 125px;
+    text-indent: 2em;
+    font-size: .9em;
+    float: right;
+    overflow: auto;
+  }
+
+    /**
+     *scrollbar for summary
+     *color picker http://t.co/vkMW5nyN (slide 55)
+     */
+  .summary::-webkit-scrollbar {
+    width: 12px;
+  }
+
+    /*Whole Scrollbar*/
+  .summary::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, .07);
+  }
+
+    /*Scrollbar Handle*/
+  .summary::-webkit-scrollbar-thumb {
+    background: rgba(27, 161, 226, .3);
+  }
+</style>
+
 {% for article in site.tags.Books %}
-  <div>[{{ article.date | date:"%Y-%m-%d" }}]<a href="{{ site.url }}{{ article.url }}">{{ article.title }}</a> </div>
+<section class="book" data-doubanId="{{ article.doubanID }}">
+  <div class="pic"><img src="" alt=""/></div>
+  <div class="summary large-screen"></div>
+  <div class="info">
+    <span>[{{ article.date | date:"%Y-%m-%d" }}]</span>
+    <a href="{{ site.url }}{{ article.url }}">{{ article.title }}</a>
+
+    <div class="douban-info"></div>
+  </div>
+</section>
 {% endfor %}
+
+<!--填充模板,只能用book_tmpl因为代码中需要判断包含的是否全是单词字符来判断传入的是id还是template-->
+<script type="text/html" id="book_tmpl">
+  <div>豆瓣评分<strong class="red"><%=rate%></strong> (<%=numRaters%>)</div>
+  <div>作者：<%=author%></div>
+  <div>出版日期：<%=pubdate%></div>
+</script>
+
+
+<!--利用豆瓣的api来实现各种服务-->
+<script type="text/javascript">
+
+  /***********************微型模板引擎*********************************/
+    // Simple JavaScript Templating
+    // John Resig - http://ejohn.org/ - MIT Licensed
+    // link - http://ejohn.org/blog/javascript-micro-templating/
+  (function () {
+    var cache = {};
+
+    this.tmpl = function tmpl(str, data) {
+
+      // Figure out if we're getting a template, or if we need to
+      // load the template - and be sure to cache the result.
+      var fn = !/\W/.test(str) ?
+        cache[str] = cache[str] ||
+          tmpl(document.getElementById(str).innerHTML) :
+
+        // Generate a reusable function that will serve as a template
+        // generator (and which will be cached).
+        new Function("obj",
+          "var p=[],print=function(){p.push.apply(p,arguments);};" +
+
+            // Introduce the data as local variables using with(){}
+            "with(obj){p.push('" +
+
+            // Convert the template into pure JavaScript
+            str
+              .replace(/[\r\t\n]/g, " ")
+              .split("<%").join("\t")
+              .replace(/((^|%>)[^\t]*)'/g, "$1\r")
+              .replace(/\t=(.*?)%>/g, "',$1,'")
+              .split("\t").join("');")
+              .split("%>").join("p.push('")
+              .split("\r").join("\\'")
+            + "');}return p.join('');");
+
+      // Provide some basic currying to the user
+      return data ? fn(data) : fn;
+    };
+  })();
+
+  /***************************加载豆瓣数据*************************/
+  (function () {
+    var lists = document.querySelectorAll('.book'),
+      doubanAPIURL = 'https://api.douban.com/v2/book/',
+      BOOKS = {};
+    /*标记调用API的DOM元素，便于回调函数定位处理对象*/
+
+    Array.prototype.forEach.call(lists, function (item) {
+      loadDoubanData(item.getAttribute('data-doubanID'), item)
+    });
+    /**
+     *JSONP
+     */
+    function JSONP(url) {
+      var script = document.createElement('script');
+      script.src = url;
+      script.onload = function () {
+        document.body.removeChild(script);
+      };
+      document.body.appendChild(script);
+    }
+
+    /**
+     *Register Callback For JSONP calling of the api
+     *expose handleDoubanData to the Global environment for JSONP Calling
+     */
+    this.handleDoubanData = function (data) {
+      var calledDOM = BOOKS[data.id]; //调用API的DOM元素
+      calledDOM.querySelector('.pic').innerHTML =
+        '<a href="' + data.alt + '"><img src="' + data.image + '"></a>';
+      calledDOM.querySelector('img').src = data.image;
+      var tmplData = {
+        rate: data.rating.average,
+        numRaters: data.rating.numRaters,
+        author: data.author.join(', '),
+        pubdate: data.pubdate
+      };
+      calledDOM.querySelector('.douban-info').innerHTML = tmpl("book_tmpl", tmplData);
+      calledDOM.querySelector('.summary').innerHTML = data.summary.replace(/内容简介：/, '');
+    };
+    /**
+     *加载豆瓣的资源
+     */
+    function loadDoubanData(id, calledDOM) {
+      BOOKS[id] = calledDOM;
+      JSONP(doubanAPIURL + id + '?alt=xd&callback=handleDoubanData');
+    }
+  })();
+</script>

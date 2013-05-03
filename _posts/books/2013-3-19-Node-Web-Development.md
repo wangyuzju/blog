@@ -1,7 +1,8 @@
 ---
 layout: default
-title: Node Web开发 / Node.js开发指南
+title: Node Web开发
 tags: Books
+doubanID: 10586326
 ---
 #前言
 图书馆里来了两本关于Node.js的新书，于是果断借过来看了一下，《Node.js开发指南》是国人编著的，
