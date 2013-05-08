@@ -16,6 +16,7 @@ title: 一些读过的书
 #-content: "正文的字符串内容"
 ---
 <style type="text/css">
+  /*读过和正在读的书*/
   .book {
     border-top: 1px dashed #ddd;
     padding: 20px 0 10px;
@@ -34,7 +35,11 @@ title: 一些读过的书
   .book .info {
     overflow: hidden;
   }
-
+  
+  /*正在读的书的样式*/
+  .reading {
+    background: lightcyan;
+  }
     /*直接用优先级最低的，便于移动设备覆盖，因为那些css出现在前面*/
   .douban-info {
     padding: 1em 0;
@@ -72,14 +77,27 @@ title: 一些读过的书
   }
 </style>
 
-{% for article in site.tags.Books %}
+{% for article in site.tags.Reading %}
+<section class="book reading" data-doubanId="{{ article.doubanID }}" data-reading="reading">
+  <div class="pic"><img src="" alt=""/></div>
+  <div class="summary large-screen">
+  </div>
+  <div class="info">
+    <span>[{{ article.date | date:"%Y-%m-%d" }}]</span>
+    <a href="{{ site.url }}{{ article.url }}">{{ article.title }}</a>
+    <div class="douban-info"></div>
+  </div>
+</section>
+{% endfor %}
+
+<!-- books finished reading -->
+{% for article in site.tags.Readed %}
 <section class="book" data-doubanId="{{ article.doubanID }}">
   <div class="pic"><img src="" alt=""/></div>
   <div class="summary large-screen"></div>
   <div class="info">
     <span>[{{ article.date | date:"%Y-%m-%d" }}]</span>
     <a href="{{ site.url }}{{ article.url }}">{{ article.title }}</a>
-
     <div class="douban-info"></div>
   </div>
 </section>
@@ -173,7 +191,9 @@ title: 一些读过的书
         pubdate: data.pubdate
       };
       calledDOM.querySelector('.douban-info').innerHTML = tmpl("book_tmpl", tmplData);
-      calledDOM.querySelector('.summary').innerHTML = data.summary.replace(/内容简介：/, '');
+      if (calledDOM.getAttribute('data-reading') !== 'reading') {
+        calledDOM.querySelector('.summary').innerHTML = data.summary.replace(/内容简介：/, '');
+      }
     };
     /**
      *加载豆瓣的资源
@@ -182,5 +202,18 @@ title: 一些读过的书
       BOOKS[id] = calledDOM;
       JSONP(doubanAPIURL + id + '?alt=xd&callback=handleDoubanData');
     }
+    
+    /**
+     *Gen graphic for current reading books
+     */
+    (function(){
+      var list = document.querySelectorAll('.reading');
+      Array.prototype.forEach.call(list, function (item) {
+        var startDateString = item.querySelector('.info span').innerHTML,
+          startTime = new Date(startDateString.slice(1, -1)),
+          pastDay = Math.floor((new Date() - startTime) / 86400000) + 1;
+        console.log(pastDay);
+      });
+    })();
   })();
 </script>

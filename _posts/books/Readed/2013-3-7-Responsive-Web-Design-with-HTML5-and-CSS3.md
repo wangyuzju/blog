@@ -1,7 +1,7 @@
 ---
 layout: default
 title: 响应式Web设计
-tags: Books
+tags: Readed
 doubanID: 20390374
 ---
 

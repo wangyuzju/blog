@@ -3,6 +3,12 @@ layout: default
 title: 毕设中学习Python的一些笔记
 category: Tips
 ---
+#控制台输出中文
+文件首设置了`#coding: utf-8`后，输出字符串能够正常地显示中文了，但是直接print一个list或则
+dict的时候，出现中文的地方都会变成`u'\u81ea\u52a8'`之类的编码文字，因为**打印的是一个对象**，
+实质上相当于`print repr(dict.items())`，使用`json.dumps(dict, encoding="utf-8", ensure_ascii=False)`
+就好了
+
 #UDP和TCP
 [原理](http://hi.baidu.com/xmbihnvkgwbbfid/item/583e5da08ee81e14a9cfb7f7)
 [Py实例](http://www.cnblogs.com/wdpp/archive/2010/10/27/2386873.html)

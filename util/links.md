@@ -34,6 +34,12 @@ title: 平时发现的好网站
 [032]: http://docs.emmet.io/cheat-sheet/
   + [Cacoo][033] -- Flash做的画设计图的利器
 [033]: https://cacoo.com/diagrams/
+  + [Prezi][034] -- 制作网页幻灯片
+[033]: http://prezi.com/
+
+##技术博客
++ [阮一峰](http://www.ruanyifeng.com/blog/)
+
 ##编辑器相关
 + [Intellij-IDEA新手指南][1] -- 作者[博客](http://ooxx.me/)
 [1]: https://github.com/damao/Intellij-IDEA-F2E "大猫"
