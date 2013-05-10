@@ -16,7 +16,7 @@ title: 一些读过的书
 #-content: "正文的字符串内容"
 ---
 <style type="text/css">
-  /*读过和正在读的书*/
+    /*读过和正在读的书*/
   .book {
     border-top: 1px dashed #ddd;
     padding: 20px 0 10px;
@@ -35,11 +35,12 @@ title: 一些读过的书
   .book .info {
     overflow: hidden;
   }
-  
-  /*正在读的书的样式*/
+
+    /*正在读的书的样式*/
   .reading {
     background: lightcyan;
   }
+
     /*直接用优先级最低的，便于移动设备覆盖，因为那些css出现在前面*/
   .douban-info {
     padding: 1em 0;
@@ -85,6 +86,7 @@ title: 一些读过的书
   <div class="info">
     <span>[{{ article.date | date:"%Y-%m-%d" }}]</span>
     <a href="{{ site.url }}{{ article.url }}">{{ article.title }}</a>
+
     <div class="douban-info"></div>
   </div>
 </section>
@@ -98,6 +100,7 @@ title: 一些读过的书
   <div class="info">
     <span>[{{ article.date | date:"%Y-%m-%d" }}]</span>
     <a href="{{ site.url }}{{ article.url }}">{{ article.title }}</a>
+
     <div class="douban-info"></div>
   </div>
 </section>
@@ -202,11 +205,11 @@ title: 一些读过的书
       BOOKS[id] = calledDOM;
       JSONP(doubanAPIURL + id + '?alt=xd&callback=handleDoubanData');
     }
-    
+
     /**
      *Gen graphic for current reading books
      */
-    (function(){
+    (function () {
       var list = document.querySelectorAll('.reading');
       Array.prototype.forEach.call(list, function (item) {
         var startDateString = item.querySelector('.info span').innerHTML,
