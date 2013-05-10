@@ -3,9 +3,12 @@ layout: links
 title: 平时发现的好网站
 ---
 ##外观
-+ [Custom Scrollbars in WebKit][00] -- Chris Coyier 的 [Blog](01)
-[00]: (http://css-tricks.com/custom-scrollbars-in-webkit/)
-[01]: (http://css-tricks.com/)
++ [Custom Scrollbars in WebKit][000] -- Chris Coyier 的 [Blog](001)
+[000]: (http://css-tricks.com/custom-scrollbars-in-webkit/)
+[001]: (http://css-tricks.com/)
 
-+ Win8 [Metro配色][02]
-[02]: (http://www.creepyed.com/2012/09/windows-8-colors-hex-code/)
++ Win8 [Metro配色][010]
+[010]: (http://www.creepyed.com/2012/09/windows-8-colors-hex-code/)
+
++ [获取网站配色][020]
+[020]: (http://webcolourdata.com/)

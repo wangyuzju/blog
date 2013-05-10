@@ -1,5 +1,6 @@
 _posts/Private/*
 _site/*
 .idea/*
+.settings
 .c9revisions/
 myblog.iml
