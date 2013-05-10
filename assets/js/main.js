@@ -5,7 +5,6 @@
     prettify = require('prettify');
     return window.onload = function() {
       var codes, obj, _i, _len;
-      console.log('hello world!');
       codes = document.querySelectorAll("pre code");
       for (_i = 0, _len = codes.length; _i < _len; _i++) {
         obj = codes[_i];

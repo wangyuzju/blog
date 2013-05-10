@@ -19,4 +19,4 @@ category: Tips
 密钥，.ssh/id_rsa.pub为公有密钥，这在github上也用到过）
 2 用ssh-copy-id命令把公钥复制到远程主机上`ssh-cody-id -i /root/.ssh/id_rsa.pub user@remotehost`
 这样下次再ssh到该主机上时，就不用输入密码了。（这里居然直接将id_rsa私钥上传也可以实现无密码登录..）
-
+(**需要chmod600 authorized_keys**才能生效)

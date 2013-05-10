@@ -1,6 +1,6 @@
 define( (require, exports, module) ->
   prettify = require('prettify')
-
+  
   window.onload = ->
     codes = document.querySelectorAll("pre code")
     for obj in codes
@@ -10,4 +10,3 @@ define( (require, exports, module) ->
       console.log(codes.length + ' places prettyprinted!')
     return
 )
-
