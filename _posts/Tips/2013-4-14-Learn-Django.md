@@ -113,3 +113,12 @@ jinja2的Loader来使用Django自带的模板系统的API，[参考此文](http:
 那么在写入的时候，要先save()好新建Model比如t1，然后t1.authors.add()插入，t1.authors.all()
 读取，ti.author.creat()新建多个...详细参看链接
 
+#urls.py书写总结
++ 使用其他文件内的配置来解析某些URL，**使用url函数**(据我估计应该是url函数将第一个前缀参数与
+include提供的urls.py内的条目结合起来，进行判断...)
+`url(r'^graphic/', include('graphic.urls'))`
++ 书写正则时，一定要加上`/$`,不然Django会将后面的任意内容都匹配到这个视图去，造成混乱，`/`
+则是url结束的标志，比如使用`data/$`，由于Django会自动加上`/`因此访问data会自动被Django转换
+成data/进行适配，访问`data/`或者`data`均可，而使用`data$`时，Django不会自动将data/转换成
+data进行适配 ，也就是说此时只能通过data进行访问，data/是无法访问的。**建议使用data\/$**
+的形式。
