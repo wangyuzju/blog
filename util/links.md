@@ -35,7 +35,7 @@ title: 平时发现的好网站
   + [Cacoo][033] -- Flash做的画设计图的利器
 [033]: https://cacoo.com/diagrams/
   + [Prezi][034] -- 制作网页幻灯片
-[033]: http://prezi.com/
+[034]: http://prezi.com/
 
 ##技术博客
 + [阮一峰](http://www.ruanyifeng.com/blog/)
@@ -62,12 +62,12 @@ title: 平时发现的好网站
 [31]: http://coolshell.cn/articles/9070.html "coolshell博文"
 
 ##艺术
-+ [台湾的一个大学生][40] -- 非常屌！，专注于HTML5/CSS3/Octopress/...
++ [台湾的一个大学生][40]
 [40]: http://zespia.tw/
 
 ##编程
 + [笨办法学python][60] -- Learn Python The Hard Way
-[60](http://learnpythonthehardway.org/)
+[60]: http://learnpythonthehardway.org/
 
 ##常用工具
 + [markitnow][50]-- chrome插件

@@ -122,3 +122,14 @@ include提供的urls.py内的条目结合起来，进行判断...)
 成data/进行适配，访问`data/`或者`data`均可，而使用`data$`时，Django不会自动将data/转换成
 data进行适配 ，也就是说此时只能通过data进行访问，data/是无法访问的。**建议使用data\/$**
 的形式。
+
+#csrftoken导致的POST请求403 forbidden
+今天在测试时，发现ipad上的POST请求被403了，排查了以下原来是cookie中并没有csrftoken，那么
+Django在什么情况下才会设置这个cookie呢？
+
+1. 模板文件中使用了{\% csrf_token \%}时，Django发现token被渲染，于是通过CsrfViewMiddleware
+下的process_response在浏览器中设置key为csrftoken的Cookie，
+2. 处理GET请求时，使用`request.META["CSRF_COOKIE_USED"] = True`强制更新Cookie中的
+csrftoken值
+
+[参考链接](http://stackoverflow.com/questions/13412653/django-no-csrftoken-in-cookie)
