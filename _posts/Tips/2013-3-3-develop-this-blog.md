@@ -1,7 +1,7 @@
 ---
 layout: default
 title: 开发本博客中碰到的一些问题
-category: Tips
+category: tips
 ---
 #若干个a标签直接连在一起并且设置了float之后会导致全部选中问题
 在<a> link </a>文字内部加上空格，就可以解决

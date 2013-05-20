@@ -1,7 +1,7 @@
 ---
 layout: default
 title: 学习Django(二)
-category: Tips
+category: tips
 ---
 
 #添加用户注册、登录、管理等功能

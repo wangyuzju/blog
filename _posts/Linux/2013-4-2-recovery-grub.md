@@ -1,7 +1,7 @@
 ---
 layout: default
 title: 双系统重做windous启动菜单的恢复
-category: Linux
+category: linux
 ---
 今天发现win7电脑已经中毒了，声音很怪，而且上不了网，又到了2b这边，没啥事做，于是就准备重做下
 系统，用了之前帮小马刻的光盘，安装很快，win8很赞，就是不知道怎么激活。。。

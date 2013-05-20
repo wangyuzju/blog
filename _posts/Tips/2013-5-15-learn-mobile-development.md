@@ -1,7 +1,7 @@
 ---
 layout: default
 title: 毕设中移动Web开发的一些笔记
-category: Tips
+category: tips
 ---
 #触摸事件和点击事件
 移动设备中，会有touch事件和mouse事件，其发生的顺序如下所示：

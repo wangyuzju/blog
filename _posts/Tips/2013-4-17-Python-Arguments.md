@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Python的参数
-category: Tips
+category: tips
 ---
 
 #位置参数 VS 关键字参数

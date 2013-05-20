@@ -1,7 +1,7 @@
 ---
 layout: default
 title: 学习SeaJS的一些笔记
-category: Tips
+category: tips
 ---
 #实用资源
 [实例解析SeaJS内部执行过程](https://github.com/seajs/seajs/issues/308)

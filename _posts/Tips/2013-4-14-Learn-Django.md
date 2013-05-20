@@ -1,7 +1,7 @@
 ---
 layout: default
 title: 学习Django（一）
-category: Tips
+category: tips
 ---
 #摘要
 The Django Book前七章的学习笔记，以及实践中碰到的问题

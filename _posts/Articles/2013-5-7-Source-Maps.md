@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Source Maps 101
-category: Articles
+category: articles
 ---
 [原文链接](http://net.tutsplus.com/tutorials/tools-and-tips/source-maps-101/)
 

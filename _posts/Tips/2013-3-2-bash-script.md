@@ -1,7 +1,7 @@
 ---
 layout: default
 title: bash编程的一些注意点
-category: Tips
+category: tips
 ---
 ##写了个[product.sh][1]花了几个小时,真是坑
 [1]: {{site.url}}/product.sh

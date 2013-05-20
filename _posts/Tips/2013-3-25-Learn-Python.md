@@ -1,7 +1,7 @@
 ---
 layout: default
 title: 毕设中学习Python的一些笔记
-category: Tips
+category: tips
 ---
 #控制台输出中文
 文件首设置了`#coding: utf-8`后，输出字符串能够正常地显示中文了，但是直接print一个list或则

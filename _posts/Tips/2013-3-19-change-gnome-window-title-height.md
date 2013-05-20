@@ -1,7 +1,7 @@
 ---
 layout: default
 title: 修改Gnome窗口标题高度 + fedora18更新后要点
-category: Tips
+category: tips
 ---
 #按住alt+F2输入r就可以完成Gnome界面重启
 

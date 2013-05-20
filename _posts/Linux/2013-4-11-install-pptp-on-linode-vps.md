@@ -1,7 +1,7 @@
 ---
 layout: default
 title: 安装PPTP来翻墙
-category: Linux
+category: linux
 ---
 今天让吴妞买了Linode的服务器，果然速度飞快。ssh过去操作基本上没有延迟。（PS：一开始给的IP死活
 ssh不上去，发了个ticket换了两个ip终于可以了）

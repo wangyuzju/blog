@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Twitter的前端工程师招聘要求
-category: Articles
+category: articles
 ---
 Bootstrap这么火，让人不得不对Twitter的工程师产生钦佩，紧跟国际化脚步，看看人家前端工程师都具备哪些能力
 [查看原文](https://twitter.com/jobs/positions?jvi=oabbXfwd,Job)

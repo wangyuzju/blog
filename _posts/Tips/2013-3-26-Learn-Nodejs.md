@@ -1,7 +1,7 @@
 ---
 layout: default
 title: 毕设中学习Node.js的一些笔记
-category: Tips
+category: tips
 ---
 #nodejs处理二进制文件
 Node 有一个二进制缓冲实现 Buffer，这个伪类（pseudo-class）提供了一系列处理二进

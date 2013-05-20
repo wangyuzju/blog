@@ -1,7 +1,7 @@
 ---
 layout: default
 title: 开发chrome插件时学习PHP的一些笔记
-category: Tips
+category: tips
 ---
 #关于require()和include()
 PHP执行require()和include()语句时，相当于在当前位置分隔代码，然后直接将文件的内容写入到当前

@@ -8,7 +8,7 @@ tips:
 <h4>分类列表</h4>
 {% for category in site.categories %}
   <span>
-    <a class="{{ category.first }}" href="{{ site.url }}/category/{{ category.first | capitalize }}.html">
+    <a class="{{ category.first }}" href="{{ site.url }}/category/{{ category.first | downcase}}.html">
       {{ category.first | capitalize }} ({{ category.last.size }})
     </a>
   </span>

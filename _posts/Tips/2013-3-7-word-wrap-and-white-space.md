@@ -1,7 +1,7 @@
 ---
 layout: default
 title: CSS3中word-wrap, word-break和white-space设定对排版的影响
-category: Tips
+category: tips
 ---
 ##word-wrap
 + normal -- 超长的英文长度大于box的宽度时会撑破box伸展到box外

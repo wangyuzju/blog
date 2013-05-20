@@ -1,7 +1,7 @@
 ---
 layout: default
 title: SVG和CANVAS的一些比较
-category: Web
+category: web
 ---
 昨天去群核公司面试，做的是一个SVG技术相关的插件[raphaeljs](http://raphaeljs.com/)的应用
 

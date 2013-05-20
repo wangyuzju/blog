@@ -1,7 +1,7 @@
 ---
 layout: default
 title: 学习使用Kineticjs（Canvas类库）
-category: Tips
+category: tips
 ---
   由于采用SVG方案（Raphaeljs）在IPAD上的展示效果并不好，绘图耗时太大（600ms，5\*1000个点），
 决定对比一下Canvas方案，找了（Kineticjs），经过测试，同等绘图在IPAD上时间降低到了仅有80ms

@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Google的Python编码规范
-category: Articles
+category: articles
 ---
 [原文链接](http://google-styleguide.googlecode.com/svn/trunk/pyguide.html)
 #语言规则

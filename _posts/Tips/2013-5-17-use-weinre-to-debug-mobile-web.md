@@ -1,7 +1,7 @@
 ---
 layout: default
 title: 使用weinre来调试移动页面
-category: Tips
+category: tips
 ---
 毕设要做的东西涉及到ipad上网页的开发，调试起来没有chrome控制台，咋办？**使用weinre！**
 

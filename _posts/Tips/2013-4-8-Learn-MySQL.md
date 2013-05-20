@@ -1,7 +1,7 @@
 ---
 layout: default
 title: 毕设中学习MySQL的一些笔记
-category: Tips
+category: tips
 ---
 #权限相关
 [参考链接](http://blog.sina.com.cn/s/blog_59eadc100100j09g.html)

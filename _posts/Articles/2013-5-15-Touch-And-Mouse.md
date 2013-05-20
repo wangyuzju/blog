@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Touch And Mouse - Together Again For The First Time
-category: Articles
+category: articles
 ---
 毕设项目中关于touch和click踩了几个坑，挖到一篇好文，拜读一下
 [原文链接](http://www.html5rocks.com/en/mobile/touchandmouse/)

@@ -1,7 +1,7 @@
 ---
 layout: default
 title: SSH的一些配置
-category: Tips
+category: tips
 ---
 [参考配置](http://blog.sanctum.geek.nz/uses-for-ssh-config/)
 #建立Alias

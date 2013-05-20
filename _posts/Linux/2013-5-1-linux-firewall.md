@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Linux中的防火墙及iptables
-category: Linux
+category: linux
 ---
 买了linode的服务器半个多月了，开了各种服务，防火墙的规则也多多少少写了一些，但对
 于iptables的原理和配置都是一知半解，通过[鸟哥的私房菜][00]来学习一下防火墙相关的配

@@ -1,7 +1,7 @@
 ---
 layout: default
 title: JS字符串的replace()方法与Date对象
-category: Tips
+category: tips
 ---
 #replace()
 JS在进行字符串的替换操作时，调用`replace(RegExp, arg2)`其中的arg2既可以是字符串，也可以是
