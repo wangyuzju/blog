@@ -2,7 +2,7 @@
 #根据当前目录下所有的文件名和原始文件，自动更新原始文件的变动到其它文件中去
 
 #每次改动的文件
-originFile=Diary.html
+originFile=Articles.html
 #当前脚本文件名
 self=`basename $0`
 if [ ! -e $originFile ];then
@@ -14,7 +14,7 @@ for file in *;do
         #通过文件名获取category的值
         filePrefix=`basename $file .html`
         #替换category后更新文件
-        cmd="sed 's/category: .*/category: $filePrefix/g' $originFile > $file"
+        cmd="sed 's/Articles/$filePrefix/g' $originFile > $file" 
         eval $cmd
         echo $cmd
     fi
