@@ -9,7 +9,7 @@ tips:
 {% for category in site.categories %}
   <span>
     <a class="{{ category.first }}" href="{{ site.url }}/category/{{ category.first }}.html">
-      {{ category.first }} ({{ category.last.size }})
+      {{ category.first | capitalize }} ({{ category.last.size }})
     </a>
   </span>
 {% endfor %}
