@@ -1,7 +1,7 @@
 ---
 layout: default
 title: IDEA创建File Watcher来自动编译CoffeeScript
-category: test
+category: Test
 ---
 #创建File Watcher
 [官方文档](http://www.jetbrains.com/idea/webhelp/transpiling-coffeescript-to-javascript.html)

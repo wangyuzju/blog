@@ -1,7 +1,7 @@
 ---
 layout: default
 ---
-{% assign cate = 'articles' %}
+{% assign cate = 'tips' %}
 <div class="main" role="main">
 {% for post in site.categories[cate] %}
   {% assign month =  post.date|date:"%Y-%m" %}
