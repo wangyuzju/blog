@@ -14,7 +14,7 @@ for file in *;do
         #通过文件名获取category的值
         filePrefix=`basename $file .html`
         #替换category后更新文件
-        cmd="sed 's/Articles/$filePrefix/g' $originFile > $file" 
+        cmd="sed 's/articles/$filePrefix/g' $originFile > $file" 
         eval $cmd
         echo $cmd
     fi
