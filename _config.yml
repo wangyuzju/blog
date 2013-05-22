@@ -2,7 +2,7 @@ auto: true #Enable recreating the site when files are modified
 url:
 #source: source #Changes the directory where Jekyll will look to transform files
 
-markdown: redcarpet
+markdown: rdiscount #redcarpet
 paginate: 10
 exclude: dev, myblog.iml, CNAME, product.sh
 permalink: /:year/:month/:day/:title.html   #./:year-:month-:day/:title.html
