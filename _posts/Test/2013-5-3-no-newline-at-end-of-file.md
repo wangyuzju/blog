@@ -1,7 +1,7 @@
 ---
 layout: default
 title: No newline at end of file
-category: Test
+category: test
 ---
 今天用gitk查看提交的项目时，发现了所有文件后都有`\No newline at end of file`，让我想起了
 之前用vim和eclips的时候碰到的问题：vim默认在文件最后自动添加换行符，而eclips默认不会自动
