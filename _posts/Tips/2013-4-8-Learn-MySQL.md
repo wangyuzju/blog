@@ -67,3 +67,37 @@ MySQL自动加上所有域的标识符%。
 
 所以一般来说，我比较倾向选择DATETIME，至于你说到索引的问题，选择DATETIME作为索引，
 如果碰到大量数据查询慢的情况，也可以分区表解决。
+
+#MySQL多表查询
+项目中，需要查询某一数据点的详细信息和所有数据点的数目，需要进行多表查询，最后写成的语句是
+
+    select recordid,datacount From ato_data 
+    LEFT JOIN ato_record_info on ato_data.trainid=ato_record_info.trainid 
+    WHERE ato_data.trainid = "CCATO01L" AND ato_data.time = "20120905_113012" 
+    AND g4 >= -9002 ORDER BY g4 LIMIT 1;
+
+##关于ERROR 1052 (23000): Column 'trainid' in where clause is ambiguous
+这是因为多表查询的时候几个表中**同时出现了某个相同的列名**，而在查询条件WHERE后面又没有指定
+是那个表，而引起的，又或者是查询结果里面有两个相同的列名，而没有指定是哪个表。使用的时候可以在
+mysql查询前面加表名以避免出现错误（比如上面我就加了ato_data前缀，而选则的数据并没有出现重合，
+因此可以不必加前缀）
+
+##多表连接 inner join, left join, right join, full join, cross join 
++ inner join:  两表都满足的组合
++ full outer:  两表相同的组合在一起，A表有，B表没有的数据（显示为null）
++ A表 left join B表: 以A表为基础，A表的全部数据，B表有的组合
++ A表 right join B表: 以B表为基础，B表的全部数据，A表的有的组合。
+
+语法[参考这里](http://lhx1026.iteye.com/blog/512776)
+
+囧。。。经过测试，join操作会极大的增大查询时间，对于我这个不是最佳解决方案咯，还是放回到2个
+query中去查询了。。。
+
+##发现一个奇怪的事情
+查询时，加上LIMIT会缩短时间（一旦数量足够就会自动停止查询，因此时间会缩短），但是对于int类型
+的数据，在查询时在数字两边加上引号，例如`recordid="2873"`比不加引号要快的多！，测试代码：
+
+    select recordid  From ato_data WHERE recordid="2873" AND trainid = "CCATO01L"
+     AND time = "20120905_115616" ORDER BY recordid LIMIT 1;
+
+真是奇怪。。好吧，经过测试没什么影响，估计是和计算机当时的运行情况相关，但是第一点还是有效的。

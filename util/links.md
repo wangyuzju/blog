@@ -17,6 +17,8 @@ title: 平时发现的好网站
 [05]: http://yaohuiji.com/2013/01/08/pro-node-article-list/
 + [net.tuts][06] -- 技术教程
 [06]: http://net.tutsplus.com/category/tutorials/
++ [JSDoc][07] -- JSDoc说明文档
+[07]: http://usejsdoc.org/
 + **一些好文章**
   + [三个CSS预处理框架(SASS, LESS, stylus)的比较][020] -- by [司徒正美][021]
 [020]: http://www.cnblogs.com/rubylouvre/archive/2013/01/13/2858251.html
@@ -51,17 +53,15 @@ title: 平时发现的好网站
 [21]: https://github.com/mojombo/jekyll/wiki/configuration
 [22]: https://github.com/mojombo/jekyll/wiki/sites
 [23]: https://github.com/mojombo/jekyll/wiki/template-data
-+ [傅唯一的日志][24] [源代码][25] -- 本站参考代码
-[24]: http://blog.fuweiyi.com/
-[25]: https://github.com/onlyfu/logs
 + [卢克的博客][26] -- 设计得不错的技术博客
 [26]: http://geeklu.com/
+
 ##Linux相关
 + [Sed][30] [Awk][31]
 [30]: http://coolshell.cn/articles/9104.html "coolshell博文"
 [31]: http://coolshell.cn/articles/9070.html "coolshell博文"
 
-##艺术
+##设计
 + [台湾的一个大学生][40]
 [40]: http://zespia.tw/
 
