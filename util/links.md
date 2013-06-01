@@ -5,14 +5,8 @@ title: 平时发现的好网站
 ##前端
 + [一淘UX博客][00] -- 非常有水平的前端博客
 [00]: http://ux.etao.com/
-+ [前端乱炖][01] -- 淘宝前前端“芋头”的博客，前端技术相关的文章集合
-[01]: http://www.html-js.com/
 + [w3cplus][02] -- 非常好的介绍介绍CSS3等前端知识的国内网站
 [02]: http://www.w3cplus.com/
-+ [淘宝UED博客][03]
-[03]: http://ued.taobao.com/blog/
-+ [新浪UDC][04]
-[04]: http://udc.weibo.com/
 + [Node.js高级编程][05] -- Nodejs高级编程的翻译版本
 [05]: http://yaohuiji.com/2013/01/08/pro-node-article-list/
 + [net.tuts][06] -- 技术教程
@@ -69,9 +63,16 @@ title: 平时发现的好网站
 + [笨办法学python][60] -- Learn Python The Hard Way
 [60]: http://learnpythonthehardway.org/
 
+##friends
++ [我来我往](http://jyd.me/) -- 纪耀典的技术博客，好基友，一起走
+
 ##常用工具
-+ [markitnow][50]-- chrome插件
-[50]: https://chrome.google.com/webstore/detail/%E7%8E%8B%E5%AE%87%E7%9A%84%E6%8F%92%E4%BB%B6/aobnfmbbemdjhbkmfodmhopbbehpiakb
 + [百度统计][51]
 [51]: http://tongji.baidu.com/web/6094134/overview/sole?siteId=2484034
 + [DISQUZ](http://hellofe.disqus.com/admin)
+
+##我的作品
++ [markitnow][70]-- chrome插件
+[70]: https://chrome.google.com/webstore/detail/%E7%8E%8B%E5%AE%87%E7%9A%84%E6%8F%92%E4%BB%B6/aobnfmbbemdjhbkmfodmhopbbehpiakb
++ [列车运行状态监测][71] -- 毕设项目
+[71]: http://gp.hellofe.com
