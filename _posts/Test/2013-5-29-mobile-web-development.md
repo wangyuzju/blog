@@ -3,8 +3,8 @@ layout: default
 title: 移动设备Web开发小记
 category: test
 tags:
-  -FE
-  -Mobile
+  FE
+  Mobile
 ---
 #关于touchstart和gesturechange
 ##知识点回顾
@@ -28,4 +28,3 @@ gesturechange事件中，会触发多次touchstart，而我只是在gestutechang
 事件，真是囧，估计是开发人员为了避免touchstart和ckick事件重复触发，而直接阻止掉了事件的冒泡。
 --其实我想说的是这些事件都是由这个框架框架的一个canvas物理引擎所模拟的，人家并没有实现
 touchstart 事件到click事件的冒泡。。。
-

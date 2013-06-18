@@ -1,0 +1,15 @@
+---
+layout: default
+title: tags
+---
+{% for tag in site.tags %}
+<div>
+  <div id="{{ tag.first }}" class="text-center">**** {{ tag.first }} ****</div>
+  {% for page in tag.last %}
+  <a href="{{ site.url }}{{ page.url }}">
+    <div>{{ page.title }}</div>
+  </a>
+  <hr>
+  {% endfor %}
+</div>
+{% endfor %}

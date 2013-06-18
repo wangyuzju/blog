@@ -2,6 +2,8 @@
 layout: default
 title: 学习IntelliJ IDEA
 category: tips
+tags: 
+- IDEA
 ---
 
 #快捷键
@@ -34,3 +36,12 @@ category: tips
 
 ##注释
 + ctrl / 行内注释 ctrl shift / 多行注释
+
+#配置记录
+##soft wrap 设置换行显示
+在用markdown写博文的时候，发现手动换行控制文本长度的方式是错误的--！，因为html会自动将换行符号解析成一个空格，所以在博文排版的时候，就会出现问题咯。而且手动控制换行在博文需要修改的时候，就会异常蛋疼，因为加了几个字就超出了。其实应该设置编辑器换行显示，而不是真正的在文件中进行换行。**查找[帮助文档](http://www.jetbrains.com/idea/webhelp/editor.html)**，发现应该设置soft wrap，就会在文本超出编辑器视窗时自动进行换行，设置show all soft wraps可以在有编辑器换行的地方都显示箭头以区分。
+
+#使用注意事项
+##设定tags格式错误导致无法生成静态文件 
+(2013-6-18)在设定文章tags时，由于遗漏了标签名和分隔符`-`之间的空格，导致jeklly无法生成新的最新静态文件
+

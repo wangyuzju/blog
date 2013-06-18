@@ -9,6 +9,14 @@
 @red: #dd4b39;
 @blue: #4d90fe;
 
+.text-center {
+  text-align: center;
+}
+
+.fg-color-white{
+  color: #ffffff;
+}
+
 .bg-color-blue {
   background-color: #2d89ef !important;
 }
@@ -223,7 +231,6 @@ nav {
   clear: both;
 }
 
-
 #content {
   margin-top: 20px;
   overflow: hidden;
@@ -233,10 +240,16 @@ nav {
   margin: 10px;
 }
 
+/******左边一个模块区域*****/
 .side-content {
-  padding: 12px 10% 12px 30%;
   margin-bottom: 20px;
-  
+  padding: 12px;
+}
+
+/********* 分类目录 *********/
+.category {
+  padding: 12px 10% 12px 30%;
+
   h4 {
     margin: 0 0 .5em 1em;
   }
@@ -258,6 +271,20 @@ nav {
   }
 }
 
+/************ 标签云图 ***********/
+.tag {
+  ul {
+    margin: 0;
+    padding: 0;
+  }
+  li {
+    list-style: none;
+    display: inline-block;
+    margin: 0 5px;
+  }
+}
+
+/********  友情链接左右分栏  ********/
 .column-30 {
   -webkit-column-width: 30em;
 }
@@ -310,7 +337,7 @@ px      68    160    252    344    436    528    620    712    */
     padding: 0px 28px 60px;
   }
 
-  .side-content {
+  .category {
     margin: 0 0 20px;
     padding: 0 10%;
   }
@@ -335,7 +362,7 @@ px      68    160    252    344    436    */
     display: none
   }
 
-  .side-content {
+  .category {
     margin: 0 0 20px;
     padding: 0
   }
@@ -372,7 +399,7 @@ px      68    160    252    */
     border: 0
   }
 
-  .side-content {
+  .category {
     padding: 0 20%;
   }
 
