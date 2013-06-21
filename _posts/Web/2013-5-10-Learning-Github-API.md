@@ -1,3 +1,13 @@
 ---
-layout: defalut
-title: 使用Github API来添加网页修改
+layout: default
+title: 学习和使用Github API
+tags:
+- GitHub
+- API
+category: web
+---
+#入门
++ `https://api.github.com/users/wangyuzju`获取wangyuzju的用户信息
+
+#认证
+
