@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+<script type="text/javascript">
+  /**
+   * 从返回的search参数中获取access_token等
+   * @param {string} name search query
+   * @returns {string|boolean} false if can‘t find query value
+   */
+  function  getSearchValue(name){
+    var origin = location.search.slice(1);
+
+    if(origin){
+      var list = origin.split('&');
+
+      for(var i = 0, l = list.length ; i < l ; i++ ){
+        var search = list[i];
+        var p = search.indexOf('=');
+        var key = search.substring(0, p);
+        if( name == key ){
+          return search.substring(p+1);
+        }
+      }
+      return false;
+    }
+    return false;
+  }
+
+  
+  var xhr = new XMLHttpRequest();
+  xhr.open('POST', 'https://github.com/login/oauth/access_token', true);
+  xhr.setRequestHeader('Accept','application/vnd.github.raw');
+  xhr.setRequestHeader('Content-Type','application/json');
+
+  xhr.onreadystatechange = function(){
+    if ( xhr.readyState == 4  ){
+      if ( xhr.responseText != 'OK' ){
+        alert(xhr.responseText);
+      }
+    }
+  };
+  xhr.send(JSON.stringify({
+    client_id: 'bfaa94b476a91ae70830',
+    client_secret: '1f73d55a0e545916c9b41b3b3ce3ec6f13caaa8f',
+    code: location.search.slice(6)
+  }))
+
+</script>
+</body>
+</html>

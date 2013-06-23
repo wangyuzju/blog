@@ -10,6 +10,10 @@
       'ace': {
         src: 'http://rawgithub.com/ajaxorg/ace-builds/master/src-noconflict/ace.js',
         exports: 'ace'
+      },
+      'jquery': {
+        src: 'js/jquery-2.0.2.min.js',
+        exports: '$'
       }
     }
   });
