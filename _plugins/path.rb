@@ -5,7 +5,7 @@ module Jekyll
     ## See post.dir and post.base for directory information. 
     def generate(site)
       site.posts.each do |post|
-        post.data['path'] = post.name
+        post.data['path'] = '_posts/' + post.name
       end
 
     end
