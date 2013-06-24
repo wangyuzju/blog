@@ -7,7 +7,7 @@ title: 我的Blog
   {% for post in paginator.posts %}
   <div class="article">
     <div class="title">
-      [{{ post.date | date:"%Y-%m-%d" }}] <a href="{{ site.url }}{{ post.url }}">{{ post.title }}</a>  {{ post.path }}
+      [{{ post.date | date:"%Y-%m-%d" }}] <a href="{{ site.url }}{{ post.url }}">{{ post.title }}</a>
     </div>
   </div>
   {% endfor %}

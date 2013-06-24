@@ -1,16 +1,68 @@
-<section id="edit-article-panel" class="bg-color-pink" data-path="x{{ page.path }}">
-  {{ page }}
+<section id="edit-article-panel" class="bg-color-pink" data-path="{{ page.path }}">
   <ul>
-    <a href="https://github.com/login/oauth/authorize?client_id=bfaa94b476a91ae70830"><li>登录</li></a>
+    <a href="https://github.com/login/oauth/authorize?client_id=bfaa94b476a91ae70830">
+      <li>登录</li>
+    </a>
     <li>新建</li>
-    <li>编辑</li>
+    <a id="edit" href="">
+      <li>编辑</li>
+    </a>
   </ul>
 </section>
 
 <script type="text/javascript">
-  var settings = {
-    username: 'wangyuzju',
-    repoName: 'blog'
-  }
-  
+  (function () {
+
+    var settings = {
+      APIURL: 'https://api.github.com',
+      username: 'wangyuzju',
+      repoName: 'blog'
+    }
+
+    var ajaxGet = function (url, fn) {
+      var xhr = new XMLHttpRequest()
+
+      xhr.onreadystatechange = function () {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+          fn(xhr.responseText);
+        }
+      }
+      xhr.open("GET", url, true);
+
+      xhr.send();
+    }
+
+    var ajaxPost = function (url, data, fn) {
+      var xhr = new XMLHttpRequest()
+
+      xhr.onreadystatechange = function () {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+          fn(xhr.responseText);
+        }
+      }
+      xhr.open("POST", url, true);
+      xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
+      xhr.send(data);
+    }
+
+    /**
+     * init edit link
+     */
+    var URLEditPrefix = 'https://github.com/wangyuzju/blog/edit/gh-pages/';
+
+    var filePath = document.querySelector('#edit-article-panel').getAttribute('data-path');
+    if (filePath) {
+      document.querySelector('#edit-article-panel #edit').setAttribute('href',
+        URLEditPrefix + filePath
+      );
+    }
+
+    /*
+     ajaxGet(
+     settings.APIURL + '/repos/' + settings.username + '/blog/contents',
+     function (retData) {console.log(retData)}
+     )
+     */
+  })();
 </script>
