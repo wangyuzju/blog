@@ -29,12 +29,14 @@
     }
     return false;
   }
-
+  
+  var access_token = getSearchValue('access_token');
   
   var xhr = new XMLHttpRequest();
-  xhr.open('POST', 'https://github.com/login/oauth/access_token', true);
-  xhr.setRequestHeader('Accept','application/vnd.github.raw');
-  xhr.setRequestHeader('Content-Type','application/json');
+  xhr.open('GET', 'https://api.github.com/user?access_token=' + access_token, true);
+ 
+  //xhr.setRequestHeader('Accept','application/vnd.github.raw');
+  //xhr.setRequestHeader('Content-Type','application/json');
 
   xhr.onreadystatechange = function(){
     if ( xhr.readyState == 4  ){
@@ -43,12 +45,13 @@
       }
     }
   };
-  xhr.send(JSON.stringify({
+  xhr.send()
+  /*JSON.stringify({
     client_id: 'bfaa94b476a91ae70830',
     client_secret: '1f73d55a0e545916c9b41b3b3ce3ec6f13caaa8f',
     code: location.search.slice(6)
   }))
-
+  */
 </script>
 </body>
 </html>
