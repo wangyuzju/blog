@@ -2,6 +2,8 @@
 layout: default
 title: 开发本博客中碰到的一些问题
 category: tips
+tags: 
+- jekyll
 ---
 #若干个a标签直接连在一起并且设置了float之后会导致全部选中问题
 在<a> link </a>文字内部加上空格，就可以解决
@@ -27,3 +29,7 @@ category: tips
 天blog看了下，发现它没啥问题啊，晕倒。最后才想到，会不会是引用了别的网站的code的样式表的缘故，
 果然,white-space: pre-line;自动去掉了空格，改成white-space: pre;就OK了
 
+#本地无page.path变量的解决(6.24)
+考虑到开发一个博客到github编辑页面的插件，了解每篇文章的文件路径是很重要的，查阅了jekyll帮助文档发现可以从`{{ page.path }}`中获得某文件的路径信息，但是在本地的测试环境中，并没有该变量。stack overflow上提到的[写一个jekyll扩展来实现](http://stackoverflow.com/questions/13243469/how-can-a-jekyll-page-access-its-filename)，于是在`_plugins/path.rb`文件中加入了相应的代码，测了一下，本地果然可以了。但是github pages是不支持plugin的，经过测试,page.path变量在部署到github上的文件中是可以访问的！
+
+**总结**：github pages上的jekyll环境并不是原生的jekyll程序环境，前者不支持插件扩展，但是默认提供了一些额外的功能，比如获取文件路径的变量page.path
