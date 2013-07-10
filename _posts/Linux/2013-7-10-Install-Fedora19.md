@@ -28,4 +28,5 @@ category: linux
 
 2. `sudo yum install google-chrome-stable/beta/unstable`安装对应的版本
 
-##
+##安装Idea
+Oracle JDK下载链接居然被墙了，尼玛，vpn连上去下载也不稳定，只要使用linode下好文件之后，再scp到本地，万恶的qiang，`rpm -Uvh jdk-xxx.rpm`安装好就行。
