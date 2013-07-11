@@ -32,7 +32,8 @@ tags:
 
 ##安装Idea
 Oracle JDK下载链接居然被墙了，尼玛，vpn连上去下载也不稳定，只要使用linode下好文件之后，再scp到本地，万恶的qiang，`rpm -Uvh jdk-xxx.rpm`安装好就行。
-PS：安装完后运行IDEA提示JAVA\_HOME变量未设置，在\/etc\/profile文件中加入JVM的路径即可，Oracle JDK对应的目录为`/usr/java/jdk1.7.0_25`
+
+**PS**：安装完后运行IDEA提示JAVA\_HOME变量未设置，在\/etc\/profile文件中加入JVM的路径即可，Oracle JDK对应的目录为`/usr/java/jdk1.7.0_25`
 
 ##安装VirtualBox
 + 下载rpm fusion的源，以支持yum安装[下载链接](http://rpmfusion.org/Configuration)
