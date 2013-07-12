@@ -38,3 +38,6 @@ Oracle JDK下载链接居然被墙了，尼玛，vpn连上去下载也不稳定�
 ##安装VirtualBox
 + 下载rpm fusion的源，以支持yum安装[下载链接](http://rpmfusion.org/Configuration)
 + 安装好VirtualBox之后，需要装一下当前内核版本对应的`kmod-VirtualBox-xxx`，具体查看运行报错信息即可
+
+**PS**: 装好之后发现无法上网，查看了下设备管理器发现VMvare的网卡前显示黄色叹号，右键 > 更新驱动 > 手动选择另外一个驱动就好了，是YLMF OS自带的驱动包覆盖了Vmware的默认驱动导致无法上网。[参考](http://blog.csdn.net/evilcode/article/details/7645479)
+
