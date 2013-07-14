@@ -20,14 +20,14 @@ tags:
     
 ##安装chrome浏览器
 1. 添加chrome的源 在`/etc/yum.repos.d/`目录下面创建`google-chrome.repo`文件并写入以下内容：
-
+<pre><code>
     [google-chrome]  
     name=google-chrome - 64-bit  
     baseurl=http://dl.google.com/linux/chrome/rpm/stable/x86_64  
     enabled=1  
     gpgcheck=1  
     gpgkey=https://dl-ssl.google.com/linux/linux_signing_key.pub  
-
+</code></pre>
 2. `sudo yum install google-chrome-stable/beta/unstable`安装对应的版本
 
 ##安装Idea

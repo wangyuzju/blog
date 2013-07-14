@@ -32,7 +32,7 @@ category: tips
 仅仅隐藏标题栏会导致残留，索性把填充高度也去掉了，这样窗口标题栏看起来要窄一些，但**效果还不错**
 
 ##参考
-[Fedora 16的Gnome3个人配置笔记[3月7日更新]](http://imobile365.com/articles/6331)
+[Fedora 16的Gnome3个人配置笔记\[3月7日更新\]](http://imobile365.com/articles/6331)
 
 #fedora18更新后注意事项
 ##防火墙不再是iptables

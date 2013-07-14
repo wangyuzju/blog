@@ -15,8 +15,7 @@ category: web
     sudo vim /etc/yum.repos.d/remi.repo
 
 编辑`[remi]`项目下的enabled=0成为enabled=1，就可以通过yum install来安装mod\_python了，
-参考[Installing RHEL EPEL Repo on Centos 5.x or 6.x]
-(http://www.rackspace.com/knowledge_center/article/installing-rhel-epel-repo-on-centos-5x-or-6x)
+参考[Installing RHEL EPEL Repo on Centos 5.x or 6.x](http://www.rackspace.com/knowledge_center/article/installing-rhel-epel-repo-on-centos-5x-or-6x)
 
 **注意**：mod_python在Django1.5中已经被废弃使用，官方建议使用mod_wsgi
 
@@ -26,6 +25,7 @@ category: web
 注意这里**需要选择对应的版本的参考文档**，比如我的就是django 1.5。
 
 ##Apache配置
+
     <VirtualHost *.80>
     Alias /robots.txt /path/to/mysite.com/static/robots.txt
     Alias /favicon.ico /path/to/mysite.com/static/favicon.ico
@@ -53,12 +53,12 @@ category: web
 
 注意这里，VirtualHost后面的参数`*.80`是由NameVirtualHost后的`*.80`所决定的，表示本机
 任何介质上的80端口为虚拟主机。
-Note that the argument to the <VirtualHost> 
+Note that the argument to the `<VirtualHost>` 
 directive must exactly match the argument to the NameVirtualHost directive.
 也就是说VirtualHost之后跟的参数要和NameVirtualHost后设定的参数完全一样，也就是说不能有不同
 的NameVirtualHost实体，
 [参考](http://bec-systems.com/site/528/apache-and-how-to-correctly-use-namevirtualhost)
 
 ##Django配置
-1. 设置了DEBUG=False之后，需要在ALLOWED_HOSTS=[]中添加主机名或者'*',不然会报500错误且无法
+1. 设置了DEBUG=False之后，需要在ALLOWED_HOSTS=\[\]中添加主机名或者'\*',不然会报500错误且无法
 被Apache捕捉

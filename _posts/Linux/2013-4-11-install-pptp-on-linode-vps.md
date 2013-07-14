@@ -65,7 +65,7 @@ VPN可以这样理解，Linux客户端使用一个虚拟网络设备ppp0（Windo
 + logwtmp表示使用WTMP日志。
 + localip和remoteip所处的IP段可以随意些指定，但其范围内**不要包含实际网卡eth0**的IP地址。
 一般情况下，使用上面配置文件中的配置就好使了，你需要做的只是把192.168.0.207-217这个IP区间
-修改成你喜欢的192.168.0.a-b，其中1<a<b<255
+修改成你喜欢的192.168.0.a-b
 
 ##4 打开内核的IP转发功能
 要使VPN服务器可以作为网络请求的中转代理，能够使客户端通过VPN访问Internet，还需要开启内核的IP转发功能。
@@ -89,8 +89,8 @@ VPN可以这样理解，Linux客户端使用一个虚拟网络设备ppp0（Windo
 
 
 ##重启iptables服务
-[Iptables error – Setting chains to policy ACCEPT: security raw nat mangle filter [FAILED]错误的解决办法]
-(http://wangshangyou.com/linux/66.html)
+Iptables error – Setting chains to policy ACCEPT: security raw nat mangle filter \[FAILED\] 
+[错误的解决办法](http://wangshangyou.com/linux/66.html)
 
 #碰到的问题
 感觉还[第二篇简介](http://www.360doc.com/content/12/0621/16/2660674_219650596.shtml)实用。

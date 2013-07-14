@@ -92,7 +92,7 @@ ip，于是想到是不是曾经配置过npm的repo，果然在.npmrc下面，re
 才生效,其使用分两个步骤
 
 1. 将开发项目链接到node安装程序上，在项目根目录执行npm link
-2. 将开发项目链接到应用中 npm link <mod>
+2. 将开发项目链接到应用中 `npm link <mod>`
 
 ###`npm publish`就发布到npmjs.org上去了
 

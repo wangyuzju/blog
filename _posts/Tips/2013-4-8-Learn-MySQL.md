@@ -26,9 +26,9 @@ MySQL自动加上所有域的标识符%。
 果然可以！  
 找了好久，终于找到原因：
 
->@删除那条 user 为 空、host 为 localhost 的记录。你新添加的记录被它匹配了，根本匹配不到。
+>删除那条 user 为 空、host 为 localhost 的记录。你新添加的记录被它匹配了，根本匹配不到。
 
->@MySQL检查客户端登录的主机名/用户名是有一定顺序的，优先匹配host，然后才匹配user。
+>MySQL检查客户端登录的主机名\/用户名是有一定顺序的，优先匹配host，然后才匹配user。
 匹配host时，又要求优先匹配确定性更大的host。比如，%.test.com 优先于 %.com，%.com 
 优先于 %，不带通配符的host优先于带通配符的host。
 [查看原文](https://home-laurence.rhcloud.com/blog/2012/10/mysql-error-1045-access-denied-2/)

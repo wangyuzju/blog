@@ -22,8 +22,8 @@ category: tips
 
 
 #Python中的可变参数
-+ *args参数运行时，捕获所有位置参数，组成Tuple
-+ **kwargs运行时，捕获所有关键字参数，组成Dict
++ \*args参数运行时，捕获所有位置参数，组成Tuple
++ \*\*kwargs运行时，捕获所有关键字参数，组成Dict
 
 例子
 

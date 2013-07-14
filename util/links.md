@@ -2,6 +2,13 @@
 layout: links
 title: 平时发现的好网站
 ---
+##一些指令
+
+    ssh wangyu21@relay01.baidu.com
+    ssh bae@ai-ting-test01.ai01
+    MhxzKhlbae
+    cd music/youhua/src/fe-main/
+
 ##前端
 + [一淘UX博客][00] -- 非常有水平的前端博客
 [00]: http://ux.etao.com/
