@@ -28,7 +28,6 @@ title: 平时发现的好网站
   + [浏览器滚动条的设置][022] -- 另外[博主的Blog][023]也是不错滴
 [022]: http://www.javascript100.com/?p=756
 [023]: http://www.javascript100.com
-
 +  **实用工具**  
   + [html5 outliner][030] -- html5 大纲视图  
 [030]: http://gsnedders.html5.org/outliner/
