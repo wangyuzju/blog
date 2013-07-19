@@ -21,7 +21,11 @@ Smarty的所有语法都用`{}`包裹，`{*  *}`注释内容。
 #函数
 每一个smarty语句不是输出变量值就是输出函数调用的结果，函数调用的语法为`{函数名 参数1=值1 参数2=值2 ...}`，常见的有include函数带file变量，insert函数带file，title变量等。
 
-+ default 设定默认值，当变量的值为null或者空字符串时，显示default值（默认空白变量会报错）
++ default 设定默认值，当变量的值为null或者空字符串时，显示default值（默认空白变量会报错）。可以设定多个default filter来实现多个默认值，如`{$jsonError|default:$tplData.error|default:0}`，当前两者都为空时显示默认值0.
 + escape 转意变量，默认会转义成html的转义字符，可以指定htmlall, url, javascript, mail等
-+
 
+##内置函数
++ capture: `{capture name="foo"}xxx{/capture}`将该标签内的内容存放到指定的变量名foo中，可以通过`{$foo}`或者`{$smarty.capture.foo}`访问该变量，进而判断是否需要输出，避免直接输出到HTML文件中
++ config_load: 后接配置文件名，载入配置文件中的变量值，可通过`{#foo#}`读取
++ foreach: `{foreach from=$var key=bar item=foo}`循环数组$var，将其键和值分别作为bar、foo迭代。
++ assign: `{assign var="foo" value="bar"}`设定名为foo的变量的值为bar
