@@ -39,4 +39,4 @@ display具有**block**和**list-item**属性的元素、**float的元素**是blo
 
 ##行高
 + 非可替换inline元素（没有默认大小）上下的border和margin不会撑开行高，如果设置的行高过小，那么文字会出现在下一行上
-+ 可替换inline元素（比如img）会自动撑开行高
++ 可替换inline元素（比如img）
