@@ -276,15 +276,27 @@ nav {
   top: 100px;
   margin-left: -50px;
   height: 100px;
-  padding: 5px;
   color: #ffffff;
 
 
   background: transparent;
-  ul {padding: 0; margin: 0}
-  li {list-style: none;}
+  ul {padding: 10px 0; margin: 0}
+  li {list-style: none;padding: 0 5px;}
+
 }
 
+#new-article:hover #choose-category{
+  display: block;
+}
+
+#choose-category {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 100%;
+  background: #2b5797;
+  padding: 5px;
+}
 /************ 标签云图 ***********/
 .tag {
   li {
