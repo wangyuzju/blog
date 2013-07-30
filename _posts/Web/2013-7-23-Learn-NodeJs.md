@@ -2,6 +2,7 @@
 layout: default
 title: NodeJS学习笔记
 category: web
+noComment: true
 tags: 
   NodeJS
 ---
