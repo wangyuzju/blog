@@ -1,6 +1,6 @@
 ---
 layout: default
-titile: CSS定义文档学习笔记
+title: CSS规范（学习笔记）
 category: web
 tags:
   CSS
