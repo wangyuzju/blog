@@ -10,6 +10,9 @@ category: tips
 2. 使用find命令找到本机中不同版本的libcrypto.so动态库的位置，并做软链接即可。例子：`ln -s /usr/lib64/libcrypto.so.10 /lib64/libcrypto.so.6`
 3. 再次运行bnac `./bnac -u username -p passwd`
 
+##UPDATE
+重装系统后发现提示libcrypto.so.4缺失，而ldd无效了，不知道是不是开发人员更换准入程序的缘故，建的软链换成libcrypto.so.6就OK了
+
 #外网上内网
 上公司内网需要VPN，一般是装Cisco的VPN客户端。Linux系统下碰到一些问题，安装客户端之后无法打开，得到回复的邮件是查看[这个页面](http://wiki.babel.baidu.com/twiki/bin/view/Com/BPIT/%E7%99%BE%E5%BA%A6VPN%E7%B3%BB%E7%BB%9F)，下载运行后发现报错`error while loading shared libraries: libpangox-1.0.so.0:`，网上找了个[解决方案](http://note.ninehills.info/cisco-vpn-in-opensuse.html)，在Fedora19下**需要安装pangox-compat程序**。
 
