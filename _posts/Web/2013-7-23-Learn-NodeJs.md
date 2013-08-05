@@ -16,7 +16,7 @@ tags:
 
 #http.request的坑
 + 请求文件时，请带上绝对路径"/"，写好的程序一直报400，查看了apache的错误日志（/etc/httpd/logs/error_log）的最后几行，发现`Invalid URI in request POST index.php HTTP/1.1`，再对比前面的其他错误`Undefined index: to in /var/www/html/index.php`，猜测是不是index.php前面少了一个绝对路径符号/？这才想起来**HTTP协议里面报头请求的路径是绝对路径**，导致一直400报错。。。是浏览器自动将相对路径转换成绝对路径。
-
++ 当请求的服务器异常时（比如关闭），会抛出Error: connect ECONNREFUSED错误，并且提示Unhandled 'error' event，但是明明将http.request放在我的try catch代码段里面的，估计和js的try catch机制有关：如果子层没有抛出孙子层的异常，那么**无法直接在外层捕获孙子层的异常，**，这个问题其实是我的书写错误，http.request的异常处理应该注册在返回的对象的error事件中，参考stackoverflow[此文](http://stackoverflow.com/questions/8381198/catching-econnrefused-in-node-js-with-http-request)
 
 #PHP webserver的坑
 + php处理上传文件，首先`_$FILES[]`变量里面根据上传文件的name值来作为文件的key，文件的内容存放在该key下的key为tmp\_name的路径中，即访问路径为`$_FILES["XXX"]["tmp_name"]`
