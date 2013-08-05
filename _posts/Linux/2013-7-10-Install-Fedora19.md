@@ -40,10 +40,18 @@ Oracle JDK下载链接居然被墙了，尼玛，vpn连上去下载也不稳定�
     export JAVA_HOME
 
 ##安装VirtualBox
-+ 下载rpm fusion的源，以支持yum安装[下载链接](http://rpmfusion.org/Configuration)
-+ 安装好VirtualBox之后，需要装一下当前内核版本对应的`kmod-VirtualBox-xxx`，具体查看运行报错信息即可
+###使用官方的RPM进行安装
+使用rpm-fusion安装报错，发现原来直接用[官方的RPM包](https://www.virtualbox.org/wiki/Linux_Downloads)安装好简单
+
++ rpm -ivh 发现报错`Recompiling VirtualBox kernel modules                      [FAILED]`
++ 查了[这个帖子](http://forums.fedoraforum.org/archive/index.php/t-237427.html)，装了下kernel-devel
++ 再执行`sudo /etc/init.d/vboxdrv setup`就可以了，so easy
+
++ <del>下载rpm fusion的源，以支持yum安装[下载链接](http://rpmfusion.org/Configuration)</del>
++ <del>安装好VirtualBox之后，需要装一下当前内核版本对应的`kmod-VirtualBox-xxx`，具体查看运行报错信息即可</del>
 
 **PS**: 装好之后发现无法上网，查看了下设备管理器发现VMvare的网卡前显示黄色叹号，右键 > 更新驱动 > 手动选择另外一个驱动就好了，是YLMF OS自带的驱动包覆盖了Vmware的默认驱动导致无法上网。[参考](http://blog.csdn.net/evilcode/article/details/7645479)
+
 
 #装系统注意事项
 今天换了ssd，重做了下系统，结果发现无法挂载原先的fedora分区，后来发现是因为两次都使用了LVM分区，而默认的组都是fedora导致无法挂载（当前系统的自动挂载占用了fedora分组），只好**重装系统换了一个分区格式**，不再使用LVM了。
