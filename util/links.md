@@ -41,6 +41,7 @@ title: 平时发现的好网站
 [033]: https://cacoo.com/diagrams/
   + [Prezi][034] -- 制作网页幻灯片
 [034]: http://prezi.com/
+  + [ANSI转义表](http://ascii-table.com/ansi-escape-sequences.php) -- terminal 配色，格式相关的转义符
 
 ##技术博客
 + [阮一峰](http://www.ruanyifeng.com/blog/)
