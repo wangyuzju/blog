@@ -15,7 +15,7 @@ tags:
 + 被监视的文件目录本身发生变化（比如重命名），也会触发rename事件，且返回的文件名始终是该目录名。目录内假如也有该名字的文件夹，重命名时也会触发rename事件，区别在于**父目录的rename只触发一次，即原始文件名，子目录的rename触发两次，原始文件名和新文件名**
 
 #捕获ctrl-c退出事件
-程序正常运行的退出事件是exit, ctrl-c导致的退出事件是SIGINT, 用process.on 'SIGINT'捕获
+程序正常运行的退出事件是exit, ctrl-c导致的退出事件是SIGINT, 用process.on 'SIGINT'捕获, 并在处理函数中加上do process.exit继续退出事件
 
 #http.request的坑
 + 请求文件时，请带上绝对路径"/"，写好的程序一直报400，查看了apache的错误日志（/etc/httpd/logs/error_log）的最后几行，发现`Invalid URI in request POST index.php HTTP/1.1`，再对比前面的其他错误`Undefined index: to in /var/www/html/index.php`，猜测是不是index.php前面少了一个绝对路径符号/？这才想起来**HTTP协议里面报头请求的路径是绝对路径**，导致一直400报错。。。是浏览器自动将相对路径转换成绝对路径。
