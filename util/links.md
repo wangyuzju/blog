@@ -8,6 +8,9 @@ title: 平时发现的好网站
     ssh bae@ai-ting-test01.ai01
     MhxzKhlbae
     cd music/youhua/src/fe-main/
+    
+    #svn上线模板前缀
+    wwwdata.music/fe/templates
 
 ##前端
 + [一淘UX博客][00] -- 非常有水平的前端博客
