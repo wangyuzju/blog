@@ -29,3 +29,6 @@ Smarty的所有语法都用`{}`包裹，`{*  *}`注释内容。
 + config_load: 后接配置文件名，载入配置文件中的变量值，可通过`{#foo#}`读取
 + foreach: `{foreach from=$var key=bar item=foo}`循环数组$var，将其键和值分别作为bar、foo迭代。
 + assign: `{assign var="foo" value="bar"}`设定名为foo的变量的值为bar
+
+#使用小记
++ 变量过滤器`|`必须紧跟变量之后，中间不能有空格，不然会报错
