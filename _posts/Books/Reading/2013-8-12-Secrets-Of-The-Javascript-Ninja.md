@@ -23,3 +23,20 @@ doubanID: 3176860
     };
 
 #基于length属性的函数重载
+
+    function addMethod(object, name, fn) {
+      var old = object[name];
+      object[name] = function(){
+        if (fn.length == arguments.length)
+          return fn.apply(this, arguments)
+        else if (typeof old == 'function')
+        return old.apply(this, arguments);
+      };
+    }
+    
+上述函数利用**闭包创建了对重载前函数的引用**，新函数根据传入的参数判断该调用哪个函数（重载之前的还是重载之后的），利用下述代码，就可以对ninja中的whatever方法进行重载，根据传入的参数数量调用不同的函数进行处理
+
+    var ninja = {};
+    addMethod(ninja,'whatever',function(){ /* do something */ });
+    addMethod(ninja,'whatever',function(a){ /* do something else */ });
+    addMethod(ninja,'whatever',function(a,b){ /* yet something else */ });
