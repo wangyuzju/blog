@@ -41,3 +41,7 @@ doubanID: 3176860
     addMethod(ninja,'whatever',function(){ /* do something */ });
     addMethod(ninja,'whatever',function(a){ /* do something else */ });
     addMethod(ninja,'whatever',function(a,b){ /* yet something else */ });
+
+#chapter 8 Taming threads and timers
+##setInterval会丢失
+当setInterval触发的时候，如过还有等待执行的之前触发的setInterVal，它们不会叠加，之后只会触发一次。
