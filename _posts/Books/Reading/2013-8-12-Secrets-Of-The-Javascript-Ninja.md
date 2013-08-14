@@ -6,6 +6,10 @@ doubanID: 3176860
 ---
 齐伟老师的JS分享干货多多，使我顿时感觉到了和大神之间的差距，花点时间好好都下这本书，网上评价不错
 
+#一些基础
++ [assert](http://jsfiddle.net/76fWA/) -- JS可视化测试函数
+
+
 #chapter 4 Function
 ##实现对象数组
     var a = {length: 0}
@@ -45,3 +49,4 @@ doubanID: 3176860
 #chapter 8 Taming threads and timers
 ##setInterval会丢失
 当setInterval触发的时候，如过还有等待执行的之前触发的setInterVal，它们不会叠加，之后只会触发一次。
+
