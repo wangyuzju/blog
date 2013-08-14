@@ -70,6 +70,7 @@ nav ul a:hover{color:#fff}
 #edit-article-panel li{list-style:none;padding:0 5px}
 #new-article:hover #choose-category{display:block}
 #choose-category{display:none;position:absolute;top:0;left:100%;background:#2b5797;padding:5px}
+.tag ul{padding:0;margin:0}
 .tag li{display:inline-block;margin:0 5px}
 .column-30{-webkit-column-width:30em}
 body{width:896px;margin:auto;padding:0 48px 84px;-webkit-text-size-adjust:100%;}
