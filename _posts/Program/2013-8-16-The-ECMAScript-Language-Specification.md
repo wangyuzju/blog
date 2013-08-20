@@ -23,13 +23,15 @@ its constructor‘s "prototype" property.通过构造函数创建的对象的`__
 
 #Chapter 7  Lexical Conventions 
 ##Summary
-+ ES程序的源代码首先被转换成输入元素（tokens，行终止符，注释，空白）。从左往右扫描源代码并使下一个输入的元素的字符序列具有更长的字符。
-+ 除法和正则表达式都是/符号开头，当除法操作符或者除法赋值（/=）被允许的时候，/被判定为除法符号（InputElementDiv ），其他情况下，被判定为正则表达式符号（InputElementRegExp symbol）。举个例子如下：
++ tokens：除了空白，注释，行终止符之外的传递给语法分析程序的输入元素。由reserved words(保留字), identifiers(标识符/变量名), literals(null, true/false, number, string, regEx), punctuators of the ECMAScript language(操作符) 组成
++ ES程序的源代码首先被转换成输入元素（tokens，行终止符，注释，空白）。从左往右扫描源代码并使下一个输入的元素具有尽量长的字符长度。
++ 除法和正则表达式都是/符号开头，当除法操作符或者除法赋值（/=）被允许的时候，/被判定为除法符号（InputElementDiv  symbol），其他情况下，被判定为正则表达式符号（InputElementRegExp symbol）。举个例子如下：
 <pre><code>
     a = b 
     /hi/g.exec(c).map(d); 
 </code></pre>
 换行符后的第一个非空白/非注释元素是/，因此允许除法和除法赋值，所以行末不会自动添加;，上面的例子被当成`a = b / hi / g.exec(c).map(d);`处理。会报错，而不是出现无法判断除号还是正则表达式的两难情况
-+ 
++ 行截止符号：`<LF>` `<CR>` `<LS>` `<PS>` 都属于正则表达式的\s
 
-+ 
+##分号(semicolon)的自动插入
++ 解析到一个无法继续构成当前语法的token(offending token)时，如果这个oToken和上一个token隔了换行符，或者这个oToken是}，那么会自动在这个oToken之前加上分号。**也就是说**：{}中的最后一条语句，或者有换行符时(*且该token不被需要时，return就属于特例*)
