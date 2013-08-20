@@ -1,7 +1,7 @@
 ---
 layout: default
 category: web
-title: F.I.S 学习指南
+title: FIS 学习指南
 tags:
 - F.I.S
 ---
