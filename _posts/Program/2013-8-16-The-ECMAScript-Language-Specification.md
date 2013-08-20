@@ -17,3 +17,19 @@ its constructor‘s "prototype" property.通过构造函数创建的对象的`__
 #一些定义
 + Boolean Object, String Object, Number Object, 由对应的构造函数通过new操作符，并传入相应的参数返回来的对象，这些对象具有内部属性，该属性的值的类型是对应的变量类型，这些对象可以通过执行不带new的构造函数返回其内部属性的值，如`String(new String('a')) === 'a'`,注意这里是全等，因为`==`会自动将两边的表达式进行值转换，`'a' == new String('a')`也是成立的，但事实上前者是String value后者是String Object。
 + Number type包括所有的Number values，NaN，和正负infinity
+
+#Chapter 6 Source Text
+在ES中，注释中出现的转义字符不会进行解析，不会导致注释被截断（JAVA中注释会被转义序列截断）
+
+#Chapter 7  Lexical Conventions 
+##Summary
++ ES程序的源代码首先被转换成输入元素（tokens，行终止符，注释，空白）。从左往右扫描源代码并使下一个输入的元素的字符序列具有更长的字符。
++ 除法和正则表达式都是/符号开头，当除法操作符或者除法赋值（/=）被允许的时候，/被判定为除法符号（InputElementDiv ），其他情况下，被判定为正则表达式符号（InputElementRegExp symbol）。举个例子如下：
+
+    a = b 
+    /hi/g.exec(c).map(d); 
+    
+换行符后的第一个非空白/非注释元素是/，因此允许除法和除法赋值，所以行末不会自动添加;，上面的例子被当成`a = b / hi / g.exec(c).map(d);`处理。会报错，而不是出现无法判断除号还是正则表达式的两难情况
++ 
+
++ 
