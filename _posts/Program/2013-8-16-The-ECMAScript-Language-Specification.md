@@ -25,10 +25,10 @@ its constructor‘s "prototype" property.通过构造函数创建的对象的`__
 ##Summary
 + ES程序的源代码首先被转换成输入元素（tokens，行终止符，注释，空白）。从左往右扫描源代码并使下一个输入的元素的字符序列具有更长的字符。
 + 除法和正则表达式都是/符号开头，当除法操作符或者除法赋值（/=）被允许的时候，/被判定为除法符号（InputElementDiv ），其他情况下，被判定为正则表达式符号（InputElementRegExp symbol）。举个例子如下：
-<code>
+<pre><code>
     a = b 
     /hi/g.exec(c).map(d); 
-</code>
+</code></pre>
 换行符后的第一个非空白/非注释元素是/，因此允许除法和除法赋值，所以行末不会自动添加;，上面的例子被当成`a = b / hi / g.exec(c).map(d);`处理。会报错，而不是出现无法判断除号还是正则表达式的两难情况
 + 
 
