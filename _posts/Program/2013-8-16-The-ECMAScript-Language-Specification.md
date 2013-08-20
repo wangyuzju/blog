@@ -34,4 +34,6 @@ its constructor‘s "prototype" property.通过构造函数创建的对象的`__
 + 行截止符号：`<LF>` `<CR>` `<LS>` `<PS>` 都属于正则表达式的\s
 
 ##分号(semicolon)的自动插入
-+ 解析到一个无法继续构成当前语法的token(offending token)时，如果这个oToken和上一个token隔了换行符，或者这个oToken是}，那么会自动在这个oToken之前加上分号。**也就是说**：{}中的最后一条语句，或者有换行符时(*且该token不被需要时，return就属于特例*)
++ 解析到一个**无法继续构成当前语法**的token(offending token)时，如果这个oToken和上一个token隔了换行符，或者这个oToken是}，那么会自动在这个oToken之前加上分号。**也就是说**：{}作为代码段包裹时，其中的最后一条语句，或者有换行符时(*且该token不被需要时，return就属于特例*)
++ 解析到可以继续构成当前语法，但是不满足使用条件的token(restricted token)。例如a ++之间不能有换行符，虽然a和++这两个token可以完成语法解析，但是之间的换行符限制了该语法的构建，此时会自动添加分号变成`a;\n++`（`++\na`则不属于restricted token, 可以正常运行）。类似的有return, break, continue, throw。这些语句后面跟的表达式必须跟在同一行，不然会报错。
++ 到达文档流末尾了还无法解析得到正常的程序，自动添加;
