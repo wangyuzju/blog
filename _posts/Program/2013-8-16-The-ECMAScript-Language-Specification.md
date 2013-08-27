@@ -56,4 +56,6 @@ its constructor‘s "prototype" property.通过构造函数创建的对象的`__
 + Enumberable
 + Configurable
 
+#一些测试
++ [关于Object.defineOwnProperty / Object.defineOwnproperties](http://jsfiddle.net/ym67q/)
 
