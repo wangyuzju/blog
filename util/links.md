@@ -11,6 +11,9 @@ title: 平时发现的好网站
     
     #svn上线模板前缀
     wwwdata.music/fe/templates
+    
+    #svn 清除删除的文件信息
+    svn st | grep '^!' | awk '{print $2}' | xargs svn delete --force
 
 ##前端
 + [一淘UX博客][00] -- 非常有水平的前端博客
