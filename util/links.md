@@ -79,6 +79,7 @@ title: 平时发现的好网站
 + [笨办法学python][60] -- Learn Python The Hard Way
 [60]: http://learnpythonthehardway.org/
 + [git常用命名备忘录](http://cloudbbs.org/forum.php?mod=viewthread&tid=16794)
++ [Cracking The Coding Interview](http://hawstein.com/posts/ctci-solutions-contents.html)
 
 ##friends
 + [我来我往](http://jyd.me/) -- 纪耀典的技术博客，好基友，一起走
