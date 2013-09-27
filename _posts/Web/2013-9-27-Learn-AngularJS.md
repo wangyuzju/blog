@@ -19,13 +19,13 @@ tags:
 
 ## 定义路由
 通过在定义模块的时候，申请$routeProvider，并提供相应配置来实现，如下的例子
-```
-angular.module('phonecat', []).
-  config(['$routeProvider', function($routeProvider) {
-  $routeProvider.
-      when('/phones', {templateUrl: 'partials/phone-list.html',   controller: PhoneListCtrl}).
-      when('/phones/:phoneId', {templateUrl: 'partials/phone-detail.html', controller: PhoneDetailCtrl}).
-      otherwise({redirectTo: '/phones'});
-}]);
-```
+
+    angular.module('phonecat', []).
+      config(['$routeProvider', function($routeProvider) {
+      $routeProvider.
+        when('/phones', {templateUrl: 'partials/phone-list.html',   controller: PhoneListCtrl}).
+        when('/phones/:phoneId', {templateUrl: 'partials/phone-detail.html', controller: PhoneDetailCtrl}).
+        otherwise({redirectTo: '/phones'});
+    }]);
+
 为了配置应用的路由规则，首先为应用创建一个模块，
