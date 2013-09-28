@@ -46,3 +46,44 @@ tags:
 
 ## Tips
 + ':xxx'，定义在:后面的变量会被提取到$routeParams对象中
+
+# 自动初始化
+当DOMContentLoaded/document.readyState=='complete'时，Angular会查找ng-app指令，如果找到
+
+1. 加载ng-app指令关联的模块
+2. 创建应用程序的injector
+3. 编译ng-app下的DOM内容
+
+# 手动初始化
+
+    <script>
+       angular.element(document).ready(function() {
+         angular.module('myApp', []);
+         angular.bootstrap(document, ['myApp']);
+       });
+    </script>
+在应用根元素上添加ng-app属性会进行自动初始化，但是想在自动初始化之前做一些配置或者计算的话，需要用到**手动初始化**：如上，angular.element类似于jQ中的$，angular.bootstrap为初始化函数，将选择的元素**compile成应用程序**，他不会自动创建应用模块，因此需要手动创建myApp模块之后，再将其作为参数传入，以便Injector进行加载
+
+# directives
+通过Angular编译DOM，可以根据用户行为来改变HTML元素、元素的属性、HTML内容等，提供这些行为支持的扩展被称为directives。directive只是一个函数，编译DOM时会被自动执行。[Angular 编译原理](http://docs.angularjs.org/guide/compiler)，请参考[**可拖拽指令**的实现例子](http://docs.angularjs.org/guide/compiler)。
+
+## 编译的过程
+1. 编译：便历DOM，搜集所有的directives，返回一个映射函数
+2. 隐射：将directives和一个作用域结合起来，并创建一个动态视图，作用域内发生的任何改变都会映射到视图中去，用户和视图的交互会映射到作用域中去，确保作用域的稳定。
+
+## 开发Angular指令
+    
+    directive('xx', function($document){
+      // 返回一个该指令的初始化函数
+      return function(scope, element, attr){
+        
+        // $document: 定义ng-app的元素
+        
+        // element: 使用了该指令的元素
+            比如：<span dragable></span>，Angular在编译的时候就会将该span元素作为element参数传进来
+            
+        // 实际上是通过ng指令来进行事件的注册，因为是将指令加入到HTML中，因此不需要选择DOM的这一操作！
+      }
+    });
+
+    
