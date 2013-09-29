@@ -96,3 +96,4 @@ title: 平时发现的好网站
 [70]: https://chrome.google.com/webstore/detail/%E7%8E%8B%E5%AE%87%E7%9A%84%E6%8F%92%E4%BB%B6/aobnfmbbemdjhbkmfodmhopbbehpiakb
 + [列车运行状态监测][71] -- 毕设项目
 [71]: http://gp.hellofe.com
++ [nodesync](https://npmjs.org/package/nodesync) -- 代码自动同步工具(基于node, 自动同步本地改动代码到服务器)
