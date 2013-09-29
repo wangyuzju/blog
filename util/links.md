@@ -48,6 +48,8 @@ title: 平时发现的好网站
   + [Prezi][034] -- 制作网页幻灯片
 [034]: http://prezi.com/
   + [ANSI转义表](http://ascii-table.com/ansi-escape-sequences.php) -- terminal 配色，格式相关的转义符
+  + [jsPerf -- Javascript性能测试网站](http://jsperf.com/)
+
 
 ##技术博客
 + [阮一峰](http://www.ruanyifeng.com/blog/)
