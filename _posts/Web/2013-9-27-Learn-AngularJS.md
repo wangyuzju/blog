@@ -21,6 +21,7 @@ Dependency Injector根据控制函数申明的参数（还原参数字符串值�
 
 ### 实现原理
 根据实例函数的参数名，来加载该名字对应的函数，并作为参数传入。参考[Angular DI实现原理](http://stackoverflow.com/questions/1007981/how-to-get-function-parameter-names-values-dynamically-from-javascript)
+[深入理解Angulay DI](https://github.com/angular/angular.js/wiki/Understanding-Dependency-Injection)(官方wiki)
 
 ### PS
 Angular's dependency injector provides **services to your controller when the controller is being constructed**. The dependency injector also takes care of creating any transitive dependencies the service may have (services often depend upon other services).
