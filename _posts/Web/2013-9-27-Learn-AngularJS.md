@@ -6,6 +6,9 @@ tags:
 - AngularJS
 ---
 
+# 源代码结构
++ `/src/auto/injector.js`, 实现**Dependency Injection**
+
 # Tips
 + **$inject**。`PhoneListCtrl.$inject = ['$scope', '$http'];` 避免JS代码压缩过程中造成的$scope, $http标识符被替换导致Angular失效的问题。或者用如下的方法`var PhoneListCtrl = ['$scope', '$http', function($scope, $http) { /* constructor body */ }];`
 + **ngSrc**。直接在图片的src属性中，设置Angular变量{{var}}，当Angular没有执行的时候，浏览器会请求带{{}}的地址，造成错误
@@ -17,6 +20,11 @@ tags:
 
 ### 实现原理
 根据实例函数的参数名，来加载该名字对应的函数，并作为参数传入。参考[Angular DI实现原理](http://stackoverflow.com/questions/1007981/how-to-get-function-parameter-names-values-dynamically-from-javascript)
+
+### PS
+Angular's dependency injector provides **services to your controller when the controller is being constructed**. The dependency injector also takes care of creating any transitive dependencies the service may have (services often depend upon other services).
+
+Note that **the names of arguments are significant**, because **the injector uses these to look up the dependencies**.
 
 ## 服务提供者
 服务提供者是一个对象，它提供服务，并且通过暴露配置这些服务的接口，控制一个服务的创建和运行行为，举$route服务的例子来说，$routeProvider接口用于开发人员定义应用的路由规则
