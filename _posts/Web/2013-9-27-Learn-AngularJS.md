@@ -72,8 +72,11 @@ tags:
 2. 隐射：将directives和一个作用域结合起来，并创建一个动态视图，作用域内发生的任何改变都会映射到视图中去，用户和视图的交互会映射到作用域中去，确保作用域的稳定。
 
 ## 开发Angular指令
+### 方法一：返回Link函数
     
-    directive('xx', function($document){
+    angular
+    .module('directives', [])    
+    .directive('xx', function($document){
       // 返回一个该指令的初始化函数
       return function(scope, element, attr){
         
@@ -85,5 +88,35 @@ tags:
         // 实际上是通过ng指令来进行事件的注册，因为是将指令加入到HTML中，因此不需要选择DOM的这一操作！
       }
     });
+    
+### 方法二：返回包含链接函数的对象，支持更多的配置
+
+    angular
+    .module('directives', [])
+    .directive('contenteditable', function($document){
+      // 返回的是包含了各种配置参数的对象
+      return {
+        require: "ngModel",
+        link: function(scope, element, attrs, ctrl){
+          // *ctrl* 为require模块的控制器，此处为NgModelController
+                参考：http://docs.angularjs.org/api/ng.directive:ngModel.NgModelController#$setViewValue
+                
+          // View -> Model
+          elm.on('bulr', function(){
+            scope.$apply(function(){  
+              ctrl.$setViewValue(elm.html());
+            });
+          });
+          
+          // model -> view
+          ctrl.$render = function(value) {
+            elm.html(value);
+          };
+ 
+          // load init value from DOM
+          ctrl.$setViewValue(elm.html());
+        }
+      }
+    })
 
     
