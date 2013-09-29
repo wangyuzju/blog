@@ -20,8 +20,9 @@ Dependency Injector根据控制函数申明的参数（还原参数字符串值�
 注入器本身不知道$http, $route服务的作用，甚至不知道这些服务的存在，只有在定义模块的时候进行配置，Injector的核心功能是**加载模块的定义声明**，注册在这些定义声明中提供的所有服务，当被请求的时候，将这些服务注入对应的函数，通过服务的提供者实现延迟实例化。
 
 ### 实现原理
-根据实例函数的参数名，来加载该名字对应的函数，并作为参数传入。参考[Angular DI实现原理](http://stackoverflow.com/questions/1007981/how-to-get-function-parameter-names-values-dynamically-from-javascript)
-[深入理解Angulay DI](https://github.com/angular/angular.js/wiki/Understanding-Dependency-Injection)(官方wiki)
+根据实例函数的参数名，来加载该名字对应的函数，并作为参数传入。参考：
+1. [Angular DI实现原理](http://stackoverflow.com/questions/1007981/how-to-get-function-parameter-names-values-dynamically-from-javascript)
+2. [深入理解Angulay DI](https://github.com/angular/angular.js/wiki/Understanding-Dependency-Injection)(官方wiki)
 
 ### PS
 Angular's dependency injector provides **services to your controller when the controller is being constructed**. The dependency injector also takes care of creating any transitive dependencies the service may have (services often depend upon other services).
