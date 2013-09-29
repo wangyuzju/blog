@@ -12,7 +12,11 @@ tags:
 
 #路由和视图
 ## 什么是Injector
+
 注入器本身不知道$http, $route服务的作用，甚至不知道这些服务的存在，只有在定义模块的时候进行配置，Injector的核心功能是**加载模块的定义声明**，注册在这些定义声明中提供的所有服务，当被请求的时候，将这些服务注入对应的函数，通过服务的提供者实现延迟实例化。
+
+### 实现原理
+根据实例函数的参数名，来加载该名字对应的函数，并作为参数传入。参考[Angular DI实现原理](http://stackoverflow.com/questions/1007981/how-to-get-function-parameter-names-values-dynamically-from-javascript)
 
 ## 服务提供者
 服务提供者是一个对象，它提供服务，并且通过暴露配置这些服务的接口，控制一个服务的创建和运行行为，举$route服务的例子来说，$routeProvider接口用于开发人员定义应用的路由规则
