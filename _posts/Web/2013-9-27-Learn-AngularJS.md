@@ -7,7 +7,7 @@ tags:
 ---
 
 # 源代码结构
-+ `/src/auto/injector.js`, 实现**Dependency Injection**
++ [/src/auto/injector.js`](https://github.com/angular/angular.js/blob/master/src/auto/injector.js), 实现**Dependency Injection**
 
 # Tips
 + **$inject**。`PhoneListCtrl.$inject = ['$scope', '$http'];` 避免JS代码压缩过程中造成的$scope, $http标识符被替换导致Angular失效的问题。或者用如下的方法`var PhoneListCtrl = ['$scope', '$http', function($scope, $http) { /* constructor body */ }];`
