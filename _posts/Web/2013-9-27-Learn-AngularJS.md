@@ -7,6 +7,7 @@ tags:
 ---
 
 # 源代码结构
++ `/AngularPublic.js`，外部接口的实现逻辑，比如$http, $injector等。[源代码](https://github.com/angular/angular.js/blob/master/src/AngularPublic.js) 对照这个，就知道所有Angular API的来龙去脉了。
 + `/src/auto/injector.js`，实现**Dependency Injection**，[源代码](https://github.com/angular/angular.js/blob/master/src/auto/injector.js)
 + 测试使用
 
