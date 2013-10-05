@@ -11,6 +11,9 @@ tags:
 + `/src/auto/injector.js`，实现**Dependency Injection**，[源代码](https://github.com/angular/angular.js/blob/master/src/auto/injector.js)
 + 测试使用
 
+# Angular 模块
+`angular.module` 这一API同时用于创建和获取Angular模块，当调用改API时传入第二个参数表示创建模块，如`angular.module('test', [])`。**不带第二个参数为获取模块**，如`angular.module(t'est')`。
+
 # Tips
 + **$inject**。`PhoneListCtrl.$inject = ['$scope', '$http'];` 避免JS代码压缩过程中造成的$scope, $http标识符被替换导致Angular失效的问题。或者用如下的方法`var PhoneListCtrl = ['$scope', '$http', function($scope, $http) { /* constructor body */ }];`
 + **ngSrc**。直接在图片的src属性中，设置Angular变量{{var}}，当Angular没有执行的时候，浏览器会请求带{{}}的地址，造成错误
