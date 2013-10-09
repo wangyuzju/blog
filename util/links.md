@@ -50,6 +50,9 @@ title: 平时发现的好网站
   + [ANSI转义表](http://ascii-table.com/ansi-escape-sequences.php) -- terminal 配色，格式相关的转义符
   + [jsPerf -- Javascript性能测试网站](http://jsperf.com/)
 
++ **Angular**
+[理解 Angular](http://onehungrymind.com/angularjs-sticky-notes-pt-1-architecture/)
+[深入了解directives, scope, DI](https://github.com/angular/angular.js/wiki/Understanding-Directives)
 
 ##技术博客
 + [阮一峰](http://www.ruanyifeng.com/blog/)
