@@ -51,8 +51,8 @@ title: 平时发现的好网站
   + [jsPerf -- Javascript性能测试网站](http://jsperf.com/)
 
 + **Angular**
-[理解 Angular](http://onehungrymind.com/angularjs-sticky-notes-pt-1-architecture/)
-[深入了解directives, scope, DI](https://github.com/angular/angular.js/wiki/Understanding-Directives)
+  + [理解 Angular](http://onehungrymind.com/angularjs-sticky-notes-pt-1-architecture/)
+  + [深入了解directives, scope, DI](https://github.com/angular/angular.js/wiki/Understanding-Directives)
 
 ##技术博客
 + [阮一峰](http://www.ruanyifeng.com/blog/)
