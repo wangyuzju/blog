@@ -1,7 +1,7 @@
 ---
 layout: default
 title: ECMASCript 规范详解
-category: Program
+category: program
 tags:
 - ECMAScript
 ---
