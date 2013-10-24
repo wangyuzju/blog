@@ -14,8 +14,8 @@ process对象中的大部分属性都是使用c++实现的，在node.cc(2300-251
 ####参考
 + src/node.cc:2546-2603`void Load()`
 + src/node_javascript.cc:39-41`Handle<String> MainSource()`
-+ node_natives.h源代码示例
 
+node_natives.h源代码示例
 
     namespace node {
         const char node_native[] = {47, 47, 32, 67, 112 ......}
