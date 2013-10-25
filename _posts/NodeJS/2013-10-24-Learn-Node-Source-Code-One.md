@@ -40,3 +40,31 @@ node_natives.h源代码示例
 4. 通过`mod->register_context_func(exports, unused, env->context());`加载模块到exports对象中去，并使用`cache->Set("xxx", exports);`设定xxx模块的缓存对象exports。
 5. 通过`args.GetReturnValue().Set(exports);`，将exports对象(加载的模块)作为process.binding的结果返回
 
+### get\_builtin\_module 函数
+返回的是一个node\_module\_struct类型的指针，其数据结构和函数为
+
+    struct node_module_struct {
+        int version;
+        void *dso_handle;
+        const char *filename;
+        node::addon_register_func register_func;
+        node::addon_context_register_func register_context_func;
+        const char *modname;
+    };
+    node_module_struct* get_builtin_module(const char *name) {
+        char buf[128];
+        node_module_struct *cur = NULL;
+        snprintf(buf, sizeof(buf), "node_%s", name);
+        /* TODO: you could look these up in a hash, but there are only
+         * a few, and once loaded they are cached. */
+        for (int i = 0; node_module_list[i] != NULL; i++) {
+            cur = node_module_list[i];
+            if (strcmp(cur->modname, buf) == 0) {
+                return cur;
+            }
+        }
+        return NULL;
+    }
+    
+该函数实际是从node\_module\_list[]数组中去读取对应的node模块(以node_XXX为key)。
+
