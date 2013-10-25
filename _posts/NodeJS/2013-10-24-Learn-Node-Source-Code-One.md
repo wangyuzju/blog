@@ -65,14 +65,7 @@ node_natives.h源代码示例
         }
         return NULL;
     }
-    
-该实例是从node\_module\_list[]数组中去读取对应的node模块(以node\_XXX为key)。然后调用返回的实例的初始化方法。比如调用process.Bing("node_buffer")加载时，过程如下
-
-+ 读取node\_module\_list中名为node\_buffer的node\_module\_struct类的实例(node\_buffer.cc)为cur
-+ 调用cur的register\_context\_func函数，传入一个新的JS对象(exports)，JS undefined值和context，其对应的函数源代码如下所示。**在这个新JS对象中设定各种方法**
-+ Binging函数(C++)通过`args.GetReturnValue().Set(exports)`返回这个新建并设定好各种属性的JS对象--即process.binding所返回的对象.
-
-
+    // node_buffer 所返回的register_context_func方法
     void Initialize(Handle<Object> target,
                 Handle<Value> unused,
                 Handle<Context> context) {
@@ -81,4 +74,10 @@ node_natives.h源代码示例
         target->Set(FIXED_ONE_BYTE_STRING(env->isolate(), "setupBufferJS"),
                     FunctionTemplate::New(SetupBufferJS)->GetFunction());
     } 
+    
+该实例是从node\_module\_list[]数组中去读取对应的node模块(以node\_XXX为key)。然后调用返回的实例的初始化方法。比如调用process.Bing("node_buffer")加载时，过程如下
+
++ 读取node\_module\_list中名为node\_buffer的node\_module\_struct类的实例(node\_buffer.cc)为cur
++ 调用cur的register\_context\_func函数，传入一个新的JS对象(exports)，JS undefined值和context，其对应的函数源代码如下所示。**在这个新JS对象中设定各种方法**
++ Binging函数(C++)通过`args.GetReturnValue().Set(exports)`返回这个新建并设定好各种属性的JS对象--即process.binding所返回的对象.
 
