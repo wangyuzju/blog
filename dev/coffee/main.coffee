@@ -10,6 +10,7 @@ define( (require, exports, module) ->
   window.onload = ->
     $('#edit-page').click blog.editPage
 
+
     # highlight code
 #    codes = document.querySelectorAll("pre code")
 #    for obj in codes
