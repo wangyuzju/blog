@@ -9,17 +9,7 @@
       return console.log('editing');
     };
     return window.onload = function() {
-      var codes, obj, _i, _len;
-      $('#edit-page').click(blog.editPage);
-      codes = document.querySelectorAll("pre code");
-      for (_i = 0, _len = codes.length; _i < _len; _i++) {
-        obj = codes[_i];
-        obj.className = 'prettyprint linenums';
-      }
-      if (codes.length > 0) {
-        prettify();
-        console.log(codes.length + ' places prettyprinted!');
-      }
+      return $('#edit-page').click(blog.editPage);
     };
   });
 

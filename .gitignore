@@ -2,5 +2,6 @@ _posts/Private/*
 _site/*
 .idea/*
 .settings
+node_modules/*
 .c9revisions/
 *.iml
