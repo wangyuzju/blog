@@ -8,6 +8,7 @@ tags:
 ---
 简单学习了Google的V8之后，决定开始学习NodeJS源代码的一个系列。
 
+
 # process对象
 process对象中的大部分属性都是使用c++实现的，在node.cc(2300-2514)中的`void SetupProcessObject()`函数中定义。process在C++中是一个JS对象(ObjectTemplate类型对象o\_tmpl的实例，通过o\_tmpl->NewInstance()生成)，并作为参数传入到Node的初始化JS代码的数组格式——node\_native("src/node.js")中去，可以在"build/src/node_natives.h"目录下查看(./configure && make -j 3)。
 
@@ -32,7 +33,7 @@ node_natives.h源代码示例
         ....
     }
     // using v8::String::NewFromOneByte to genarate String type for Handle
-{% endhightlight %}
+{% endhighlight %}
 ## 核心的process.binding
 1. 通过`env->binding_cache_object()`获取已加载模块的缓存列表，如果存在，就返回该模块的JS对象
 2. 否则，通过Set `env->module_load_list_array()`返回的对象的属性，添加待加载的模块名字到process.moduleLoadList对象中
