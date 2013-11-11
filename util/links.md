@@ -27,6 +27,7 @@ title: 平时发现的好网站
 + [JSDoc][07] -- JSDoc说明文档
 [07]: http://usejsdoc.org/
 + [Hicss的个人博客](http://www.hicss.net/) -- css / js 等
++ [IE6 Bug汇总](http://stylisticweb.com/design-tutorials/15-ie6-bugs-and-simple-solutions) 图文并茂，一目了然
 
 + **一些好文章**
   + [三个CSS预处理框架(SASS, LESS, stylus)的比较][020] -- by [司徒正美][021]
