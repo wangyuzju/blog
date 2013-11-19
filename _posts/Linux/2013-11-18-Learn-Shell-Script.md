@@ -46,7 +46,7 @@ tags:
 &表示后台执行cmd，
 
 ## 循环
-
+{% highlight sh %}
     for i in `seq 1 3`; do
         echo $i
     done
@@ -59,6 +59,6 @@ tags:
     do
         echo "$a"
     done
-    
+{% hightlight %}    
 ## 调式
 bash -x 和 echo
