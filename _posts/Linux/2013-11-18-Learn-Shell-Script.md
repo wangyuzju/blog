@@ -46,7 +46,7 @@ tags:
 &表示后台执行cmd，
 
 ## 循环
-{% highlight sh %}
+{% highlight shell %}
     for i in `seq 1 3`; do
         echo $i
     done
