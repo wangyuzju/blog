@@ -87,6 +87,7 @@ title: 平时发现的好网站
 [60]: http://learnpythonthehardway.org/
 + [git常用命名备忘录](http://cloudbbs.org/forum.php?mod=viewthread&tid=16794)
 + [Cracking The Coding Interview](http://hawstein.com/posts/ctci-solutions-contents.html)
++ [Chrome 学习指南](http://fe.baidu.com/doc/wpo/research/chromium-gettingstart-guide.text)
 
 ##friends
 + [我来我往](http://jyd.me/) -- 纪耀典的技术博客，好基友，一起走
