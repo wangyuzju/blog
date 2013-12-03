@@ -49,7 +49,7 @@ cmd </dev/null > /dev/null 2>&1 &
 &表示后台执行cmd，
 
 ## 循环
-{% highlight shell %}
+{% highlight bash %}
     for i in `seq 1 3`; do
         echo $i
     done
