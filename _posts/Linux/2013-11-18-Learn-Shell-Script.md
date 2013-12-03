@@ -62,7 +62,7 @@ cmd </dev/null > /dev/null 2>&1 &
     do
         echo "$a"
     done
-{% highlight %}    
+{% endhighlight %}    
 ## 调式
 bash -x 和 echo
 
