@@ -15,6 +15,9 @@ title: 平时发现的好网站
     #svn 清除删除的文件信息
     svn st | grep '^!' | awk '{print $2}' | xargs svn delete --force
 
+## 牛人博客
++ [Socket.io作者博客](http://www.devthought.com/) 
+
 ##前端
 + [一淘UX博客][00] -- 非常有水平的前端博客
 [00]: http://ux.etao.com/
