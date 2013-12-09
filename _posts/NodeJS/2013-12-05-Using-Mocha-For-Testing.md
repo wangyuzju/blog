@@ -33,5 +33,5 @@ mocha看上去相当不错的样子，想到开发大型系统。调用API的时
 
 ## Tips
 + 规则后面的指令前需使用Tab，不能使用空格
-+ 如果规则名和目录下文件名重名（比如test），则会报`make: 'test' is up to date.`错误。解决办法是**设置.PONEY参数**，在其中指定重名的规则，如`.PONEY: test`
++ 如果规则名和目录下文件名重名（比如test），则会报`make: 'test' is up to date.`错误。解决办法是**设置.PONEY参数**，在其中指定重名的规则，如`.PONEY: test`。 参考[Makefile中的PONEY](http://hi.baidu.com/crazii_chn/item/fe088491f78f2134326eeb3c)
 + 
