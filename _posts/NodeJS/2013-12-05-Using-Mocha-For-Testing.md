@@ -26,3 +26,12 @@ mocha看上去相当不错的样子，想到开发大型系统。调用API的时
 # 使用实例
 
 + [使用Cakefile构建mocha自动化测试](http://www.danneu.com/posts/14-setting-up-mocha-testing-with-coffeescript-node-js-and-a-cakefile/)
+
+# 使用Makefile来实现mocha测试
+
+上文用的是Cakefile，但是相对来说，不如Makefile来得通用，看了下Makefile的语法，感觉清晰不少，express、connect等框架也是用的Makefile，于是尝试使用Makefile来实现自动化测试
+
+## Tips
++ 规则后面的指令前需使用Tab，不能使用空格
++ 如果规则名和目录下文件名重名（比如test），则会报`make: 'test' is up to date.`错误。解决办法是**设置.PONEY参数**，在其中指定重名的规则，如`.PONEY: test`
++ 
