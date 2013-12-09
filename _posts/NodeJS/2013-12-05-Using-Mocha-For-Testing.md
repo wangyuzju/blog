@@ -58,6 +58,7 @@ mocha看上去相当不错的样子，想到开发大型系统。调用API的时
 # 使用实例
 
 + [使用Cakefile构建mocha自动化测试](http://www.danneu.com/posts/14-setting-up-mocha-testing-with-coffeescript-node-js-and-a-cakefile/)
++ [使用mocha对基于Node.JS的服务器端CoffeeScript进行测试并通过jscoverage生成覆盖率报告](http://programus.github.io/blog/2012/05/26/coffee-mocha-coverage-node-under-windows/)
 
 # 使用Makefile来实现mocha测试
 
