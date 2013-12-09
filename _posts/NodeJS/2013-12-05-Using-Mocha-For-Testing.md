@@ -18,6 +18,8 @@ mocha看上去相当不错的样子，想到开发大型系统。调用API的时
 # 语法介绍
   mocha支持**BDD**， **TDD**， **exports**三种流行的测试接口，默认采用BDD
   
+  exports 实际上就是BDD，只是写法上省略了describe, it关键字
+  
 参考：
 
 + [TDD 和 BDD 的区别](http://joshldavis.com/2013/05/27/difference-between-tdd-and-bdd/)
