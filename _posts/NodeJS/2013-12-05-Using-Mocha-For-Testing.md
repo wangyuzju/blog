@@ -16,13 +16,24 @@ mocha看上去相当不错的样子，想到开发大型系统。调用API的时
 + mocha默认不支持coffee，需要加--compilers coffee:coffee-script才能正常使用。
 
 # 语法介绍
+  mocha支持**BDD**， **TDD**， **exports**三种流行的测试接口，默认采用BDD
+  
+参考：
 
-## describe(intro, fn)
++ [TDD 和 BDD 的区别](http://joshldavis.com/2013/05/27/difference-between-tdd-and-bdd/)
+
+## BDD(Behavior Drive Development)
+### describe(intro, fn)
   describe函数主要用于将要测试的内容包在一起，便于分组查看，在函数参数中可以嵌套使用describe
   
-## it(desc, fn)
+### it(desc, fn)
   **it**是mocha测试的核心，其内的函数如果抛出了任何异常，都会被it捕获，提示测试失败
-  
+
+### before() 
+### after()
+### beforeEach()
+### afterEach()
+
 # 使用实例
 
 + [使用Cakefile构建mocha自动化测试](http://www.danneu.com/posts/14-setting-up-mocha-testing-with-coffeescript-node-js-and-a-cakefile/)
@@ -34,4 +45,4 @@ mocha看上去相当不错的样子，想到开发大型系统。调用API的时
 ## Tips
 + 规则后面的指令前需使用Tab，不能使用空格
 + 如果规则名和目录下文件名重名（比如test），则会报`make: 'test' is up to date.`错误。解决办法是**设置.PONEY参数**，在其中指定重名的规则，如`.PONEY: test`。 参考[Makefile中的PONEY](http://hi.baidu.com/crazii_chn/item/fe088491f78f2134326eeb3c)
-+ 
++ 在指令前面加@，不输出指令内容，便于查看整洁干净的测试的结果
