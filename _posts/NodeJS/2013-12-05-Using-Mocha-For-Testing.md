@@ -36,6 +36,25 @@ mocha看上去相当不错的样子，想到开发大型系统。调用API的时
 ### beforeEach()
 ### afterEach()
 
+# 输出格式
+设定--reporter(-R)参数来控制mocha的输出内容和样式
+## dot 
+默认样式，点列出测试文件，只显示总测试结果
+## spec
+将测试文件中的描述语句也呈现出来
+## nyan
+一个火车头～
+## tap
+纯文字，是Test-Anything-Protocol的消费者
+## landing
+以飞机降落的模型，直观展示测试失败位置
+## list
+类似于spec，但是将层级关系展开，不如spec直观
+## progress
+## json
+
+
+
 # 使用实例
 
 + [使用Cakefile构建mocha自动化测试](http://www.danneu.com/posts/14-setting-up-mocha-testing-with-coffeescript-node-js-and-a-cakefile/)
