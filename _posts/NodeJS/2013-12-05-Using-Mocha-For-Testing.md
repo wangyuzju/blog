@@ -32,7 +32,11 @@ mocha看上去相当不错的样子，想到开发大型系统。调用API的时
   **it**是mocha测试的核心，其内的函数如果抛出了任何异常，都会被it捕获，提示测试失败
 
 ### before() 
+before语句写在it()语句之前，在it内部写before是无效的。
+
+beforeEach对后续的每个it()语句生效
 ### after()
+mocha 中的after在完成测试之后自动执行，对于异步测试，也就是手动调用done()函数表明测试完成才执行。
 ### beforeEach()
 ### afterEach()
 
