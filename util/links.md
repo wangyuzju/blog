@@ -17,6 +17,8 @@ title: 平时发现的好网站
 
 ## 牛人博客
 + [Socket.io作者博客](http://www.devthought.com/) 
++ [云风的博客](http://blog.codingnow.com/) -- 前网易游戏开发人员
+
 
 ##前端
 + [一淘UX博客][00] -- 非常有水平的前端博客
