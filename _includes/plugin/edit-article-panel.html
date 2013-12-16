@@ -1,93 +1,99 @@
 <section id="edit-article-panel" class="bg-color-pink" data-path="{{ page.path }}">
-  <ul>
-    <a href="https://github.com/login/oauth/authorize?client_id=bfaa94b476a91ae70830">
-      <li>登录</li>
-    </a>
-    <li id="new-article">
-      新建
-      <div id="choose-category"></div>
-    </li>
-    <a id="edit" href="">
-      <li>编辑</li>
-    </a>
-  </ul>
+    <ul>
+        <a href="https://github.com/login/oauth/authorize?client_id=bfaa94b476a91ae70830">
+            <li>登录</li>
+        </a>
+        <li id="new-article">
+            新建
+            <div id="choose-category"></div>
+        </li>
+        <a id="edit" href="">
+            <li>编辑</li>
+        </a>
+    </ul>
 </section>
 
 <script type="text/javascript">
-  (function () {
+    (function () {
 
-    var settings = {
-      APIURL: 'https://api.github.com',
-      username: 'wangyuzju',
-      repoName: 'blog',
-      blogURL: 'https://github.com/wangyuzju/blog'
-    };
-    var pub = {};
+        var settings = {
+            APIURL: 'https://api.github.com',
+            username: 'wangyuzju',
+            repoName: 'blog',
+            blogURL: 'https://github.com/wangyuzju/blog'
+        };
+        var pub = {};
 
-    var ajaxGet = function (url, fn) {
-      var xhr = new XMLHttpRequest();
+        var ajaxGet = function (url, fn) {
+            var xhr = new XMLHttpRequest();
 
-      xhr.onreadystatechange = function () {
-        if (xhr.readyState == 4 && xhr.status == 200) {
-          fn(xhr.responseText);
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    fn(xhr.responseText);
+                }
+            };
+            xhr.open("GET", url, true);
+
+            xhr.send();
+        };
+
+        /*    var ajaxPost = function (url, data, fn) {
+         var xhr = new XMLHttpRequest();
+
+         xhr.onreadystatechange = function () {
+         if (xhr.readyState == 4 && xhr.status == 200) {
+         fn(xhr.responseText);
+         }
+         };
+         xhr.open("POST", url, true);
+         xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
+         xhr.send(data);
+         };*/
+
+        /**
+         * init edit link
+         */
+        var URLEditPrefix = 'https://github.com/wangyuzju/blog/edit/gh-pages/';
+
+        var filePath = document.querySelector('#edit-article-panel').getAttribute('data-path');
+        if (filePath) {
+            document.querySelector('#edit-article-panel #edit').setAttribute('href',
+                URLEditPrefix + filePath
+            );
         }
-      };
-      xhr.open("GET", url, true);
+        /**
+         * init categories to choose when add new article
+         */
+            //https://github.com/wangyuzju/blog/new/gh-pages/_posts/Articles
 
-      xhr.send();
-    };
+        pub.genAddLinkByCategory = function (category) {
+            return '<a target="_blank" href="' + settings.blogURL + '/new/gh-pages/_posts/' + category + '">' + category + '</a>'
+        };
 
-    /*    var ajaxPost = function (url, data, fn) {
-     var xhr = new XMLHttpRequest();
+        ajaxGet(
+            settings.APIURL + '/repos/' + settings.username + '/blog/contents/_posts?ref=gh-pages',
+            function (retData) {
+                var items = JSON.parse(retData);
+                console.log(items);
+                var dirs = ['<ul>'];
+                for (var key in items) {
+                    if (items.hasOwnProperty(key)) {
+                        var value = items[key];
+                        if (value.type === "dir") {
+                            dirs.push('<li>' + pub.genAddLinkByCategory(value.name) + '</li>');
+                        }
+                    }
+                }
+                dirs.push('</ul>');
+                document.querySelector('#edit-article-panel #choose-category').innerHTML = dirs.join('');
 
-     xhr.onreadystatechange = function () {
-     if (xhr.readyState == 4 && xhr.status == 200) {
-     fn(xhr.responseText);
-     }
-     };
-     xhr.open("POST", url, true);
-     xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-
-     xhr.send(data);
-     };*/
-
-    /**
-     * init edit link
-     */
-    var URLEditPrefix = 'https://github.com/wangyuzju/blog/edit/gh-pages/';
-
-    var filePath = document.querySelector('#edit-article-panel').getAttribute('data-path');
-    if (filePath) {
-      document.querySelector('#edit-article-panel #edit').setAttribute('href',
-        URLEditPrefix + filePath
-      );
-    }
-    /**
-     * init categories to choose when add new article
-     */
-      //https://github.com/wangyuzju/blog/new/gh-pages/_posts/Articles
-
-    pub.genAddLinkByCategory = function (category) {
-      return '<a target="_blank" href="' + settings.blogURL + '/new/gh-pages/_posts/' + category + '">' + category + '</a>'
-    };
-
-    ajaxGet(
-      settings.APIURL + '/repos/' + settings.username + '/blog/contents/_posts?ref=gh-pages',
-      function (retData) {
-        var items = JSON.parse(retData);
-        console.log(items);
-        var dirs = ['<ul>'];
-        for (var key in items) {
-          if (items.hasOwnProperty(key)) {
-            var value = items[key];
-            if (value.type === "dir") {
-              dirs.push('<li>' + pub.genAddLinkByCategory(value.name) + '</li>');
+                if($){
+                    $('a', $('#choose-category')).on('click', function(){
+                        alert('---\nlayout: default\ntitle:\ncategory: ' + $(this).html() + '\ntags: \n---');
+                    });
+                }
             }
-          }
-        }
-        dirs.push('</ul>');
-        document.querySelector('#edit-article-panel #choose-category').innerHTML = dirs.join('');
-      }
-    );
-  })();
+        );
+    })();
 </script>
