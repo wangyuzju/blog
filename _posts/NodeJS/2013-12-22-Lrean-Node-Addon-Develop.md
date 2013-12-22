@@ -35,3 +35,11 @@ global->Set(v8::String::New("version"), v8::FunctionTemplate::New(Version));
 
 
 Fabolous-Breathe
+
+# V8中的异常
+通过ThrowException函数抛出异常的实例，异常实例通过异常对象Exception的五个成员函数生成，分别为`RangeError`, `ReferenceError`, `SynctaxError`, `TypeError`, `Error`，抛出异常的方法如下
+
+{% hiighlight c++ %}
+ThrowException(Exception::TypeError(String::New("xxx")));
+{% endhighlight %}
+
