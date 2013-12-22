@@ -14,6 +14,7 @@ tags:
  * C++ 实现JS函数的两种情况
  */
 // 用于V8内部, JS的C++实现
+// Arguments继承自FunctionCallbackInfo类，参见http://bespin.cz/~ondras/html/classv8_1_1Arguments.html
 Handle<Value> hello(const Arguments args){
 
 }
