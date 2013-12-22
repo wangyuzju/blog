@@ -14,9 +14,19 @@ tags:
  * C++ 实现JS函数的两种情况
  */
 // 用于V8内部, JS的C++实现
-// Arguments继承自FunctionCallbackInfo类，参见http://bespin.cz/~ondras/html/classv8_1_1Arguments.html
+// Arguments继承自FunctionCallbackInfo类
+// 参见http://bespin.cz/~ondras/html/classv8_1_1Arguments.html
 Handle<Value> hello(const Arguments args){
-
+    // 操作符[]取Local<Value>型的参数（JS中的参数）具有如下公共成员函数
+    V8_INLINE (int Length() const)
+ 	V8_INLINE (Local< Value > operator[](int i) const)
+ 	V8_INLINE (Local< Function > Callee() const)
+ 	V8_INLINE (Local< Object > This() const)
+ 	V8_INLINE (Local< Object > Holder() const)
+ 	V8_INLINE (bool IsConstructCall() const)
+ 	V8_INLINE (Local< Value > Data() const)
+ 	V8_INLINE (Isolate *GetIsolate() const)
+ 	V8_INLINE (ReturnValue< T > GetReturnValue() const)
 }
 // Handle<Object> target
 target->Set(String::NewSymbol("greet"), func_tmpl->GetFunction());
