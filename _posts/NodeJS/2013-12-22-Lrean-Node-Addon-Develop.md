@@ -8,6 +8,9 @@ tags:
 ---
 跟着[node-addon-examples](https://github.com/rvagg/node-addon-examples)学习node addon开发～
 
+# 基础
++ 可以直接创建并使用一个Value，比如`Local<Value> foo = String::New("bar");`然后引用foo，或者直接在需要调用的地方写`Local<Value>::New(String::New("bar"));`，两者的效果是一致的
+
 # hello world
 {% highlight C++ %}
 /**
