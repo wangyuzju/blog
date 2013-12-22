@@ -26,7 +26,7 @@ void Print(const v8::FunctionCallbackInfo<v8::Value>& args) {
 }
 // global = v8::ObjectTemplate::New();
 global->Set(v8::String::New("version"), v8::FunctionTemplate::New(Version));
-{% endhightlight %}
+{% endhighlight %}
 # function arguments
 
 
