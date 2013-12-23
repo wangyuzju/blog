@@ -35,6 +35,12 @@ Handle<Value> hello(const Arguments args){
 target->Set(String::NewSymbol("greet"), func_tmpl->GetFunction());
 
 // 用于C++，嵌入V8
+/**
+ * v8::FunctionCallbackInfo 是类模板，用于处理各种类型
+ * 参考：
+ *  + template<class a_type> class a_class {} http://www.cprogramming.com/tutorial/templates.html
+ *  + http://www.learncpp.com/cpp-tutorial/143-template-classes/
+ */
 void Print(const v8::FunctionCallbackInfo<v8::Value>& args) {
  
 }
