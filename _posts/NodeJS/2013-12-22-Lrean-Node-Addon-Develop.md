@@ -11,6 +11,9 @@ tags:
 # 基础
 + 可以直接创建并使用一个Value，比如`Local<Value> foo = String::New("bar");`然后引用foo，或者直接在需要调用的地方写`Local<Value>::New(String::New("bar"));`，两者的效果是一致的
 
+## 开发中的TIPS
++ 用node-gyp编译的时候报错； 'error: ‘FunctionCallbackInfo’ does not name a type'， 切换系统的node版本为v 0.11之后即可
+
 # hello world
 {% highlight C++ %}
 /**
@@ -34,7 +37,10 @@ Handle<Value> hello(const Arguments args){
 // Handle<Object> target
 target->Set(String::NewSymbol("greet"), func_tmpl->GetFunction());
 
-// 用于C++，嵌入V8
+// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+// 上面的写法是Node v0.10之前的API， 下面的写法是Node v0.11之后的API
+// node-gyp采用可执行的node版本来进行编译处理，之前Node是v0.10.22
+// 因此无法通过编译，报错error: ‘FunctionCallbackInfo’ does not name a type
 /**
  * v8::FunctionCallbackInfo 是类模板，用于处理各种类型
  * 参考：
