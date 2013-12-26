@@ -14,6 +14,7 @@ tags:
 ## 开发中遇到的问题
 + 用node-gyp编译的时候报错； 'error: ‘FunctionCallbackInfo’ does not name a type'， 切换系统的node版本为v 0.11之后即可
 + 编译出来的Node输出了源代码。估计是之前调试lib/module.js文件的时候console.log出来了加载过来的内容，但是反复排查后发现所有的console代码都已经去掉了，查看git历史记录的时候发现了被我移动到src目录下的(之前便于查看)`node_natives.h`文件，想到会不会是**该文件的缓存**导致的？删除之后重新编译了下果然OK了，再把其中的ASCII码解码成JS源代码，果然有缓存的console!
++ 实现官方demo Wrap C++ Object的时候，编译时候报`error: expected class-name before ‘{’ token`, 原来Node v0.11之后吧`node::ObjectWrap`类独立了出来，需要在自己的头文件中`#include <node_object_wrap.h>`才行。编译的时候，把`.cc`源码文件添加到gyp中的“sources”部分，不然在加载addon的时候，会报"undefined symbol"错误。
 
 # hello world
 {% highlight C++ %}
