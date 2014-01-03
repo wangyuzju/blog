@@ -34,15 +34,15 @@ wiki上给的编译命令是`gcc -o hello_world `pkg-config --cflags --libs libn
 
 
     'conditions': [
-				['OS=="win"', {
-					'libraries': [
-						'-lnode.lib'
-					]
-				}, {
-					'cflags': [
-						'<!@(pkg-config libnotify --cflags)' #for libnotify
-					]	
-				}]
+		['OS=="win"', {
+			'libraries': [
+				'-lnode.lib'
 			]
+		}, {
+			'cflags': [
+				'<!@(pkg-config libnotify --cflags)' #for libnotify
+			]	
+		}]
+	]
 
 
