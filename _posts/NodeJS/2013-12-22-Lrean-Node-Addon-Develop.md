@@ -17,7 +17,7 @@ tags:
 + 实现官方demo Wrap C++ Object的时候，编译时候报`error: expected class-name before ‘{’ token`, 原来Node v0.11之后吧`node::ObjectWrap`类独立了出来，需要在自己的头文件中`#include <node_object_wrap.h>`才行。编译的时候，把`.cc`源码文件添加到gyp中的“sources”部分，不然在加载addon的时候，会报"undefined symbol"错误。target的值要和源码中`NODE_MODULE(xxx, Init);`的xxx保持一致。
 
 # hello world
-{% highlight C++ %}
+{% highlight c++ %}
 /**
  * C++ 实现JS函数的两种情况
  */

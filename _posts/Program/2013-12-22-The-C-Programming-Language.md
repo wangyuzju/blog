@@ -8,7 +8,7 @@ tags:
 
 掌握了下面的表达式，基本上就能看懂大部分指针和函数了～
 
-{% highlight C %}
+{% highlight c %}
 char **argv
 // argv: pointer to char
 int (*daytab)[13]
