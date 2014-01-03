@@ -13,7 +13,7 @@ tags:
 
 + [Gnome官方API](https://developer-next.gnome.org/libnotify/0.7/libnotify-notify.html)
 + [archLinux Desktop Notifications wiki](https://wiki.archlinux.org/index.php/Libnotify)
-+ [gyp 用户手册][https://code.google.com/p/gyp/wiki/GypUserDocumentation]，编译libnotify的时候需要用到
++ [gyp 用户手册](https://code.google.com/p/gyp/wiki/GypUserDocumentation)，编译libnotify的时候需要用到
 
 # libnotify 和 libnotifymm
 
@@ -32,7 +32,7 @@ wiki上给的编译命令是`gcc -o hello_world `pkg-config --cflags --libs libn
 
 查阅了(chromium)[https://src.chromium.org/svn/trunk/src/build/linux/system.gyp]和(node-canvas)[https://github.com/LearnBoost/node-canvas/blob/e7a2bb87e6a30a006f445fb584a16f8f8f29664f/binding.gyp]中gyp文件的书写方式，添加cflag字段就可以了
 
-
+{% highlight python %}
     'conditions': [
 		['OS=="win"', {
 			'libraries': [
@@ -47,5 +47,4 @@ wiki上给的编译命令是`gcc -o hello_world `pkg-config --cflags --libs libn
 			]
 		}]
 	]
-
-
+{% endhightlight %}
