@@ -47,4 +47,4 @@ wiki上给的编译命令是`gcc -o hello_world `pkg-config --cflags --libs libn
 			]
 		}]
 	]
-{% endhightlight %}
+{% endhighlight %}
