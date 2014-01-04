@@ -12,6 +12,7 @@ tags:
 本文记录一下开发一个node-desktop-notification扩展过程中的心得。采用了Gnome桌面的libnotify库， 用到的知识如下：
 
 + Gnome官方API [notify — Notification API](https://developer-next.gnome.org/libnotify/0.7/libnotify-notify.html) [NotifyNotification — A passive pop-up notification.](https://developer-next.gnome.org/libnotify/0.7/NotifyNotification.html)
++ [Gnome Icon 命名规范](https://developer.gnome.org/icon-naming-spec/)用于控制通知消息的图标
 + [archLinux Desktop Notifications wiki](https://wiki.archlinux.org/index.php/Libnotify)
 + [gyp 用户手册](https://code.google.com/p/gyp/wiki/GypUserDocumentation)，编译libnotify的时候需要用到
 
