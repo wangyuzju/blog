@@ -49,3 +49,10 @@ wiki上给的编译命令是`gcc -o hello_world `pkg-config --cflags --libs libn
 		}]
 	]
 {% endhighlight %}
+
+# C++ 相关的知识
+[static 关键字的用途](http://stackoverflow.com/questions/15235526/the-static-keyword-and-its-various-uses-in-c)
+
++ 当是一个命名空间中使用时，表示无法从外部访问，比如某.cc文件中定义static函数，则其他文件无法访问该函数。
++ 当作用在一个函数中的变量时，该变量能保持值（即只初始化一次， 并在退出该作用域时仍然保持值）
++ 作用在类的方法时，不再有外部访问限制，而是可以通过类的实例来访问类的共用方法，比如`std::string::npos`。注意：[类的静态成员函数是属于整个类而非类的对象，所以它没有this指针，这就导致了它仅能访问类的静态数据和静态成员函数。](http://blog.csdn.net/artechtor/article/details/2312766)
