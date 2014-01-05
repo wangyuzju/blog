@@ -16,6 +16,7 @@ tags:
 + [archLinux Desktop Notifications wiki](https://wiki.archlinux.org/index.php/Libnotify)
 + [gyp 用户手册](https://code.google.com/p/gyp/wiki/GypUserDocumentation)，编译libnotify的时候需要用到
 + [V8 API](http://bespin.cz/~ondras/html/hierarchy.html)
++ [V8 中的Handle、Local、Persistent](http://www.web-tinker.com/article/20371.html)。Local的生存周期是HandleScope决定的。
 
 # libnotify 和 libnotifymm
 
