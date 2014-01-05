@@ -31,7 +31,7 @@ tags:
 # 编译成node addon
 wiki上给的编译命令是`gcc -o hello_world `pkg-config --cflags --libs libnotify` hello_world.c`。对应到Node Addon中来的重点就是需要把pkg-config'命令产生的内容显示地告知编译器。分别通过`cflags`和`libraries`字段。
 
-查阅了(chromium)[https://src.chromium.org/svn/trunk/src/build/linux/system.gyp]和(node-canvas)[https://github.com/LearnBoost/node-canvas/blob/e7a2bb87e6a30a006f445fb584a16f8f8f29664f/binding.gyp]中gyp文件的书写方式，添加cflag字段就可以了
+查阅了[chromium](https://src.chromium.org/svn/trunk/src/build/linux/system.gyp)和[node-canvas](https://github.com/LearnBoost/node-canvas/blob/e7a2bb87e6a30a006f445fb584a16f8f8f29664f/binding.gyp)中gyp文件的书写方式，添加cflag字段就可以了
 
 {% highlight python %}
     'conditions': [
