@@ -80,5 +80,22 @@ icon = ToCString(str);  // 方法一
 
 void *p = static_cast<void*>(&str); // 方法二, 乱码...不知道为啥
 icon = static_cast<const char*>(p);
+
+/**
+ * 最终的解决方案
+ * https://groups.google.com/forum/#!topic/nodejs/aNeC6kyZcFI
+ */
+// convert a v8::String to a (char*) -- any call to this should later be free'd
+#include <stdlib.h> //calloc
+#include <cstring> //strncpy
+static inline char *TO_CHAR(Handle<Value> val) {
+    String::Utf8Value utf8(val->ToString());
+
+    int len = utf8.length() + 1;
+    char *str = (char *) calloc(sizeof(char), len);
+    strncpy(str, *utf8, len);
+
+    return str;
+}
 {% endhighlight %}
 
