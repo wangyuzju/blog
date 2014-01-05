@@ -15,6 +15,7 @@ tags:
 + [Gnome Icon 命名规范](https://developer.gnome.org/icon-naming-spec/)用于控制通知消息的图标
 + [archLinux Desktop Notifications wiki](https://wiki.archlinux.org/index.php/Libnotify)
 + [gyp 用户手册](https://code.google.com/p/gyp/wiki/GypUserDocumentation)，编译libnotify的时候需要用到
++ [V8 API](http://bespin.cz/~ondras/html/hierarchy.html)
 
 # libnotify 和 libnotifymm
 
