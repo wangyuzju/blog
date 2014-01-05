@@ -62,5 +62,23 @@ wiki上给的编译命令是`gcc -o hello_world `pkg-config --cflags --libs libn
 + 作用在类的方法时，不再有外部访问限制，而是可以通过类的实例来访问类的共用方法，比如`std::string::npos`。注意：[类的静态成员函数是属于整个类而非类的对象，所以它没有this指针，这就导致了它仅能访问类的静态数据和静态成员函数。](http://blog.csdn.net/artechtor/article/details/2312766)
  
 
+# V8 相关的知识
 
++ C++回调参数 `const FunctionCallbackInfo& info` 使用info[0]取的是V8::Value类型，如果传入的是一个对象参数，并且希望解析之的话，需要调用Value类的toObject方法，如`Local<Object> Opts = info[0]->ToObject()`， 否则编译会报错`invalid conversion from ‘v8::Value*’ to ‘v8::Object*’ [-fpermissive]`
++ `String::Utf8Value str(info[0])`方法将**JS值转换成C++中的值**: Converts an object to a UTF-8-encoded character array. （通过指针），需要使用以下函数转换成C++指针。参考[从v8到C++的数据类型转换](http://www.web-tinker.com/article/20368.html)
++ 上面的方法好像不是标准的C string, 因为我的node-libnotify插件无法正确解析传入的icon字符串，但是print出来的却是正确的，唯一合理的解释就是在内部String::Utf8Value得到的不是标准的C字符串, 参考[Efficient way to convery v8::String to c string](https://groups.google.com/forum/#!topic/v8-users/Zv73TwugLHM), 最终用了[**这个解决方案**](https://groups.google.com/forum/#!topic/nodejs/aNeC6kyZcFI)成功运行!
+
+{% highlight c++ %}
+// Extracts a C string from a V8 Utf8Value.
+const char* ToCString(const v8::String::Utf8Value& value) {
+  return *value ? *value : "<string conversion failed>";
+}
+
+String::Utf8Value str(optsIcon);
+
+icon = ToCString(str);  // 方法一
+
+void *p = static_cast<void*>(&str); // 方法二, 乱码...不知道为啥
+icon = static_cast<const char*>(p);
+{% endhighlight %}
 
