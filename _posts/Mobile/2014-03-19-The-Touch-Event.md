@@ -20,3 +20,8 @@ They vary in the following pattern:
 5. When I lift a finger, it will be removed from touches, targetTouches and will appear in changedTouches since it’s what caused the event
 6. Removing my last finger will leave touches and targetTouches empty, and changedTouches will contain information for the last finger
 
+
+[Touch对象的方法参考](https://developer.mozilla.org/en-US/docs/Web/API/Touch): Touch.clientX/Touch.clientY/Touch.force
+/Touch.identifier/Touch.pageX/Touch.pageY/Touch.radiusX/Touch.radiusY/Touch.rotationAngle/Touch.screenX/Touch.screenY
+
+
