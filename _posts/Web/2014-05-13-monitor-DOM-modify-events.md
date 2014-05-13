@@ -27,8 +27,10 @@ tags: FE
 ```
 通过在html()方法完成时，派发一个事件
 
-# DOMCharacterDataModified event
+# <del>DOMCharacterDataModified<del> DOMSubtreeModified event
 当插入的元素是字符时，会触发该事件，但是当插入dom例如 `e.innerHTML = "<span>hello world!</span>"` 时，则不会触发该事件
+
+参考 [JavaScript DOM Events](http://davidwalsh.name/dom-events-javascript), 用DOMSubtreeModified更好
 
 # DOM MutationObserver
 ```
