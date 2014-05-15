@@ -109,3 +109,8 @@ title: 平时发现的好网站
 + [列车运行状态监测][71] -- 毕设项目
 [71]: http://gp.hellofe.com
 + [nodesync](https://npmjs.org/package/nodesync) -- 代码自动同步工具(基于node, 自动同步本地改动代码到服务器)
+ 
+
+# Node 
++ [stream-handbook](https://github.com/substack/stream-handbook)
++ 
