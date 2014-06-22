@@ -18,18 +18,26 @@ tags:
 
 # nginx 篇
 
-## 基本理念
-+ nginx的首要功能是一个反向代理，其次才是服务器，因此**更关注URLs**而不是文件。
-+ nginx的配置是层级继承的形式，主要由三个嵌套的块构成：**HTTP-block**（整个配置文件）,**server-block**,**location block**,继承关系为http -> server -> location，还有两个特殊的location：**event-block**和设定http-block和event-block归属的**root**。需要配置的主要是前面的三个块。server-block对应Apache中的虚拟主机，location-block主要对应URI
-+ 
-+ 
-+ 
-
 ## 安装过程
 `configure`, `sudo make install`就能自动安装到`/usr/local/nginx`目录下面
 
 ##常用命令：
 + 发送HUP命令进行平滑重启 `kill -HUP `cat /usr/local/nginx/logs/nginx.pid`
+
+## 基本理念
++ nginx的首要功能是一个反向代理，其次才是服务器，因此**更关注URLs**而不是文件。
++ nginx的配置是层级继承的形式，主要由三个嵌套的块构成：**HTTP-block**,**server-block**,**location block**,继承关系为http -> server -> location，还有两个特殊的location：**event-block**和设定http-block和event-block归属的**root**。需要配置的主要是前面的三个块。server-block对应Apache中的虚拟主机，location-block主要对应URI
++ 代理一切请求。过滤掉资源类型的请求，**只有当nginx无法处理请求的uri时，才将请求分发给后端程序来处理**。例如`location / {try_files $uri $uri/ /index.php;}`就能将静态文件的请求直接返回，然后再加上`/index.php`交给适配php的规则去处理。这里注意有`proxy_pass`和`fastcgi_pass`两种（暂时不知道是否和include过来的配置有关）。
+    
+
+## 配置示例
+### 变量
++ `$schema`, 自动适配http或者https
++ `$requesr_uri`，请求的uri
+### 语句
++ `try_files $uri =404;`, 当请求的uri不存在时，自动返回404，此时定义在后面的语句不会再被执行
++ `return 301 http://domain.com$request_uri;` 重写url
++ [完整例子](http://wiki.nginx.org/FullExample)
 
 ## 参考链接
 + [入门指南](http://wiki.nginx.org/GettingStarted)
