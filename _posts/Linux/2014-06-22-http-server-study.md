@@ -15,7 +15,30 @@ tags:
 + `httpd -l` 查看加载了哪些模块
 + `httpd -V` 查看编译Apache时的配置(可以看到默认读取的配置文件的路径等)
 
-# PS
+
+# nginx 篇
+
+## 基本理念
++ nginx的首要功能是一个反向代理，其次才是服务器，因此**更关注URLs**而不是文件。
++ nginx的配置是层级继承的形式，主要由三个嵌套的块构成：**HTTP-block**（整个配置文件）,**server-block**,**location block**,继承关系为http -> server -> location，还有两个特殊的location：**event-block**和设定http-block和event-block归属的**root**。需要配置的主要是前面的三个块。server-block对应Apache中的虚拟主机，location-block主要对应URI
++ 
++ 
++ 
+
+## 安装过程
+`configure`, `sudo make install`就能自动安装到`/usr/local/nginx`目录下面
+
+##常用命令：
++ 发送HUP命令进行平滑重启 `kill -HUP `cat /usr/local/nginx/logs/nginx.pid`
+
+## 参考链接
++ [入门指南](http://wiki.nginx.org/GettingStarted)
++ [调试nginx](http://wiki.nginx.org/NginxDebugging)
++ [设置nginx](http://wiki.nginx.org/Configuration)
++ [如何正确配置nginx](http://huoding.com/2013/10/23/290), [理解nginx配置模型](http://blog.martinfjordvald.com/2012/08/understanding-the-nginx-configuration-inheritance-model/)
+,[nginx configuration primer](http://blog.martinfjordvald.com/2010/07/nginx-primer/)
+
+
 
 ## 查看Linux发行版信息的方法
 + `uname -a` 查看是否有明确字眼
