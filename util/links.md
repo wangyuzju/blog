@@ -56,6 +56,7 @@ title: 平时发现的好网站
   + [ANSI转义表](http://ascii-table.com/ansi-escape-sequences.php) -- terminal 配色，格式相关的转义符
   + [jsPerf -- Javascript性能测试网站](http://jsperf.com/)
   + [Grunt 配置指南](http://spin.atomicobject.com/2013/05/13/javascript-front-end-grunt/)
+  + [Admin Template](http://www.egrappler.com/templatevamp-free-twitter-bootstrap-admin-template/)
 
 + **Angular**
   + [理解 Angular](http://onehungrymind.com/angularjs-sticky-notes-pt-1-architecture/)
