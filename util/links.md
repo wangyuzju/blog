@@ -57,6 +57,7 @@ title: 平时发现的好网站
   + [jsPerf -- Javascript性能测试网站](http://jsperf.com/)
   + [Grunt 配置指南](http://spin.atomicobject.com/2013/05/13/javascript-front-end-grunt/)
   + [Admin Template](http://www.egrappler.com/templatevamp-free-twitter-bootstrap-admin-template/)
+  + [font awesome](http://fontawesome.io/) - CSS字体库
 
 + **Angular**
   + [理解 Angular](http://onehungrymind.com/angularjs-sticky-notes-pt-1-architecture/)
