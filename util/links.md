@@ -66,6 +66,7 @@ title: 平时发现的好网站
 ##技术博客
 + [阮一峰](http://www.ruanyifeng.com/blog/)
 + [搜索技术博客 - 淘宝](http://www.searchtb.com/)
++ [SAE官方博客](http://blog.sae.sina.com.cn/)
 
 ##编辑器相关
 + [Intellij-IDEA新手指南][1] -- 作者[博客](http://ooxx.me/)
