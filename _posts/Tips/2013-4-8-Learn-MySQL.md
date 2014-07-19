@@ -17,6 +17,7 @@ category: tips
 应使用`drop user reader@localhost`，直接`drop user reader`实际上是执行了`drop user reader@%`，
 MySQL自动加上所有域的标识符%。
 
+
 ###ERROR 1045 (28000) 错误排查
 我用`GRANT select, insert, update, delete on python.* TO 'reader'@'%' IDENTIFIED BY '314428';`
 语句创建了一个reader@%的账户，也即能支持所有主机上的reader用户登录，但是在用`mysql -u reader -p`
@@ -39,6 +40,15 @@ MySQL自动加上所有域的标识符%。
 以匿名的方式**来登录的,即等价于`mysql -p`，直接输入空密码就可以登录了。  
 而`mysql -u reader -p -h 192.168.1.112`不会适配user表里面的localhost记录，转而选择了%
 记录来验证，因此可以正常登录，因此`-h 127.0.0.1`同样会报错！
+
+## 忘记root密码重置
+1. 关闭mysqld服务 `killall -TERM mysqld `
+2. 以不检查权限的方式启动 `mysqld_safe --skip-grant-tables &`
+3. 用空密码方式使用root用户登录 MySQL `mysql -u root`
+4. 修改root用户的密码 `update MySQL.user set password=PASSWORD('新密码') where User='root';`
+5. 更新生效 `flush privileges;`
+6. 重新启动MySQL，就可以使用新密码登录了。
+
 
 ##查看当前权限
 `show grants`查看当前用户权限，`show grants for dba@xxx`查看对应用户的权限
