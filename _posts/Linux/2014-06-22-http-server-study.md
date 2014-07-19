@@ -21,7 +21,10 @@ tags:
 ## 安装过程
 `configure`, `sudo make install`就能自动安装到`/usr/local/nginx`目录下面
 
+
 ##常用命令：
++ 直接 nginx 启动服务i
++ `nginx -s stop|quit|reload|reopen` 分别执行响应操作
 + 发送HUP命令进行平滑重启 `kill -HUP `cat /usr/local/nginx/logs/nginx.pid`
 
 ## 基本理念
@@ -47,6 +50,10 @@ tags:
 ,[nginx configuration primer](http://blog.martinfjordvald.com/2010/07/nginx-primer/)
 
 
+## 使用过程中的坑
++ 配置虚拟主机一直报 403， 原来为指向了自己的home目录，却没有开放home目录的711权限，只开放了home目录下www目录的755权限，没有x权限就导致nginx无法进入home目录，于是就报403了
+
+# Linux 管理相关
 
 ## 查看Linux发行版信息的方法
 + `uname -a` 查看是否有明确字眼
