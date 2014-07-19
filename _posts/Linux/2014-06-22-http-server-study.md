@@ -45,6 +45,8 @@ tags:
 ## 使用 Tips
 + 配置虚拟主机一直报 403， 原来为指向了自己的home目录，却没有开放home目录的711权限，只开放了home目录下www目录的755权限，没有x权限就导致nginx无法进入home目录，于是就报403了
 + 对于未匹配到的server_name, nginx默认会使用配置文件中的第一条 server {} 配置
++ nginx在选择location块来分发请求时，首先会检查严格定义的前缀，以适配到最长前缀的规则为准，然后再看这条规则是否满足其他的
+正则匹配规则，如果有正则适配则采用适配到的正则规则，否则使用之前匹配到的前缀规则(When nginx selects a location block to serve a request it first checks location directives that specify prefixes, remembering location with the longest prefix, and then checks regular expressions. If there is a match with a regular expression, nginx picks this location or, otherwise, it picks the one remembered earlier.)
 
 ## 参考链接
 + [入门指南](http://wiki.nginx.org/GettingStarted)
