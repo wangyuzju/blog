@@ -23,8 +23,8 @@ tags:
 
 
 ##常用命令：
-+ 直接 nginx 启动服务i
-+ `nginx -s stop|quit|reload|reopen` 分别执行响应操作
++ 直接 nginx 启动服务
++ `nginx -s stop|quit|reload|reopen` 分别执行相应操作
 + 发送HUP命令进行平滑重启 `kill -HUP `cat /usr/local/nginx/logs/nginx.pid`
 
 ## 基本理念
@@ -42,6 +42,10 @@ tags:
 + `return 301 http://domain.com$request_uri;` 重写url
 + [完整例子](http://wiki.nginx.org/FullExample)
 
+## 使用 Tips
++ 配置虚拟主机一直报 403， 原来为指向了自己的home目录，却没有开放home目录的711权限，只开放了home目录下www目录的755权限，没有x权限就导致nginx无法进入home目录，于是就报403了
++ 对于未匹配到的server_name, nginx默认会使用配置文件中的第一条 server {} 配置
+
 ## 参考链接
 + [入门指南](http://wiki.nginx.org/GettingStarted)
 + [调试nginx](http://wiki.nginx.org/NginxDebugging)
@@ -49,9 +53,6 @@ tags:
 + [如何正确配置nginx](http://huoding.com/2013/10/23/290), [理解nginx配置模型](http://blog.martinfjordvald.com/2012/08/understanding-the-nginx-configuration-inheritance-model/)
 ,[nginx configuration primer](http://blog.martinfjordvald.com/2010/07/nginx-primer/)
 
-
-## 使用过程中的坑
-+ 配置虚拟主机一直报 403， 原来为指向了自己的home目录，却没有开放home目录的711权限，只开放了home目录下www目录的755权限，没有x权限就导致nginx无法进入home目录，于是就报403了
 
 # Linux 管理相关
 
