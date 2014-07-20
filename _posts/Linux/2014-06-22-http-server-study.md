@@ -35,18 +35,14 @@ tags:
 
 ## 配置示例
 ### 变量
+[http://nginx.org/en/docs/http/ngx_http_core_module.html#variables](http://nginx.org/en/docs/http/ngx_http_core_module.html#variables) 定义了可以在配置文件中使用的nginx变量。
+
 + `$schema`, 自动适配http或者https
 + `$requesr_uri`，请求的uri
 ### 语句
 + `try_files $uri =404;`, 当请求的uri不存在时，自动返回404，此时定义在后面的语句不会再被执行
 + `return 301 http://domain.com$request_uri;` 重写url
 + [完整例子](http://wiki.nginx.org/FullExample)
-
-## 使用 Tips
-+ 配置虚拟主机一直报 403， 原来为指向了自己的home目录，却没有开放home目录的711权限，只开放了home目录下www目录的755权限，没有x权限就导致nginx无法进入home目录，于是就报403了
-+ 对于未匹配到的server_name, nginx默认会使用配置文件中的第一条 server {} 配置
-+ nginx在选择location块来分发请求时，首先会检查严格定义的前缀，以适配到最长前缀的规则为准，然后再看这条规则是否满足其他的
-正则匹配规则，如果有正则适配则采用适配到的正则规则，否则使用之前匹配到的前缀规则(When nginx selects a location block to serve a request it first checks location directives that specify prefixes, remembering location with the longest prefix, and then checks regular expressions. If there is a match with a regular expression, nginx picks this location or, otherwise, it picks the one remembered earlier.)
 
 ### 反向代理
 `proxy_pass`, 可以指向一台机器(http://127.0.0.1:8088)或者一个集群(http://tomcats).
@@ -56,7 +52,16 @@ tags:
     upstream tomcats { 
 	 server 192.168.0.11:8080 weight=50; 
 	 server 192.168.0.11:8081 weight=50; 
-    } 
+    }
+    
+
+## 使用 Tips
++ 配置虚拟主机一直报 403， 原来为指向了自己的home目录，却没有开放home目录的711权限，只开放了home目录下www目录的755权限，没有x权限就导致nginx无法进入home目录，于是就报403了
++ 对于未匹配到的server_name, nginx默认会使用配置文件中的第一条 server {} 配置
++ nginx在选择location块来分发请求时，首先会检查严格定义的前缀，以适配到最长前缀的规则为准，然后再看这条规则是否满足其他的
+正则匹配规则，如果有正则适配则采用适配到的正则规则，否则使用之前匹配到的前缀规则(When nginx selects a location block to serve a request it first checks location directives that specify prefixes, remembering location with the longest prefix, and then checks regular expressions. If there is a match with a regular expression, nginx picks this location or, otherwise, it picks the one remembered earlier.)
+
+
 
 ## 参考链接
 + [入门指南](http://wiki.nginx.org/GettingStarted)
