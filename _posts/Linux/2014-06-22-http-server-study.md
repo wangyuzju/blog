@@ -45,7 +45,8 @@ tags:
 + [完整例子](http://wiki.nginx.org/FullExample)
 
 ### 反向代理
-`proxy_pass`, 可以指向一台机器(http://127.0.0.1:8088)或者一个集群(http://tomcats).
++ `proxy_pass`, 可以指向一台机器(http://127.0.0.1:8088)或者一个集群(http://tomcats).
++ nginx默认将代理的返回数据缓存起来，知道全部接受完毕再返回给客户端，可以使用`proxy_buffering off`关闭该功能，实时返回数据给客户端。`proxy_buffers 16 4k;`设置缓冲区个数和每个缓冲区的大小。无论`proxy_buffering`是否开启，`proxy_buffer_size`（main buffer）都是工作的，设置的缓冲区大小用来**存储upstream端response的header**。
 
 
     # 集群中的所有后台服务器的配置信息
