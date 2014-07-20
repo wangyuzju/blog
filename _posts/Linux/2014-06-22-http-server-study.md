@@ -49,8 +49,8 @@ tags:
 正则匹配规则，如果有正则适配则采用适配到的正则规则，否则使用之前匹配到的前缀规则(When nginx selects a location block to serve a request it first checks location directives that specify prefixes, remembering location with the longest prefix, and then checks regular expressions. If there is a match with a regular expression, nginx picks this location or, otherwise, it picks the one remembered earlier.)
 
 ### 反向代理
-+ `proxy_pass`, 可以指向一台机器或者一个集群(upstream).
-+ 
+`proxy_pass`, 可以指向一台机器(http://127.0.0.1:8088)或者一个集群(http://tomcats).
+
 
     # 集群中的所有后台服务器的配置信息
     upstream tomcats { 
