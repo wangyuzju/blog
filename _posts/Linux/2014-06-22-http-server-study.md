@@ -48,6 +48,16 @@ tags:
 + nginx在选择location块来分发请求时，首先会检查严格定义的前缀，以适配到最长前缀的规则为准，然后再看这条规则是否满足其他的
 正则匹配规则，如果有正则适配则采用适配到的正则规则，否则使用之前匹配到的前缀规则(When nginx selects a location block to serve a request it first checks location directives that specify prefixes, remembering location with the longest prefix, and then checks regular expressions. If there is a match with a regular expression, nginx picks this location or, otherwise, it picks the one remembered earlier.)
 
+### 反向代理
++ `proxy_pass`, 可以指向一台机器或者一个集群(upstream).
++ 
+
+    # 集群中的所有后台服务器的配置信息
+    upstream tomcats { 
+	 server 192.168.0.11:8080 weight=50; 
+	 server 192.168.0.11:8081 weight=50; 
+    } 
+
 ## 参考链接
 + [入门指南](http://wiki.nginx.org/GettingStarted)
 + [调试nginx](http://wiki.nginx.org/NginxDebugging)
