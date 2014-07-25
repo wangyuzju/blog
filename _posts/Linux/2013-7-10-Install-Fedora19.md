@@ -1,10 +1,16 @@
 ---
 layout: default
-title: Fedora 19 重装笔记
+title: Fedora 19 重装笔记 [update Fedora 20]
 category: linux
 tags: 
   fedora
 ---
+# UPDATE
+一年之后的今天2014/7/25，又有机会重装Fedora20，U盘启动的安装上碰到了不少问题：
+1. 首先是官方的 liveuse-creator 已经**无效**了，做出来的启动盘没任何反映
+2. 使用 UltralISO 制作U盘(文件->打开->启动->写入磁盘映像即可) [Fedora 20 详细安装过程（图文详解）包括U盘制造过程](http://www.myexception.cn/other/1622957.html)
+3. 修改U盘下isolinux/syslinux 文件中的root=live:CDLABEL=Fedora-Live-Desktop-x86_64-20-1 为U盘的名字，例如**FEDORA-20-2**，不然在安装的过程中，会找不到启动盘
+4. 记得进入Windous删除一个分区用来安装Linux, 磁盘管理 [Win8如何创建、删除或格式化硬盘分区](http://product.pconline.com.cn/itbk/software/win8/1211/3059944.html)
 
 #开篇
 今天入职，发了工作笔记本x230，据说可以用linux系统，于是果断Fedora 19撸起，安装的时候小郁闷，第一次装好之后想输入中文直接删除了d-bus服务，装了fcitx，结果发现不能用，只好重装fedora了（后来才发现只要在language里面设置一下就好了 --!，囧）
