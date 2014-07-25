@@ -12,6 +12,11 @@ tags:
 3. 修改U盘下isolinux/syslinux 文件中的root=live:CDLABEL=Fedora-Live-Desktop-x86_64-20-1 为U盘的名字，例如**FEDORA-20-2**，不然在安装的过程中，会找不到启动盘
 4. 记得进入Windous删除一个分区用来安装Linux, 磁盘管理 [Win8如何创建、删除或格式化硬盘分区](http://product.pconline.com.cn/itbk/software/win8/1211/3059944.html)
 
+## 无法输入中文
+1. Fedora18之后需要在控制面板里面去设置输入法。以前的im-chooser不能正常使用了。否则会出现：“GDBus.Error...”
+2. 设置里面点“区域＆语言／Region&Language”
+3. 在“输入源／Input Sources“中点添加按钮，添加你想要输入法，应该就能输入中文了。
+
 #开篇
 今天入职，发了工作笔记本x230，据说可以用linux系统，于是果断Fedora 19撸起，安装的时候小郁闷，第一次装好之后想输入中文直接删除了d-bus服务，装了fcitx，结果发现不能用，只好重装fedora了（后来才发现只要在language里面设置一下就好了 --!，囧）
 
