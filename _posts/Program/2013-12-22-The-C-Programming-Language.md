@@ -24,3 +24,6 @@ char (*(*x())[])()
 char (*(*x[3])())[5]
 // x: array[3] of pointer to function returning pointer to array[5] of char
 {% endhighlight %}
+
+### links
+[The right-left rule for reading C declarations](http://ieng9.ucsd.edu/~cs30x/rt_lt.rule.html)
