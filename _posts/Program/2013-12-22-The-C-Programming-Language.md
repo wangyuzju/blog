@@ -26,4 +26,5 @@ char (*(*x[3])())[5]
 {% endhighlight %}
 
 ### links
-[The right-left rule for reading C declarations](http://ieng9.ucsd.edu/~cs30x/rt_lt.rule.html)
++ [Everything you need to know about pointers in C](http://boredzo.org/pointers/)
++ [The right-left rule for reading C declarations](http://ieng9.ucsd.edu/~cs30x/rt_lt.rule.html)
