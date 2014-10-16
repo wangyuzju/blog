@@ -24,6 +24,12 @@ title: 平时发现的好网站
     -p 操作具有可交互性，每次执行comand都交互式提示用户选择，当每次执行一个argument的时候询问一次用户
 
 
+    file watcher 配置
+    # 只有勾选该选项才能保存到目标目录，否则只是在当前目录下面调用对应的 Program 而已
+    1. create output file from stdout
+    # idea 自带的各种宏可以拼装出很高大上的解决方案，如下就是把 styl 替换成 dist 目录的解决方案
+    2. $FileParentDir$/../dist/$FileDirName$/$FileNameWithoutAllExtensions$.css
+
 ## 牛人博客
 + [Socket.io作者博客](http://www.devthought.com/) 
 + [云风的博客](http://blog.codingnow.com/) -- 前网易游戏大牛
