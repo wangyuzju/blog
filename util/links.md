@@ -14,6 +14,9 @@ title: 平时发现的好网站
     
     #svn 清除删除的文件信息
     svn st | grep '^!' | awk '{print $2}' | xargs svn delete --force
+    
+    # svn 自动添加？文件
+    svn st | awk '$1=="?" {print $2}' | xargs  svn add 
 
 ## 牛人博客
 + [Socket.io作者博客](http://www.devthought.com/) 
