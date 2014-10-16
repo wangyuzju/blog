@@ -17,6 +17,12 @@ title: 平时发现的好网站
     
     # svn 自动添加？文件
     svn st | awk '$1=="?" {print $2}' | xargs  svn add 
+    
+    # xargs 参数详解
+    -0 ：当sdtin含有特殊字元时候，将其当成一般字符，想/'空格等
+    -n num 后面加次数，表示命令在执行的时候一次用的argument的个数，默认是用所有的。
+    -p 操作具有可交互性，每次执行comand都交互式提示用户选择，当每次执行一个argument的时候询问一次用户
+
 
 ## 牛人博客
 + [Socket.io作者博客](http://www.devthought.com/) 
