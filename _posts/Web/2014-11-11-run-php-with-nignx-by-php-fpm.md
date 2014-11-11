@@ -24,7 +24,17 @@ tags: ngnix
 1. 打开 php.ini 中 `cgi.fix_pathinfo` 配置项， PHP 会根据 CGI 规范来检查 SCRIPT\_FILENAME 中哪些是访问脚本和 PATH\_INFO, 并进行相应设置。例如 `/index.php/helloworld` 的 PATH\_INFO 字段为 helloworld。
 2. nginx 配置文件中添加 FASTCGI\_PARAM `fastcgi_param PATH_INFO $fastcgi_script_name;`
 
-方法二，在 nginx 中使用正则匹配出 PATH\_INFO，直接设置`fastcgi_param PATH_INFO $var_path_info;`，此时，不再需要 PHP 来进行 pathinfo 的 FIX。详细参考此文 [Nginx(PHP/fastcgi)的PATH_INFO问题](http://www.jb51.net/article/28050.htm)
+方法二，在 nginx 中使用正则匹配出 PATH\_INFO，直接设置`fastcgi_param PATH_INFO $var_path_info;`，此时，不再需要 PHP 来进行 pathinfo 的 FIX。详细参考此文 [Nginx(PHP/fastcgi)的PATH_INFO问题](http://www.jb51.net/article/28050.htm)，**在 Dapper 框架中，使用第二种更简洁**，具体配置如下：
+
+```
+location ~ {
+    fastcgi_pass 127.0.0.1:9000;
+    fastcgi_param SCRIPT_FILENAME $document_root/webroot/index.php$fastcgi_script_name;
+    fastcgi_param PATH_INFO $fastcgi_script_name;
+    include fastcgi_params;
+}
+```
+
 
 ## ngnix 配置
 ```
