@@ -11,6 +11,21 @@ tags: ngnix
 + 默认的PHP-FPM 运行在9000端口，配置文件位于 `/etc/php-fpm.d/www.conf`，需要将文件中的 user 和 group 设置成 ngnix 中使用的 user/group。
 + 使用 unix socket 能提高通信性能，在 fpm 配置文件中设置 `listen = /var/run/php-fpm/php5-fpm.sock`，对应的 nginx 配置文件中设置 `fastcgi_pass   unix:/var/run/php-fpm/php5-fpm.sock;` 后`systemctl restart php-fpm`重启 php-fpm 和 ngnix 服务。
 
+## 添加 `$_SERVER['PATH_INFO']` 环境变量
+在Apache中, 当不加配置的时候, 对于PHP脚本, AcceptPathInfo是默认接受的, 会自动设置PATH_INFO。
+
+但是 Nginx 默认的配置文件对 PHP 的支持是很基础的，会提示404，找不到文件出错（因为 ngnix 拦截了到 php 前的大量请求）。这对于一些**使用PATH_INFO来传递关键信息的PHP框架**来说(比如Kohana, Thinkphp), 简直是致命的. 百度音乐后端使用的 Dapper 框架也正是使用了 PATH\_INFO 来进行路由分发，导致出来的一直是默认的首页。
+
+首先将 `location ~ .php$ {` 改成 `location ~ .php {`, 交给 php 来处理。然后是添加 PATH\_INFO 环节， 
+有两种方法：
+
+方法一，通过 PHP 的 fix\_pathinfo（将 `PATH_INFO=/index.php/helloworld` 修正为 `PATH_INFO=/helloworld`）来实现:
+
+1. 打开 php.ini 中 `cgi.fix_pathinfo` 配置项， PHP 会根据 CGI 规范来检查 SCRIPT\_FILENAME 中哪些是访问脚本和 PATH\_INFO, 并进行相应设置。例如 `/index.php/helloworld` 的 PATH\_INFO 字段为 helloworld。
+2. nginx 配置文件中添加 FASTCGI\_PARAM `fastcgi_param PATH_INFO $fastcgi_script_name;`
+
+方法二，在 nginx 中使用正则匹配出 PATH\_INFO，直接设置`fastcgi_param PATH_INFO $var_path_info;`，此时，不再需要 PHP 来进行 pathinfo 的 FIX。详细参考此文 [Nginx(PHP/fastcgi)的PATH_INFO问题](http://www.jb51.net/article/28050.htm)
+
 ## ngnix 配置
 ```
 server {
