@@ -11,6 +11,28 @@ tags: ngnix
 + 默认的PHP-FPM 运行在9000端口，配置文件位于 `/etc/php-fpm.d/www.conf`，需要将文件中的 user 和 group 设置成 ngnix 中使用的 user/group。
 + 使用 unix socket 能提高通信性能，在 fpm 配置文件中设置 `listen = /var/run/php-fpm/php5-fpm.sock`，对应的 nginx 配置文件中设置 `fastcgi_pass   unix:/var/run/php-fpm/php5-fpm.sock;` 后`systemctl restart php-fpm`重启 php-fpm 和 ngnix 服务。
 
+## ngnix 配置
+```
+server {
+    listen 8000;
+    server_name localhost;
+
+    root /Users/wy/www;
+    index index.html index.htm index.php;
+ 
+    location ~ \.php$ {
+        # fastcgi_pass 127.0.0.1:9000;
+        fastcgi_pass  unix:/var/run/php-fpm/php5-fpm.sock;
+        fastcgi_index index.php;
+        # 该处一定要是 $document_root$fastcgi_script_name，否则报
+        # FastCGI sent in stderr: "Primary script unknown" 错误
+        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+        include fastcgi_params;
+    }                                                                                                      
+}
+
+```
+
 ## unix socket
 UNIX Domain Socket是在socket架构上发展起来的用于**同一台主机**的进程间通讯（IPC），它**不需要经过网络协议栈，不需要打包拆包、计算校验和、维护序号和应答等**，只是将应用层数据从一个进程**拷贝**到另一个进程。
 
