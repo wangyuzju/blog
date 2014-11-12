@@ -15,6 +15,7 @@ $watch 和 $digest 相当于一枚硬币的两面，一起构成了 digest cycle
 #### $watch
 该方法对 scope 绑定一个 watcher，当 scope 发生变化时，watcher 会收到通知，通过传递 watch funtion 和 listener function 给$watch来创建 watcher，前者定义了监测的数据片段，后者是对应的回掉函数。
 > 通常使用 watch expression 来代替 watch function 来定义监测的数据片段，比如"user.firstName", Angular 内部会**将这些表达式解析并编译成 watch 函数**（后面会实现这些功能）。
+
 #### $digest
 该方法遍历绑定到一个 scope 上的全部的 watcher，依次调用他们的 watch 函数（传入当前 scope 作为第一个参数）和对应的 listener 函数。
 
@@ -24,6 +25,11 @@ Angular 通过存储 watchFn/listenerFn 函数的对象(watcher)的 last 属性�
 
 + 为了区分初始值为 undefined 的情况，在初始化的时候，将该 watcher 的 last 属性指向**内部定义的一个函数**，这样就不会和任何初始值冲突（因为只有当引用了同一个函数时，两个变量才相等，外部变量无法访问到该内部函数也就不会与其相等造成初始值相等冲突）。
 + 为了避免将该内部函数首次作为 oldValue 返回，在调用 listener 的时候会对 oldVlaue 进行判断，如果指向了初始值，则纠正为 newValue 作为 oldValue 返回。
+
+遍历 watcher 的方式看起来挺好，但是当前面的 watcher 关心的值在被 $digest 调用完之后再发生改变（比如在后面的 watcher 的 listener 中改变），则并没有达到 watcher 目的。因此**诞生了 Angular 的 dirty check**(至少遍历全部的 watcher一遍，如果过程中发生了变化，在遍历完后重新再遍历一遍，直到没有改变为止)。
+
+假设有100个 watcher，那么当第一个 watcher 发生变化时，按照上面的方法需要调用200次 watch 函数，Angular 对此进行了优化，记录了最后一次发生改变的 watcher，如果再一次遍历到最后一次发生改变的 watcher 时，说明已经完成了一轮没有 dirty 状态的 check，就可以提前退出而不必等待遍历结束，此时，当遍历到第二遍的第一个watcher 时，发现就是为最后一次发生变化的 watcher，此时就可以退出，而无需检查剩下的99个 watcher，这个时候就只调用了101次。
+
 
 
 #### 结论
