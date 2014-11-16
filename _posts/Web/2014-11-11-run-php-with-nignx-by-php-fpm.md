@@ -1,6 +1,6 @@
 ---
 layout: default
-title: ngnix 使用 php-fpm 来运行php
+title: [LEMP] ngnix 使用 php-fpm 来运行php
 category: Web
 tags: ngnix
 ---
@@ -34,6 +34,13 @@ location ~ {
     include fastcgi_params;
 }
 ```
+
+## session 存储目录权限问题导致 phpMyAdmin 无法登录
+1. 进入 phpMyAdmin 登录后，发现总是重定向回登录页面且带了个 token： `index.php?token=xxx`, 无法正常登录
+2. 改用 HTTP 验证的方式能正常登录但是进去之后的操作都报 [error: Token mismatch](http://stackoverflow.com/questions/17602093/xampp-error-token-mismatch), 发现需要设置 session.save_path
+3. 照着修改了`/etc/php.ini`之后发现 phpinfo() 输出的 session.save_path 还是`/var/lib/php/session`, **为何 php-fpm 并没有使 /etc/php.ini 中的该项配置生效** ？只好先 `chmod 777 -R /var/lib/php` 使得该目录具有可访问权限，果然解决了无法登录的问题
+4. 随后发现使用php-fpm时会在`/etc/php-fpm.d/www.conf`文件里面复写部分 php.ini 中的配置，里面有一行 `php_value[session.save_path] = /var/lib/php/session`，因此 phpinfo()出来的并不是 `/etc/php.ini`中的配置。 [参考此文](http://www.howtoforge.com/forums/showthread.php?t=61127)
+5. 此外还碰到了 mysql 允许 locahost 匿名登录导致本地的非 root 帐号无法登录的问题，[毕设的时候就碰到过](http://blog.hellofe.com/2013/04/08/Learn-MySQL.html)
 
 
 ## ngnix 配置
