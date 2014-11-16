@@ -1,8 +1,10 @@
 ---
 layout: default
-title: [LEMP] ngnix 使用 php-fpm 来运行php
+title: ngnix 使用 php-fpm 来运行php
 category: Web
-tags: ngnix
+tags: 
+- ngnix
+- lemp
 ---
 参考教程 [Install LEMP Server (Nginx, MariaDB, PHP) On CentOS 7](http://www.unixmen.com/install-lemp-server-nginx-mariadb-php-centos-7/)
 
