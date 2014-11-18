@@ -70,5 +70,5 @@ mocha 中的after在完成测试之后自动执行，对于异步测试，也就
 
 ## Tips
 + 规则后面的指令前需使用Tab，不能使用空格
-+ 如果规则名和目录下文件名重名（比如test），则会报`make: 'test' is up to date.`错误。解决办法是**设置.PONEY参数**，在其中指定重名的规则，如`.PONEY: test`。 参考[Makefile中的PONEY](http://hi.baidu.com/crazii_chn/item/fe088491f78f2134326eeb3c)
++ 如果规则名和目录下文件名重名（比如test），则会报`make: 'test' is up to date.`错误。解决办法是**设置.PHONY参数**，在其中指定重名的规则，如`.PHONY: test`。 参考[Makefile中的PHONY](http://hi.baidu.com/crazii_chn/item/fe088491f78f2134326eeb3c)
 + 在指令前面加@，不输出指令内容，便于查看整洁干净的测试的结果
