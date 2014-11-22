@@ -10,8 +10,15 @@ tags:
 
 ## 要点
 + /etc/php.ini 软链到了 /usr/local/php5/etc/php.ini 而实际上 php5的目录不存在，是`/usr/local/php/etc/php.ini`，删掉原来的软链再 cp 。直接 cp 会报`not writing through dangling symlink`错误。
-+ 默认的PHP-FPM 运行在9000端口，配置文件位于 `/etc/php-fpm.d/www.conf`，需要将文件中的 user 和 group 设置成 ngnix 中使用的 user/group。
++ 默认的PHP-FPM 运行在9000端口，配置文件位于 `/etc/php-fpm.d/www.conf`，**需要将文件中的 user 和 group 设置成 ngnix 中使用的 user/group**, 最好是文件所在目录的拥有者，在 centos 上尝试了 N 次一直都是**Primary script unknown**。
 + 使用 unix socket 能提高通信性能，在 fpm 配置文件中设置 `listen = /var/run/php-fpm/php5-fpm.sock`，对应的 nginx 配置文件中设置 `fastcgi_pass   unix:/var/run/php-fpm/php5-fpm.sock;` 后`systemctl restart php-fpm`重启 php-fpm 和 ngnix 服务。
+
+## 正确设置 nginx 和 php-fpm 的 user group 属性
+nginx 和 php-fpm 的 user 和 group 最好设置成文件所在目录的拥有者（比如 www），**两者必须一致**。否则，nginx 会报 403 错误，PHP-FPM 会报**Primary script unknown**（该错误也有可能是 fastcgi\_param SCRIPT\_FILENAME 没有错误导致的，因此调试了半天，而事实上是没有相应目录的访问权限导致的!!!!）。
+
+## 不同版本的 PHP 对 require 的路径会做不同处理
+我把 Conf 错误拼写成了 conf ，在 mac 上(PHP 5.5.14)会自动处理大小写关系，正常完成程序加载，而在 centos 上(未装 PHP 直接用的 php-fpm)会直接报错。
+
 
 ## 添加 `$_SERVER['PATH_INFO']` 环境变量
 在Apache中, 当不加配置的时候, 对于PHP脚本, AcceptPathInfo是默认接受的, 会自动设置PATH_INFO。
