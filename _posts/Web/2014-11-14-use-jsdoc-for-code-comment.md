@@ -10,6 +10,56 @@ tags: javascript
 + JSDoc 的目的是为 JS 应用或者框架建立 API 文档，它假定你希望为 namespaces，classes，methods，method parameters 这些事情生成文档。
 + JSDoc 必须要紧位于需要建立文档的代码前，且以`/**`开头，其余的任何形式和位置的注释都是无效的（**因此必须要对需要输出到文档中方法添加`/**`标记**）
 
+## 针对模块的注释
+[http://usejsdoc.org/howto-commonjs-modules.html](http://usejsdoc.org/howto-commonjs-modules.html)
+### CommonJS Module (node)
+在文件顶部使用@module 标记，jsdoc 会自动识别挂载到 exports 对象上去的属性，包括`module.exports = ` 和 `exports = `两种方式。
+
+### 注释 AMD 模块（requirejs）
+1. 使用 @exports 注明返回的对象
+2. 在第一行使用 @module 注明模块名字 xxx，然后再在返回的对象上使用 @alias module:xxx
+```
+define('my/shirt', function () {
+   /**
+    * A module representing a shirt.
+    * @exports my/shirt
+    * @version 1.0
+    */
+    var shirt = {
+
+        /** A property of the module. */
+        color: "black",
+
+        /** @constructor */
+        Turtleneck: function(size) {
+            /** A property of the class. */
+            this.size = size;
+        }
+    };
+
+    return shirt;
+});
+
+/**
+ * A module representing a jacket.
+ * @module jacket
+ */
+define('jacket', function () {
+    /**
+     * @constructor
+     * @alias module:jacket
+     */
+    var exports = function() {
+    }
+
+    /** Open and close your Jacket. */
+    exports.prototype.zip = function() {
+    }
+
+    return exports;
+});
+```
+
 ## 一些注意事项
 + 
 
