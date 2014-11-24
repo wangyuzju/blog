@@ -20,48 +20,6 @@ tags: javascript
 2. 在第一行使用 @module 注明模块名字 xxx，然后再在返回的对象上使用 @alias module:xxx
 
 
-```
-define('my/shirt', function () {
-   /**
-    * A module representing a shirt.
-    * @exports my/shirt
-    * @version 1.0
-    */
-    var shirt = {
-
-        /** A property of the module. */
-        color: "black",
-
-        /** @constructor */
-        Turtleneck: function(size) {
-            /** A property of the class. */
-            this.size = size;
-        }
-    };
-
-    return shirt;
-});
-
-/**
- * A module representing a jacket.
- * @module jacket
- */
-define('jacket', function () {
-    /**
-     * @constructor
-     * @alias module:jacket
-     */
-    var exports = function() {
-    }
-
-    /** Open and close your Jacket. */
-    exports.prototype.zip = function() {
-    }
-
-    return exports;
-});
-```
-
 ## 一些注意事项
 + 
 
