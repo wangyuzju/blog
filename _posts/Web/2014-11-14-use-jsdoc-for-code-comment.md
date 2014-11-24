@@ -18,6 +18,7 @@ tags: javascript
 ### 注释 AMD 模块（requirejs）
 1. 使用 @exports 注明返回的对象
 2. 在第一行使用 @module 注明模块名字 xxx，然后再在返回的对象上使用 @alias module:xxx
+
 ```
 define('my/shirt', function () {
    /**
