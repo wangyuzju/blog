@@ -7,7 +7,7 @@ tags:
 
 最近接手的一个项目里面判断 AMD 模块是 define 还是 require 用到了这么一个表达式：
 
-  var isRequire = contents.search(/require\s*\(\s*\[(.|\r\n)*\],\s*function\s*\(/gi)!=-1;
+    var isRequire = contents.search(/require\s*\(\s*\[(.|\r\n)*\],\s*function\s*\(/gi)!=-1;
   
 各位看官有没有发现其中可能存在的问题？
 
