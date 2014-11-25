@@ -20,7 +20,7 @@ tags:
 
 ## 总结
 1. 项目统一使用 editorconfig 工具配置编码和格式，确保跨平台不出问题
-2. 使用正则表达式匹配换行符的时候，要考虑不同平台下的情况，综合使用 `\n` 和 `\r\n` 和 `\r`。
+2. 使用正则表达式匹配换行符的时候，要考虑不同平台下的情况，综合使用 `\n` 和 `\r\n`。
 
 ## PS
 The Carriage Return (CR) character (0x0D, \r) moves the cursor to the beginning of the line without advancing to the next line. This character is used as a new line character in **Commodore and Early Macintosh operating systems** (OS-9 and earlier).
