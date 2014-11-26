@@ -1,6 +1,6 @@
 ---
 layout: default
-title: @mddia 中 device-width 和 width 的区别
+title: \@mddia 中 device-width 和 width 的区别
 category: Web
 tags: css3
 ---
