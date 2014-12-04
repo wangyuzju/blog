@@ -25,6 +25,9 @@ Object.getOwnPropertyDescriptor 获取一个对象不存在的属性时返回 un
 TypeError: Property description must be an object: undefined 错误
 
 ## JSON.stringify
+发现 JSON.stringify 结果不符合预期时，第一时间是怀疑该函数是不是被改写了？结果发现 chrome console 的输出是 `function(){ [nativ code] }`， 然后又怀疑是不是其修改了 JSON.stringify 之后，又修改了其 toString 方法导致再 console 中看起来一样, 原来是 toJSON 在搞鬼的缘故...
+
+
 ```
 JSON.stringify(value[, replacer [, space]])
 ```
