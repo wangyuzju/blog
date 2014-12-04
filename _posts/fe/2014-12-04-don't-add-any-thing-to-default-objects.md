@@ -10,6 +10,7 @@ tags: bugfix
 
 ## Object.keys 
 该方法被复写导致的 ‘TypeError: Property description must be an object: undefined’ 错误：
+
 ```
 if (Object.keys) {
   Object.keys(supplier).forEach(function(property) {
