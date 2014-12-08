@@ -23,3 +23,7 @@ tags: css3
 ## 总结
 1. device-width 只和设备的分辨率有关，一般是分辨率/2，且不会随着手机旋转而改变其值
 2. width 会和 viewport 的 scale 属性相关，为页面的可视区域的宽度
+
+<div style="color:red">
+  Android 某些版本的Webview，screen.width 取到的是设备的物理分辨率，相应的 device-width 也变成了物理分辨率，因此在 Android 平台下面使用 device-width 是一个坑非常多的解决方案（因为统计器 chrome 浏览器又表现正常）。没有任何意义。
+</div>
