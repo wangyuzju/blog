@@ -10,4 +10,5 @@ tags: performance
 
 ## JS 篇
 
-
+getElementById > getElementsByClassName > querySelector > querySelectorAll
+[http://jsperf.com/dom-operation](http://jsperf.com/dom-operation)
