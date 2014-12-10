@@ -13,8 +13,11 @@ tags:
 随后自动调用 grunt.loadNpmTasks 来加载这些模块，避免在 GruntFile.js 去手动维护这些命令
 
 ```
+var pattern = arrayify(options.pattern || ['grunt-*']);
 var config = options.config || findup('package.json');
 var scope = arrayify(options.scope || ['dependencies', 'devDependencies', 'peerDependencies']);
+...
+multimatch(names, pattern).forEach(grunt.loadNpmTasks);
 ```
 
 ## API
