@@ -2,7 +2,7 @@
 layout: default
 title: LF 和 LRLF 与正则表达式造成的坑 
 category: Tips
-tags: 
+tags: bugfix
 ---
 
 最近接手的一个项目里面判断 AMD 模块是 define 还是 require 用到了这么一个表达式：
