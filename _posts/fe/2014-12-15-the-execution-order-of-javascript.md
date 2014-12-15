@@ -1,6 +1,6 @@
 ---
 layout: default
-title: 从 script 标签说开去
+title: 从 script 标签的行为说开去
 category: fe
 tags: 
 ---
@@ -23,3 +23,7 @@ async 属性的表现类似于动态创建 script 标签，其时序图如下所
 ## 方法三：defer 属性
 defer 属性不阻止页面解析的同时，并不立即执行单个加载完毕的 js 文件，而是等页面完成解析并且全部 defer 标签加载完毕之后，再**顺序执行**，使用 defer 带来的好处是既不阻塞页面解析又保证了文件的执行顺序，其时序图如下：
 ![script-defer](http://www.growingwiththeweb.com/images/2014/02/26/script-defer.svg)
+
+
+## Reference
++ [async-vs-defer-attributes](http://www.growingwiththeweb.com/2014/02/async-vs-defer-attributes.html)
