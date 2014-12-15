@@ -1,6 +1,6 @@
 ---
 layout: default
-title: 从 script 标签的行为说开去
+title:  script 标签的非阻塞加载
 category: fe
 tags: 
 ---
