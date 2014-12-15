@@ -6,9 +6,17 @@ tags: javascript
 ---
 代码的注释其实是比较重要又容易被忽视的环节，正好最近接手的项目可能需要进行重构，于是决定从注释开始，采用 JSDOC 来完善注释。
 
+
 ## 
 + JSDoc 的目的是为 JS 应用或者框架建立 API 文档，它假定你希望为 namespaces，classes，methods，method parameters 这些事情生成文档。
 + JSDoc 必须要紧位于需要建立文档的代码前，且以`/**`开头，其余的任何形式和位置的注释都是无效的（**因此必须要对需要输出到文档中方法添加`/**`标记**）
+
+## 关于 @module 和 @exports
+module 和 exports 都用于对模块进行注释，两者的区别就是：
+
++ @module 主要用于注释 CommonJS Module 和 Node.js Module，同时如果** AMD 里面返回的变量名字是exports**的也可以。
++ @expoert 用于返回的变量名不是`exports`或者`module.exports`时，显示声明模块返回的对象，主要用于 AMD。
++ [@exports](http://usejsdoc.org/tags-exports.html), [howto-commonjs-modules](http://usejsdoc.org/howto-commonjs-modules.html)
 
 ## 针对模块的注释
 [http://usejsdoc.org/howto-commonjs-modules.html](http://usejsdoc.org/howto-commonjs-modules.html)
