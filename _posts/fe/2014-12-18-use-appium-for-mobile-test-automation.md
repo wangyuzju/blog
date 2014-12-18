@@ -16,3 +16,5 @@ appium 的核心是一个暴露了 REST API 的 web 服务器(使用 Node.js 实
 客户端通过发送 POST /session 请求，提供"[desired capabilities](http://appium.io/slate/en/master/#caps.md)"对象（一系列的 k-v ，用于告诉 Appium 服务器需要启动怎样的测试 session），服务器然后创建一个自动化测试的 session，并返回 sessionid 用于后续的测试。
  
 
+
+
