@@ -23,6 +23,7 @@ tags: bugfix
 ![cross origin onerror 获取跨域报错信息示意图](http://labs.hellofe.com/upload/image/blog/52/a7/c9/2abe38605e26e633957c6a3356.png)
 
 
+## 参考链接
 
 + [http://stackoverflow.com/questions/5913978/cryptic-script-error-reported-in-javascript-in-chrome-and-firefox](http://stackoverflow.com/questions/5913978/cryptic-script-error-reported-in-javascript-in-chrome-and-firefox)
 + [window.error “Script error”问题跟进](http://www.webryan.net/2012/12/something-about-window-onerror-script-error/)
