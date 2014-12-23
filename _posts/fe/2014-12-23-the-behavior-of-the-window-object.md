@@ -5,7 +5,7 @@ category: fe
 tags: 
 ---
 
-在对封装 localStorage 的库进行单元测试的时候，为了模拟 localStorage 不可以用的情况，想到了把 localStorage 进行复写，但是跑了单元测试才发现复写 localStorage 并没有生效，因为 **localStorage** 是 window 对象上的一个只读属性。
+在对封装 localStorage 的库进行单元测试的时候，为了模拟 localStorage 不可以用的情况，想到了把 localStorage 进行复写来模拟 localStorage 不可用的情况，但是跑了单元测试才发现复写 localStorage 并没有生效，因为 **localStorage** 是 window 对象上的一个只读属性。
 
 
 于是用下面的程序对 window 对象上的只读属性进行了筛选
@@ -55,4 +55,4 @@ tags:
 ![可写的属性](http://labs.hellofe.com/upload/image/blog/f0/f1/f0/076ef815a9a7214d668cdcabb0.png)
 
 ## 总结
-window 对象上可访问到的属性远不止（102+75 = 177）项这么多，只是通过 `for ... in` 的方法只能遍历出来这些属性，而实际上通过 <a href="javascript:alert(Object.getOwnPropertyNames(window));">`Object.getOwnPropertyNames(window)`</a> 方法获取到的 window 上的属性有 595 项目之多
+window 对象上可访问到的属性远不止（102+75 = 177）项这么多，只是通过 `for ... in` 的方法只能遍历出来这些属性，而实际上通过 <a  href="javascript:alert(Object.getOwnPropertyNames(window));"> Object.getOwnPropertyNames(window) </a> 方法获取到的 window 上的属性有 595 项目之多
