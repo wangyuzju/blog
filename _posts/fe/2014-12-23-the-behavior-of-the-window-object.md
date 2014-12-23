@@ -68,7 +68,7 @@ var testAsignWindowProp = function(){
         console.log(readOnly.slice(80));
         console.log('--- write able ---');
         console.log(writeAble);
-        console.log('total:' + i, ' read:' + ri, ' write:' wi);
+        console.log('total:' + i, ' read:' + ri, ' write:' + wi);
 }
 </script>
 
