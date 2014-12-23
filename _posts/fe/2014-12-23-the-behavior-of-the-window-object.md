@@ -55,4 +55,4 @@ tags:
 ![可写的属性](http://labs.hellofe.com/upload/image/blog/f0/f1/f0/076ef815a9a7214d668cdcabb0.png)
 
 ## 总结
-    window 对象上可访问到的属性远不止（102+75 = 177）项这么多，只是通过 `for ... in` 的方法只能遍历出来这些属性，而实际上通过 <a href="javascript:alert(Object.getOwnPropertyNames(window));">`Object.getOwnPropertyNames(window)`</a> 方法获取到的 window 上的属性有 595 项目之多
+window 对象上可访问到的属性远不止（102+75 = 177）项这么多，只是通过 `for ... in` 的方法只能遍历出来这些属性，而实际上通过 <a href="javascript:alert(Object.getOwnPropertyNames(window));">`Object.getOwnPropertyNames(window)`</a> 方法获取到的 window 上的属性有 595 项目之多
