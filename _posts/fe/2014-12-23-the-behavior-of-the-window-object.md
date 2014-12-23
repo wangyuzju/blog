@@ -32,13 +32,47 @@ tags:
             }
         }
 
+        console.log('--- read only ---');
         console.log(readOnly.slice(0,80));
         console.log(readOnly.slice(80));
+        console.log('--- write able ---');
         console.log(writeAble);
-        console.log(i, ri, wi);
+        console.log('total:' + i, ' read:' + ri, ' write:' wi);
     })();    
     
 ```
+
+<script>
+var testAsignWindowProp = function(){
+        var i = 0,
+            ri = 0,
+            wi = 0,
+            readOnly = [],
+            writeAble = [];
+
+        for(var k in window){
+            i++;
+            k !='location' && k != 'console' && (window[k] = '__');
+
+            if( window[k] === '__' ){
+                writeAble.push(k);
+                wi++;
+            }else{
+                readOnly.push(k);
+                ri++;
+            }
+        }
+
+        console.log('--- read only ---');
+        console.log(readOnly.slice(0,80));
+        console.log(readOnly.slice(80));
+        console.log('--- write able ---');
+        console.log(writeAble);
+        console.log('total:' + i, ' read:' + ri, ' write:' wi);
+}
+</script>
+
+<a href="javascript:testAsignWindowProp();"> 打开 console ， 点我查看测试结果</a>
 
 以上：
 
@@ -55,4 +89,4 @@ tags:
 ![可写的属性](http://labs.hellofe.com/upload/image/blog/f0/f1/f0/076ef815a9a7214d668cdcabb0.png)
 
 ## 总结
-window 对象上可访问到的属性远不止（102+75 = 177）项这么多，只是通过 `for ... in` 的方法只能遍历出来这些属性，而实际上通过 <a  href="javascript:alert(Object.getOwnPropertyNames(window).length);"> Object.getOwnPropertyNames(window) </a> 方法获取到的 window 上的属性有 595 项目之多
+window 对象上可访问到的属性远不止（102+75 = 177）项这么多，只是通过 `for ... in` 的方法只能遍历出来这些属性，而实际上通过 <a  href="javascript:alert(Object.getOwnPropertyNames(window).length);"> Object.getOwnPropertyNames(window) </a> 方法获取到的 window 上的属性有 500 项目之多
