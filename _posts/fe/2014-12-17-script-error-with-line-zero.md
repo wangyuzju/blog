@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Script Error line 0 报错分析
+title: window.onerror 回调中的 Script Error line 0 报错分析
 category: fe
 tags: bugfix
 ---
