@@ -9,3 +9,4 @@ tags: AngularJS
 ## [ui-router](https://github.com/angular-ui/ui-router) 
 $stateProvider 
 + [http://stackoverflow.com/questions/21023763/difference-between-angular-route-and-angular-ui-router](http://stackoverflow.com/questions/21023763/difference-between-angular-route-and-angular-ui-router)
++ [ui.router 文档](http://angular-ui.github.io/ui-router/site/#/api/ui.router)
