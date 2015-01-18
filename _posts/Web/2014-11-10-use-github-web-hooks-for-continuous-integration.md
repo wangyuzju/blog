@@ -5,6 +5,9 @@ category: Web
 tags: 
 ---
 
+## Links
++ [How To Use Git Hooks To Automate Development and Deployment Tasks](How To Use Git Hooks To Automate Development and Deployment Tasks)
+
 配置的 POST 如果使用了 `applicaiton/json` 的 Content Type, 则在 express 中仅需读取 req.body 对象即可
 
 ```
