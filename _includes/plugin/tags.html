@@ -1,11 +1,11 @@
 <div class="side-content bg-color-yellow tag">
-  <ul>
+  <!--<ul class="inline-list">-->
     {% for tag in site.tags %}
-    <li>
+    <span class="radius label secondary">
       <a href="{{ site.url }}/tag/tag.html#{{ tag.first }}">
         {{ tag.first }}
       </a>
-    </li>
+    </span>
     {% endfor %}
-  </ul>
+  <!--</ul>-->
 </div>

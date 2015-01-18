@@ -1,24 +1,27 @@
 ---
-layout: default
+layout: foundation
 title: 我的Blog
 noComment: true
 ---
 
-<div class="main bg-color-blueLight" role="main">
-  {% for post in paginator.posts %}
-  <div class="article">
-    <div class="title">
-      [{{ post.date | date:"%Y-%m-%d" }}] <a href="{{ site.url }}{{ post.url }}">{{ post.title }}</a>
-    </div>
-  </div>
-  {% endfor %}
-  <!-- Pagation module -->
-  {% include plugin/pagination.html %}
-</div>
 
-<aside>
-  {% include plugin/category.html %}
-  {% include plugin/tags.html %}
-  {% include plugin/projects.html %}
-</aside>
-<div class="clear"></div>
+
+
+    <div class="large-9 columns right" role="main">
+        {% for post in paginator.posts %}
+        <div class="article">
+            <div class="title">
+                [{{ post.date | date:"%Y-%m-%d" }}] <a href="{{ site.url }}{{ post.url }}">{{ post.title }}</a>
+            </div>
+        </div>
+        <hr/>
+        {% endfor %}
+        <!-- Pagation module -->
+        {% include plugin/pagination.html %}
+    </div>
+
+    <aside class="large-3 columns">
+        {% include plugin/category.html %}
+        {% include plugin/tags.html %}
+        {% include plugin/projects.html %}
+    </aside>

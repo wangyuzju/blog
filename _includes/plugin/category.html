@@ -6,13 +6,15 @@ tips:
   -last.size:该分类下的数量
 -->
 <h4>分类列表</h4>
-{% for category in site.categories %}
-  <span>
-    <a class="{{ category.first }}" href="{{ site.url }}/category/{{ category.first | downcase}}.html">
-      {{ category.first | capitalize }} ({{ category.last.size }})
-    </a>
-  </span>
-{% endfor %}
+    <ul class="side-nav">
+        {% for category in site.categories %}
+        <li>
+            <a class="{{ category.first }}" href="{{ site.url }}/category/{{ category.first | downcase}}.html">
+                {{ category.first | capitalize }} ({{ category.last.size }})
+            </a>
+        </li>
+        {% endfor %}
+    </ul>
   
   <!--如果是按目录分页，则高亮当前目录-->
   <script type="text/javascript">

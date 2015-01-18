@@ -1,0 +1,18 @@
+---
+layout: default
+---
+{% assign cate = 'video' %}
+<div class="main" role="main">
+{% for post in site.categories[cate] %}
+  {% assign month =  post.date|date:"%Y-%m" %}
+  {% if now != month %}
+    <div class="month">{{ month }}</div>
+    {% assign now = month %}
+  {% endif %}
+  <div>[{{ post.date | date:"%Y-%m-%d" }}]  <a href="{{ site.url }}{{ post.url }}">{{ post.title }}</a></div>
+{% endfor %}
+</div>
+<aside>
+  {% include plugin/category.html %}
+</aside>
+<div class="clear"></div>

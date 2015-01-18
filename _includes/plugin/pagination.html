@@ -1,32 +1,33 @@
-<div id="pagination">
+<div class="pagination-centered">
+<ul id="pagination" class="pagination">
   <!--向前翻页-->
   {% if paginator.previous_page %}
   {% if paginator.previous_page == 1 %}
-  <a class="prev-page" href="{{ site.url }}/index.html"> &laquo;&nbsp;上一页 </a>
+  <li><a class="prev-page" href="{{ site.url }}/index.html"> &laquo;&nbsp;上一页 </a></li>
   {% else %}
-  <a class="prev-page" href="{{ site.url }}/page{{ paginator.previous_page }}"> &laquo;&nbsp;上一页 </a>
+  <li><a class="prev-page" href="{{ site.url }}/page{{ paginator.previous_page }}"> &laquo;&nbsp;上一页 </a></li>
   {% endif %}
   {% else %}
-  <a class="prev-page disabled">&laquo;&nbsp;上一页</a>
+  <li class="unavailable"><a class="prev-page disabled">&laquo;&nbsp;上一页</a></li>
   {% endif %}
   <!-- 所有页码 -->
   {% if paginator.page == 1 %}
-  <a class="disabled"> 1 </a>
+  <li class="current"><a class="disabled"> 1 </a></li>
   {% else %}
-  <a class="page" href="{{site.url}}/index.html"> 1 </a>
+  <li><a class="page" href="{{site.url}}/index.html"> 1 </a></li>
   {% endif %}
   {% for pageNum in (2..paginator.total_pages) %}
   {% if pageNum == paginator.page %}
-  <a class="disabled"> {{ pageNum }} </a>
+  <li class="current"><a class="disabled"> {{ pageNum }} </a></li>
   {% else %}
-  <a href="{{ site.url }}/page{{ pageNum }}"> {{ pageNum }} </a>
+  <li><a href="{{ site.url }}/page{{ pageNum }}"> {{ pageNum }} </a></li>
   {% endif %}
   {% endfor %}
   <!--向后翻页-->
   {% if paginator.next_page %}
-  <a class="next-page" href="{{ site.url }}/page{{ paginator.next_page }}"> 下一页&nbsp;&raquo </a>
+    <li><a class="next-page" href="{{ site.url }}/page{{ paginator.next_page }}"> 下一页&nbsp;&raquo </a></li>
   {% else %}
-  <a class="next-page disabled"> 下一页&nbsp;&raquo; </a>
+  <li class="unavailable"><a class="next-page disabled"> 下一页&nbsp;&raquo; </a></li>
   {% endif %}
-  <div class="clear"></div>
+</ul>
 </div>
