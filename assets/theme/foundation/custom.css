@@ -30,3 +30,11 @@ h1,h2,h3,h4,h5{
     color: #777;
     margin-left: 5px;
 }
+
+pre code {
+    display: block;
+    overflow-x: auto;
+    padding: 0.5rem;
+    background: #eee;
+    margin: 1rem 0;
+}
