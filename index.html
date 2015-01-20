@@ -1,27 +1,43 @@
 ---
-layout: foundation
+layout: default
 title: 我的Blog
 noComment: true
 ---
 
 
 
+<div class="row">
 
-    <div class="large-9 columns right" role="main">
+    <div class="medium-9 columns" role="main">
         {% for post in paginator.posts %}
-        <div class="article">
-            <div class="title">
-                [{{ post.date | date:"%Y-%m-%d" }}] <a href="{{ site.url }}{{ post.url }}">{{ post.title }}</a>
+        <article class="article">
+            <header class="title">
+                 <a href="{{ site.url }}{{ post.url }}">{{ post.title }}</a>
+            </header>
+            <div>
+                {{ post.content }}
             </div>
-        </div>
+            <footer>
+                [{{ post.date | date:"%Y-%m-%d" }}]
+            </footer>
+        </article>
         <hr/>
         {% endfor %}
         <!-- Pagation module -->
         {% include plugin/pagination.html %}
     </div>
 
-    <aside class="large-3 columns">
+    <aside class="medium-3 columns sidebar">
         {% include plugin/category.html %}
         {% include plugin/tags.html %}
         {% include plugin/projects.html %}
     </aside>
+
+
+</div>
+
+<script>
+    require(['foundation/foundation'], function(){
+        $(document).foundation();
+    });
+</script>

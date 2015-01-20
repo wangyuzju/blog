@@ -1,0 +1,40 @@
+---
+layout: tags
+title: tags
+---
+<div class="tag-header" data-magellan-expedition="fixed">
+    <dl class="sub-nav">
+
+        {% for tag in site.tags %}
+        <dd data-magellan-arrival="{{ tag.first }}"><a href="#{{tag.first}}">{{tag.first}}</a></dd>
+        {% endfor %}
+
+    </dl>
+</div>
+
+<div class="row">
+
+
+    {% for tag in site.tags %}
+    <div>
+        <div data-magellan-destination="{{ tag.first }}" id="{{tag.first}}" class="text-center">**** {{ tag.first }}
+            ****
+        </div>
+        {% for page in tag.last %}
+        <a href="{{ site.url }}{{ page.url }}">
+            <div>{{ page.title }}</div>
+        </a>
+        <hr>
+        {% endfor %}
+    </div>
+    {% endfor %}
+
+</div>
+
+<script>
+    require(['foundation/foundation.magellan'], function () {
+        $(document).foundation();
+    });
+</script>
+<!--<script src="js/foundation/foundation.js"></script>-->
+<!--<script src="js/foundation/foundation.magellan.js"></script>-->

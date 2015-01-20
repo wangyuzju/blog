@@ -1,3 +1,32 @@
 .top-bar {
     margin-bottom: 1.25rem;
 }
+
+
+h1,h2,h3,h4,h5{
+    font-size: 1rem;
+}
+
+.article .title {
+    font-size: 1.6rem;
+}
+
+.sidebar {
+    margin-top: -20px;
+}
+
+.tag-header {
+    padding: 0;
+}
+
+.sub-nav {
+    background-color: #f2f2f2;
+    padding: 10px 10px 10px 0;
+}
+
+.sidebar .label {
+    background: #ddd;
+    border-radius: 3px;
+    color: #777;
+    margin-left: 5px;
+}

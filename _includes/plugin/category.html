@@ -5,12 +5,13 @@ tips:
   -first: 分类名称
   -last.size:该分类下的数量
 -->
-<h4>分类列表</h4>
+<!--<h4>分类列表</h4>-->
     <ul class="side-nav">
         {% for category in site.categories %}
         <li>
             <a class="{{ category.first }}" href="{{ site.url }}/category/{{ category.first | downcase}}.html">
-                {{ category.first | capitalize }} ({{ category.last.size }})
+                {{ category.first | capitalize }}
+                <span class="label">{{ category.last.size }}</span>
             </a>
         </li>
         {% endfor %}

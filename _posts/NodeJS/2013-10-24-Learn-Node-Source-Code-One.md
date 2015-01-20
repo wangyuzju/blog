@@ -3,7 +3,7 @@ layout: default
 title: NodeJS源码详解——process对象
 category: nodejs
 tags:
-- C++
+- CPP
 - NodeJS
 ---
 简单学习了Google的V8之后，决定开始学习NodeJS源代码的一个系列。

@@ -4,7 +4,7 @@ title: NodeJS 扩展开发实战（一）：桌面通知
 category: NodeJS
 tags: 
 - NodeJS
-- C/C++
+- CPP
 ---
 
 准备了好久的NodeJS扩展开发最近终于慢慢走上正轨道，随着对V8 API 的逐渐熟悉，以及对NodeJS v0.11 前后两个版本的变动，通过NodeJS最新的源代码和V8的Sample，感觉上手起来还是很快的。同时对C++的感觉也越来越顺手，比如对template(解决了Handle<Value>的疑惑)， class(能看懂nodejs源代码)，reference(解决了const v8::FunctionCallbackInfo& info的疑惑) 等的了解。

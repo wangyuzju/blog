@@ -3,7 +3,7 @@ layout: default
 category: web
 title: FIS 学习指南
 tags:
-- F.I.S
+- FIS
 ---
 下午参加了公司前端集成解决方案——F.I.S的2.0发布会议，感觉一些feature还是很酷的，用nodejs实现，号称能整合coffee，markdown等多种语言，记录一下学习该工具的笔记。[FIS的官方网站](http://fis.baidu.com/)
 

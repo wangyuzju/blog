@@ -3,7 +3,7 @@ layout: default
 title: 学习Node addon开发
 category: NodeJS
 tags: 
-- C/C++
+- CPP
 - NodeJS
 ---
 跟着[node-addon-examples](https://github.com/rvagg/node-addon-examples)学习node addon开发～

@@ -3,7 +3,7 @@ layout: default
 title: C语言编程，打好C/C++的基础
 category: Program
 tags: 
-- C/C++
+- C
 ---
 
 掌握了下面的表达式，基本上就能看懂大部分指针和函数了～
