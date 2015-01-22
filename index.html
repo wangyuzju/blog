@@ -6,7 +6,6 @@ noComment: true
 
 
 
-<div class="row">
 
     <div class="medium-9 columns" role="main">
         {% for post in paginator.posts %}
@@ -34,10 +33,12 @@ noComment: true
     </aside>
 
 
-</div>
-
 <script>
+    require(['search_post']);
+
     require(['foundation/foundation'], function(){
-        $(document).foundation();
+        require(['foundation/foundation.topbar'], function(){
+            $(document).foundation();
+        });
     });
 </script>

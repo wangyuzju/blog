@@ -9,6 +9,7 @@ h1,h2,h3,h4,h5{
 
 .article .title {
     font-size: 1.6rem;
+    margin: 1rem 0;
 }
 
 .sidebar {
@@ -37,4 +38,34 @@ pre code {
     padding: 0.5rem;
     background: #eee;
     margin: 1rem 0;
+}
+
+
+a, blockquote {
+    word-wrap: break-word;
+}
+
+.search-post-sticky {
+    width: 225px;
+}
+
+.search-post-wrapper {
+    width: 200px;
+    position: fixed;
+    right: 1rem;
+    z-index: 1000;
+}
+
+#search-result {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    top:40px;
+    right: 10px;
+    width: 300px;
+    margin-top: 5px;
+}
+
+#search-result li {
+    float: none;
 }
