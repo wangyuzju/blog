@@ -13,7 +13,7 @@ define(['jquery', '_'], function($, _){
 
         // load data
         $.ajax({
-            url: '/data/test.html',
+            url: '/data/test/',
             dataType: 'json'
         }).then(function(data){
             //console.log(data);
@@ -28,6 +28,7 @@ define(['jquery', '_'], function($, _){
             return ;
         }
 
+        query = query.toLowerCase();
         var matched = posts.filter(function(item, i){
             return item.character.indexOf(query) != -1;
             //console.log(item);
@@ -38,7 +39,9 @@ define(['jquery', '_'], function($, _){
 
 
     var tplSearchResult = '<ul>' +
-            '<% _.forEach(result, function(item) {  %><li><%- item.title %></li><% }); %>' +
+            '<% _.forEach(result, function(item) {  %><li>' +
+            '<a href="<%- item.url %>">' +
+        '<%- item.title %></a></li><% }); %>' +
         '</ul>';
 
     var isOpen = false;

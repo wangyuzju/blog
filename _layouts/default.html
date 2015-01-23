@@ -4,4 +4,13 @@
 {{ content }}
 </div>
 
+<script>
+    require(['search_post']);
+
+    require(['foundation/foundation'], function(){
+        require(['foundation/foundation.topbar'], function(){
+            $(document).foundation();
+        });
+    });
+</script>
 {% include footer.html %}

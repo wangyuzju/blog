@@ -11,36 +11,35 @@ tags:
 于是用下面的程序对 window 对象上的只读属性进行了筛选
 
 
-```
-    (function(){
-        var i = 0,
-            ri = 0,
-            wi = 0,
-            readOnly = [],
-            writeAble = [];
+{%highlight javascript%}
+(function(){
+    var i = 0,
+        ri = 0,
+        wi = 0,
+        readOnly = [],
+        writeAble = [];
 
-        for(var k in window){
-            i++;
-            k !='location' && k != 'console' && (window[k] = '__');
+    for(var k in window){
+        i++;
+        k !='location' && k != 'console' && (window[k] = '__');
 
-            if( window[k] === '__' ){
-                writeAble.push(k);
-                wi++;
-            }else{
-                readOnly.push(k);
-                ri++;
-            }
+        if( window[k] === '__' ){
+            writeAble.push(k);
+            wi++;
+        }else{
+            readOnly.push(k);
+            ri++;
         }
+    }
 
-        console.log('--- read only ---');
-        console.log(readOnly.slice(0,80));
-        console.log(readOnly.slice(80));
-        console.log('--- write able ---');
-        console.log(writeAble);
-        console.log('total:' + i, ' read:' + ri, ' write:' wi);
-    })();    
-    
-```
+    console.log('--- read only ---');
+    console.log(readOnly.slice(0,80));
+    console.log(readOnly.slice(80));
+    console.log('--- write able ---');
+    console.log(writeAble);
+    console.log('total:' + i, ' read:' + ri, ' write:' wi);
+})();
+{%endhighlight%}
 
 <script>
 var testAsignWindowProp = function(){

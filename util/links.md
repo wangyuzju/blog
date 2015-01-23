@@ -105,6 +105,7 @@ title: 平时发现的好网站
 
 ##设计
 + [台湾的一个大学生][40]
++ [张文丽的博客](http://zhangwenli.com/blog/)
 [40]: http://zespia.tw/
 
 ##编程

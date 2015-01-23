@@ -27,3 +27,4 @@ defer 属性不阻止页面解析的同时，并不立即执行单个加载完�
 
 ## Reference
 + [async-vs-defer-attributes](http://www.growingwiththeweb.com/2014/02/async-vs-defer-attributes.html)
++ [Script-injected "async scripts" considered harmful](https://www.igvita.com/2014/05/20/script-injected-async-scripts-considered-harmful/)
