@@ -1,7 +1,19 @@
 .top-bar {
-    margin-bottom: 1.25rem;
+    /*margin-bottom: 1.25rem;*/
 }
 
+/* focus start */
+.orbit-container {
+    background: #333;
+}
+.orbit-container img {
+    margin: auto;
+    height: 200px;
+}
+.orbit-slides-container {
+    /*height: 200px !important;*/
+}
+/* focus end*/
 
 h1,h2,h3,h4,h5{
     font-size: 1rem;

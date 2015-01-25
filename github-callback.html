@@ -9,10 +9,11 @@
   /**
    * 从返回的search参数中获取access_token等
    * @param {string} name search query
-   * @returns {string|boolean} false if can‘t find query value
+   * @returns {object} false if can‘t find query value
    */
-  function  getSearchValue(name){
-    var origin = location.search.slice(1);
+  function extractQueryData(){
+    var origin = decodeURIComponent(location.search.slice(1));
+    var result = {};
 
     if(origin){
       var list = origin.split('&');
@@ -20,32 +21,38 @@
       for(var i = 0, l = list.length ; i < l ; i++ ){
         var search = list[i];
         var p = search.indexOf('=');
-        var key = search.substring(0, p);
-        if( name == key ){
-          return search.substring(p+1);
+        var key = search.slice(0, p);
+        if(key){
+          result[key] = search.slice(p+1);
         }
       }
-      return false;
     }
-    return false;
+
+    return result;
   }
-  
-  var access_token = getSearchValue('access_token');
-  
-  var xhr = new XMLHttpRequest();
-  xhr.open('GET', 'https://api.github.com/user?access_token=' + access_token, true);
- 
+
+  var $_GET = extractQueryData();
+  console.log($_GET);
+
+  var access_token = $_GET['code'];
+
+//  localStorage.setItem()
+
+
+//  var xhr = new XMLHttpRequest();
+//  xhr.open('GET', 'https://api.github.com/user?access_token=' + access_token, true);
+
   //xhr.setRequestHeader('Accept','application/vnd.github.raw');
   //xhr.setRequestHeader('Content-Type','application/json');
 
-  xhr.onreadystatechange = function(){
-    if ( xhr.readyState == 4  ){
-      if ( xhr.responseText != 'OK' ){
-        alert(xhr.responseText);
-      }
-    }
-  };
-  xhr.send()
+//  xhr.onreadystatechange = function(){
+//    if ( xhr.readyState == 4  ){
+//      if ( xhr.responseText != 'OK' ){
+//        alert(xhr.responseText);
+//      }
+//    }
+//  };
+//  xhr.send()
   /*JSON.stringify({
     client_id: 'bfaa94b476a91ae70830',
     client_secret: '1f73d55a0e545916c9b41b3b3ce3ec6f13caaa8f',

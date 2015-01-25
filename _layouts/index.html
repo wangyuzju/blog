@@ -1,0 +1,50 @@
+{% include header.html %}
+
+<a href="https://github.com/login/oauth/authorize?client_id=bfaa94b476a91ae70830&scope=user,public_repo,repo">授权</a>
+{%include plugin/editor.html %}
+
+<div class="row">
+    {{ content }}
+</div>
+
+<script>
+    require(['search_post']);
+
+    require(['foundation/foundation'], function(){
+        require(['foundation/foundation.topbar'], function(){
+            $(document).foundation();
+        });
+    });
+
+
+
+
+
+//  require(['github'], function(Github){
+//    github = new Github({
+//      token: '16541b7301e9f414c4f73e357a6917913fb983e8',
+//      auth: 'oauth'
+////      username: 'wangyuzju',
+////      password: 'wangyusi314428',
+////      auth: 'basic'
+//    });
+//
+//    var repo = github.getRepo('wangyuzju', 'blog');
+//    repo.show(function(err, repo){
+//      console.log(repo);
+//    });
+//
+//    repo.listBranches(function(err, branches){
+//      console.log(branches);
+//    });
+//
+//    repo.contents('gh-pages', "", function(err, contents){
+//      console.log(contents);
+//    });
+//
+//    repo.read('gh-page', 'index.html', function(err, data){
+//      console.log(data);
+//    })
+//  });
+</script>
+{% include footer.html %}

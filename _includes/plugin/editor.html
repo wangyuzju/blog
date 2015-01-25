@@ -1,0 +1,28 @@
+<div id="editor-dashboard">
+    <ul>
+        <li class="file-path">{{ page.path }}</li>
+        <li>登录</li>
+        <li>获取页面信息</li>
+    </ul>
+</div>
+
+<script>
+  require(['editor'])
+</script>
+
+<a href="#" data-reveal-id="myModal">Click Me For A Modal</a>
+
+<div id="myModal" class="reveal-modal full" data-reveal>
+  <div style="font-size: 32px;">
+    <a id="save" class="fi-save large"> 保存 </a>
+  </div>
+  <div style="height: 100%; overflow:scroll;">
+      <div class="columns large-6">
+        <textarea id="editor" v-model="input" style="height: 400px"></textarea>
+      </div>
+      <div class="columns large-6">
+        <div id="editor-preview" v-html="input | marked"></div>
+      </div>
+  </div>
+  <a class="close-reveal-modal">&#215;</a>
+</div>

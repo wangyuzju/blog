@@ -3,7 +3,7 @@ url:
 
 highlighter: pygments
 paginate: 12
-exclude: [dev, myblog.iml, CNAME, product.sh, bower_components]
-permalink: /:year/:month/:day/:title.html   #./:year-:month-:day/:title.html
+exclude: [dev, myblog.iml, CNAME, product.sh, bower_components, node_modules]
+permalink: pretty # /:year/:month/:day/:title.html   #./:year-:month-:day/:title.html
 
 markdown: redcarpet

@@ -2,7 +2,7 @@
 layout: default
 title: window 对象上的只读属性
 category: fe
-tags: 
+tags:
 ---
 
 在对封装 localStorage 的库进行单元测试的时候，为了模拟 localStorage 不可以用的情况，想到了把 localStorage 进行复写来模拟 localStorage 不可用的情况，但是跑了单元测试才发现复写 localStorage 并没有生效，因为 **localStorage** 是 window 对象上的一个只读属性。
@@ -11,7 +11,7 @@ tags:
 于是用下面的程序对 window 对象上的只读属性进行了筛选
 
 
-{%highlight javascript%}
+```javascript
 (function(){
     var i = 0,
         ri = 0,
@@ -39,7 +39,7 @@ tags:
     console.log(writeAble);
     console.log('total:' + i, ' read:' + ri, ' write:' wi);
 })();
-{%endhighlight%}
+```
 
 <script>
 var testAsignWindowProp = function(){
