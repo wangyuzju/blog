@@ -15,7 +15,8 @@
       _: '/assets/lib/lodash/dist/lodash.min',
       github: '/assets/lib/github/github',
       octokit: '/assets/lib/octokit/octokit',
-      marked: '/assets/lib/marked/lib/marked'
+      marked: '/assets/lib/marked/lib/marked',
+      ace: '/assets/lib/ace/ace'
     },
 
     shim: {
@@ -24,6 +25,9 @@
       'github': {
         deps: ['_'],
         exports: 'Github'
+      },
+      'ace': {
+        exports: 'ace'
       }
     }
   });

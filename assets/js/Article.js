@@ -49,10 +49,22 @@ define(['yaml'], function(yaml){
     return this._content;
   };
 
+  Article.prototype.setContent = function(content){
+    this._content = content;
+  };
+
   Article.prototype.getConf = function(){
     return this._conf;
   };
 
+  /**
+   * 将配置信息和正文信息拼装成 jekyll 文章之后返回
+   */
+  Article.prototype.getArticle = function(){
+    var confStr = yaml.dump(this._conf);
+
+    return '---\n' + confStr + '---\n\n' + this._content;
+  };
 
   Article.prototype.tags = function(){
     return this._conf.tags || [];
