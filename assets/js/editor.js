@@ -12,6 +12,7 @@ require(['octokit', 'jquery', 'marked', 'Article', 'ace', '_'], function(Octokit
 
 
   function setEditorContent(str){
+    console.log(str);
     aceEditor.setValue(str);
   }
 
@@ -113,18 +114,34 @@ require(['octokit', 'jquery', 'marked', 'Article', 'ace', '_'], function(Octokit
   aceEditorSession.on("changeScrollTop", _.debounce(function (top){
     var viewportFirstRow = aceEditor.getFirstVisibleRow();
     var viewportLastRow = aceEditor.getLastVisibleRow();
+    var maxRow = aceEditorSession.getLength();
 
-    var targetRow = Math.floor((viewportFirstRow + viewportLastRow) / 2 );
+    var targetRow = viewportFirstRow;
     var tokens = [];
 
+    //return console.log(targetRow, viewportFirstRow, maxRow);
     //do{
     //  var identify = $.trim(tokens[tokens.length - 1]);
     //  console.log(output.find('*:contains("'+ identify + '")'));
     //} while(!tokens.length);
 
-    while( !tokens.length ){
-      tokens = aceEditorSession.getTokens(++targetRow);
+    function isTokenUsable(){
+      // 无 token
+      if(!tokens.length){ return false }
+      //
+      var token = tokens[tokens.length - 1];
+      // 三个字符以上才可用
+      console.log(token);
+      return token.value.length > 3;
     }
+
+    tokens = aceEditorSession.getTokens(targetRow);
+    while( !isTokenUsable() && targetRow < maxRow ){
+      targetRow ++;
+      tokens = aceEditorSession.getTokens(targetRow);
+    }
+    // 空白文件没有内容
+    if(!tokens.length){ return; }
 
     // find matched compiled dom tag
     var token = tokens[tokens.length - 1];
@@ -133,10 +150,10 @@ require(['octokit', 'jquery', 'marked', 'Article', 'ace', '_'], function(Octokit
 
     // do scroll
     if(matched){
+      console.log(tokens);
       console.log(matched);
-      outputContainer[0].scrollTop = matched.offsetTop - 100 > 0 ?
-                        matched.offsetTop - 100 : 0;
-      console.log(matched.scrollTop)
+      outputContainer[0].scrollTop = matched.offsetTop - 50 > 0 ?
+                        matched.offsetTop - 50 : 0;
     }
 
   }, 16));

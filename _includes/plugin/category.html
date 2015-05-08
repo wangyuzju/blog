@@ -9,21 +9,21 @@ tips:
     <ul class="side-nav">
         {% for category in site.categories %}
         <li>
-            <a class="{{ category.first }}" href="{{ site.url }}/category/{{ category.first | downcase}}.html">
+            <a class="{{ category.first }}" href="{{ site.url }}/category/{{ category.first | downcase}}/">
                 {{ category.first | capitalize }}
                 <span class="label">{{ category.last.size }}</span>
             </a>
         </li>
         {% endfor %}
     </ul>
-  
+
   <!--如果是按目录分页，则高亮当前目录-->
   <script type="text/javascript">
     var paths = location.pathname.split('/');
     /*需要进行高亮操作*/
     if(paths[1] == 'category'){
       var category = paths[2].slice(0, -5);
-      
+
       var obj = document.querySelector('.' + category );
       obj.className = obj.className + ' ac';
     }

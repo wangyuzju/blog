@@ -39,8 +39,11 @@ define(['yaml'], function(yaml){
       this._content = _utils.trim(this.originSrc.replace(regYamlConf, ''));
     }else{
       // 不存在配置文件，整个数据都是正文
-      this._content = this.originSrc;
+      this._content = this.originSrc
     }
+
+    // 自动补全 15 个换行符
+    this._content += '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n';
 
     console.log(this);
   };
@@ -63,7 +66,7 @@ define(['yaml'], function(yaml){
   Article.prototype.getArticle = function(){
     var confStr = yaml.dump(this._conf);
 
-    return '---\n' + confStr + '---\n\n' + this._content;
+    return '---\n' + confStr + '---\n\n' + _utils.trim(this._content) + '\n';
   };
 
   Article.prototype.tags = function(){
