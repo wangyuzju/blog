@@ -111,6 +111,9 @@ a, blockquote {
     float: none;
 }
 
+.pt {
+  padding-bottom: 1rem;
+}
 
 /**
  * @see [pygments 高亮]{@link https://github.com/richleland/pygments-css}

@@ -14,7 +14,7 @@
 </head>
 <body>
 
-<div class="sticky">
+<div class="sticky pt">
 <nav class="top-bar" data-topbar role="navigation" data-options="sticky_on: large">
     <ul class="title-area">
         <li class="name">
@@ -32,20 +32,14 @@
             </li>
           <li><a href="http://labs.hellofe.com"><span>实验室</span></a></li>
 
-          <li {%if page.id == "books"%}class="active"{%endif%}>
-                <a href="/util/books/">读过的书</a>
-            </li>
+          <!--<li {%if page.id == "books"%}class="active"{%endif%}>-->
+                <!--<a href="/util/books/">读过的书</a>-->
+            <!--</li>-->
             <li {%if page.id == "links"%}class="active"{%endif%}>
                 <a href="/util/links/">实用网址</a>
             </li>
             <li {%if page.id == "about"%}class="active"{%endif%}><a href="/util/about/">留言板</a></li>
-            <!--<li class="has-dropdown">-->
-                <!--<a href="#">Right Button Dropdown</a>-->
-                <!--<ul class="dropdown">-->
-                    <!--<li><a href="#">First link in dropdown</a></li>-->
-                    <!--<li class="active"><a href="#">Active link in dropdown</a></li>-->
-                <!--</ul>-->
-            <!--</li>-->
+
             <li class="has-form search-post-sticky">
                 <!--<div class="search-post-wrapper sticky">-->
                 <div class="search-post-wrapper_">
@@ -76,9 +70,3 @@
     </section>
 </nav>
 </div>
-
-<!--{% include plugin/edit-article-panel.html %}-->
-
-<!--{%include plugin/post_list.html  %}-->
-
-<!--<div class="row">-->

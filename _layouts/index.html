@@ -6,44 +6,4 @@
     {{ content }}
 </div>
 
-<script>
-    require(['search_post']);
-
-    require(['foundation/foundation'], function(){
-      require(['foundation/foundation.topbar', 'foundation/foundation.reveal'], function(){
-        $(document).foundation();
-      });
-    });
-
-
-
-
-
-//  require(['github'], function(Github){
-//    github = new Github({
-//      token: '16541b7301e9f414c4f73e357a6917913fb983e8',
-//      auth: 'oauth'
-////      username: 'wangyuzju',
-////      password: 'wangyusi314428',
-////      auth: 'basic'
-//    });
-//
-//    var repo = github.getRepo('wangyuzju', 'blog');
-//    repo.show(function(err, repo){
-//      console.log(repo);
-//    });
-//
-//    repo.listBranches(function(err, branches){
-//      console.log(branches);
-//    });
-//
-//    repo.contents('gh-pages', "", function(err, contents){
-//      console.log(contents);
-//    });
-//
-//    repo.read('gh-page', 'index.html', function(err, data){
-//      console.log(data);
-//    })
-//  });
-</script>
 {% include footer.html %}
