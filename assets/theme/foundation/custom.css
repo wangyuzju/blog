@@ -67,9 +67,9 @@ a, blockquote {
     word-wrap: break-word;
 }
 
-.search-post-sticky {
-    width: 225px;
-}
+/*.search-post-sticky {*/
+    /*width: 225px;*/
+/*}*/
 
 .search-post-wrapper {
     width: 200px;
@@ -80,12 +80,31 @@ a, blockquote {
 
 #search-result {
     display: none;
-    position: fixed;
+    position: relative;
     z-index: 1000;
-    top:40px;
-    right: 10px;
+    top: 10px;
+    right: 0px;
     width: 300px;
-    margin-top: 5px;
+  padding: 10px 0;
+    /*margin-top: 5px;*/
+}
+
+#search-result li, #search-result a {
+  background: transparent;
+}
+
+#search-result a:hover {
+  color: #0078a0;
+}
+
+@media only screen and (max-width: 40em) {
+  .top-bar .button, .top-bar button {
+    line-height: 18px;
+  }
+}
+
+#search-result a {
+  line-height: inherit;
 }
 
 #search-result li {

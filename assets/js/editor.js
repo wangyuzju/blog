@@ -23,8 +23,14 @@ require(['octokit', 'jquery', 'marked', 'Article', 'ace', '_'], function(Octokit
   var outputContainer = $('#editor-preview');
   var output = $('#editor-preview-content');
 
+  var accessToken = localStorage && localStorage.getItem('github_access_token');
+
+  if(!accessToken){
+    return console.log('no github access_token found, please login first!');
+  }
+
   var gh = new Octokit({
-    token: "72cfd87c2e630636ae2f8032bbdf95a1406d4842"
+    token: accessToken
   });
 
 

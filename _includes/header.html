@@ -14,23 +14,25 @@
 </head>
 <body>
 
-
-<nav class="top-bar" data-topbar role="navigation">
+<div class="sticky">
+<nav class="top-bar" data-topbar role="navigation" data-options="sticky_on: large">
     <ul class="title-area">
         <li class="name">
             <h1><a href="/">Hello Front End</a></h1>
         </li>
         <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
-        <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+        <li class="toggle-topbar menu-icon"><a href="#"><span>菜单</span></a></li>
     </ul>
 
     <section class="top-bar-section">
         <!-- Right Nav Section -->
         <ul class="right">
             <li {%if page.id == "index"%}class="active"{%endif%}>
-                <a href="/index.html">本站主页</a>
+                <a href="/index.html">主页</a>
             </li>
-            <li {%if page.id == "books"%}class="active"{%endif%}>
+          <li><a href="http://labs.hellofe.com"><span>实验室</span></a></li>
+
+          <li {%if page.id == "books"%}class="active"{%endif%}>
                 <a href="/util/books/">读过的书</a>
             </li>
             <li {%if page.id == "links"%}class="active"{%endif%}>
@@ -46,7 +48,7 @@
             <!--</li>-->
             <li class="has-form search-post-sticky">
                 <!--<div class="search-post-wrapper sticky">-->
-                <div class="search-post-wrapper">
+                <div class="search-post-wrapper_">
                     <!--<nav class="top-bar" data-topbar role="navigation" data-options="sticky_on: large">-->
                         <div class="row collapse">
                             <div class="large-8 small-9 columns">
@@ -57,22 +59,21 @@
                             </div>
                         </div>
                     <!--</nav>-->
-
-
                 </div>
-                <!--</div>-->
+              <div id="search-result" class="panel callout radius"></div>
+
+              <!--</div>-->
             </li>
         </ul>
 
         <!-- Left Nav Section -->
         <ul class="left">
-            <li><a href="http://labs.hellofe.com"><span>实验室</span></a></li>
+          <li><a id="gh-oauth-login" href="https://github.com/login/oauth/authorize?client_id=bfaa94b476a91ae70830&scope=user,public_repo,repo">
+            Github 登录</a>
+          </li>
         </ul>
     </section>
 </nav>
-
-<div id="search-result" class="panel callout radius">
-
 </div>
 
 <!--{% include plugin/edit-article-panel.html %}-->
