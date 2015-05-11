@@ -1,6 +1,7 @@
 ---
 layout: links
 title: 平时发现的好网站
+id: links
 ---
 ##一些指令
 
@@ -8,16 +9,16 @@ title: 平时发现的好网站
     ssh bae@ai-ting-test01.ai01
     MhxzKhlbae
     cd music/youhua/src/fe-main/
-    
+
     #svn上线模板前缀
     wwwdata.music/fe/templates
-    
+
     #svn 清除删除的文件信息
     svn st | grep '^!' | awk '{print $2}' | xargs svn delete --force
-    
+
     # svn 自动添加？文件
-    svn st | awk '$1=="?" {print $2}' | xargs  svn add 
-    
+    svn st | awk '$1=="?" {print $2}' | xargs  svn add
+
     # xargs 参数详解
     -0 ：当sdtin含有特殊字元时候，将其当成一般字符，想/'空格等
     -n num 后面加次数，表示命令在执行的时候一次用的argument的个数，默认是用所有的。
@@ -31,7 +32,7 @@ title: 平时发现的好网站
     2. $FileParentDir$/../dist/$FileDirName$/$FileNameWithoutAllExtensions$.css
 
 ## 牛人博客
-+ [Socket.io作者博客](http://www.devthought.com/) 
++ [Socket.io作者博客](http://www.devthought.com/)
 + [云风的博客](http://blog.codingnow.com/) -- 前网易游戏大牛
 
 
@@ -58,8 +59,8 @@ title: 平时发现的好网站
 [023]: http://www.javascript100.com
   + [NodeJS 常用模板引擎的比较](http://paularmstrong.github.io/node-templates/index.html)
 
-+  **实用工具**  
-  + [html5 outliner][030] -- html5 大纲视图  
++  **实用工具**
+  + [html5 outliner][030] -- html5 大纲视图
 [030]: http://gsnedders.html5.org/outliner/
   + [**Can I Use**][031] -- 检测CSS3/HTML5被各个浏览器支持的情况
 [031]: http://caniuse.com/
@@ -130,8 +131,8 @@ title: 平时发现的好网站
 + [列车运行状态监测][71] -- 毕设项目
 [71]: http://gp.hellofe.com
 + [nodesync](https://npmjs.org/package/nodesync) -- 代码自动同步工具(基于node, 自动同步本地改动代码到服务器)
- 
 
-# Node 
+
+# Node
 + [stream-handbook](https://github.com/substack/stream-handbook)
 + [Error Handling in Node.js](http://www.joyent.com/developers/node/design/errors)

@@ -27,16 +27,16 @@
     <section class="top-bar-section">
         <!-- Right Nav Section -->
         <ul class="right">
-            <li class="active">
+            <li {%if page.id == "index"%}class="active"{%endif%}>
                 <a href="/index.html">本站主页</a>
             </li>
-            <li>
+            <li {%if page.id == "books"%}class="active"{%endif%}>
                 <a href="/util/books/">读过的书</a>
             </li>
-            <li>
+            <li {%if page.id == "links"%}class="active"{%endif%}>
                 <a href="/util/links/">实用网址</a>
             </li>
-            <li><a href="/util/about/">留言板</a></li>
+            <li {%if page.id == "about"%}class="active"{%endif%}><a href="/util/about/">留言板</a></li>
             <!--<li class="has-dropdown">-->
                 <!--<a href="#">Right Button Dropdown</a>-->
                 <!--<ul class="dropdown">-->

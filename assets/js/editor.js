@@ -24,7 +24,7 @@ require(['octokit', 'jquery', 'marked', 'Article', 'ace', '_'], function(Octokit
   var output = $('#editor-preview-content');
 
   var gh = new Octokit({
-    token: "16541b7301e9f414c4f73e357a6917913fb983e8"
+    token: "72cfd87c2e630636ae2f8032bbdf95a1406d4842"
   });
 
 
