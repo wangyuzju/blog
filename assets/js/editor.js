@@ -1,8 +1,34 @@
 /**
  * 编辑博文相关功能
  */
-require(['octokit', 'jquery', 'marked', 'Article', 'ace', '_'], function(Octokit, $, marked, Article, ace, _) {
-  console.log(ace);
+require(['octokat', 'jquery', 'marked', 'Article', 'ace', '_'], function(Octokat, $, marked, Article, ace, _) {
+
+  var accessTokenVerify = {
+    // 合法的token, 显示已登录, 显示编辑按钮
+    valid: function(){
+      var loginBtn = $('#gh-oauth-login');
+
+      var root = loginBtn.parents('ul');
+      console.log(root);
+
+      loginBtn.html('Github已登录');
+
+      root.append('<li><a href="#" class="fi-page-edit js-edit-page"> 编辑</a></li>');
+      initEvents();
+    },
+    // 不合法的 token, 清空 localstorage
+    invalid: function(){
+      localStorage.removeItem('github_access_token');
+    }
+  };
+
+  var accessToken = localStorage && localStorage.getItem('github_access_token');
+
+  if(!accessToken){
+    return console.log('no github access_token found, please login first!');
+  }
+
+
   // @see [how to use ace]{@link http://ace.c9.io/#nav=howto}
   aceEditor = ace.edit("ace-editor");
   aceEditor.setTheme("ace/theme/monokai");
@@ -23,32 +49,57 @@ require(['octokit', 'jquery', 'marked', 'Article', 'ace', '_'], function(Octokit
   var outputContainer = $('#editor-preview');
   var output = $('#editor-preview-content');
 
-  var accessToken = localStorage && localStorage.getItem('github_access_token');
-
-  if(!accessToken){
-    return console.log('no github access_token found, please login first!');
-  }
-
-  var gh = new Octokit({
-    token: accessToken
-  });
 
 
+  gh = new Octokat({ token: accessToken });
+  repo = gh.repos('wangyuzju', 'blog');
+
+
+  var GhFile = function(filePath){
+    this._filePath = filePath;
+  };
+
+
+  GhFile.prototype.read = function(){
+    return repo.contents(this._filePath).read({ref: 'gh-pages'});
+  };
+
+  GhFile.prototype.write = function(content, successCb, errCb){
+    var self = this;
+    require(['base64'], function(Base64){
+      repo.contents(self._filePath).fetch({ref: 'gh-pages'}).then(function(info){
+        console.log(info);
+        var data = {
+          message: 'Updating file through blog.hellofe.com [' + new Date() + ']',
+          content: Base64.encode(content),
+          sha: info.sha, // the blob SHA
+          branch: 'gh-pages'
+        };
+
+        return repo.contents(self._filePath).add(data).then(successCb, errCb);
+      });
+    });
+  };
+
+  var ghFile = new GhFile(operationPanel.data("page-path"));
   /**
    * branch content 相关
    */
-  var repo = gh.getRepo('wangyuzju', 'blog');
-  var branch = repo.getBranch("gh-pages");
   var article = null;
-  branch.contents(operationPanel.find(".file-path").text())
-    .then(function(contents) {
-      //console.log(contents)
-      article = new Article(contents);
 
-      setEditorContent(article.getContent());
-      // 只插入正文信息
-      renderCompiledHtml();
-    });
+  ghFile.read().then(function(contents){
+    //console.log(contents)
+    article = new Article(contents);
+
+    setEditorContent(article.getContent());
+    // 只插入正文信息
+    renderCompiledHtml();
+    accessTokenVerify.valid();
+  }, function(){
+    //console.log(err);
+    accessTokenVerify.invalid();
+  });
+
 
 
   /**
@@ -62,30 +113,49 @@ require(['octokit', 'jquery', 'marked', 'Article', 'ace', '_'], function(Octokit
     $('body').css('overflow', 'hidden');
   }
 
-  // 恢复 overflow: auto, 允许滚动
-  $(document).on('close', '[data-reveal]', function () {
-    $('body').css('overflow', 'auto');
-  });
+  function initEvents(){
+    // 恢复 overflow: auto, 允许滚动
+    $(document).on('close', '[data-reveal]', function () {
+      $('body').css('overflow', 'auto');
+    });
+
+    /**
+     * 保存编辑
+     */
+    editorDashboard.find('.save').on('click', function(){
+      var src = article.getArticle();
+      ghFile.write(src, function(info){
+        if(!info){
+          alert('非博客作者无法保存更改!')
+        }else{
+          console.log(info);
+          alert('保存成功: ' + info.commit.sha);
+        }
+      }, function(err){
+        alert('保存失败，请打开控制台查看错误说明');
+        console.log(err)
+      });
+    });
+
+    operationPanel.find('.js-edit-page').on('click', function(){
+      enterEditMode();
+      return false;
+    });
+
+    /**
+     * editor 相关
+     */
+    editor.on("input", function(){
+    })
+    aceEditor.getSession().on('change', function(e) {
+      // e.type, etc
+      renderCompiledHtml();
+    });
+  }
 
   /**
-   * 保存编辑
+   * 渲染 markdown 成 html
    */
-  editorDashboard.find('.save').on('click', function(){
-    console.log(article.getArticle());
-  });
-
-  operationPanel.find('.js-edit-page').on('click', function(){
-    enterEditMode();
-    return false;
-  });
-  //var Article = function(src){
-  //  this.extractConf()
-  //};
-  //
-  //Article.prototype.extractConf = function(){
-  //
-  //};
-
   function renderCompiledHtml() {
     console.log('render...')
 
@@ -102,16 +172,6 @@ require(['octokit', 'jquery', 'marked', 'Article', 'ace', '_'], function(Octokit
 
     output.html(compiled);
   }
-
-  /**
-   * editor 相关
-   */
-  editor.on("input", function(){
-  })
-  aceEditor.getSession().on('change', function(e) {
-    // e.type, etc
-    renderCompiledHtml();
-  });
 
 
   /**

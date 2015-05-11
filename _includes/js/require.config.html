@@ -14,8 +14,9 @@
       foundation: '/assets/foundation/js/foundation',
       _: '/assets/lib/lodash/dist/lodash.min',
       github: '/assets/lib/github/github',
-      octokit: '/assets/lib/octokit/octokit',
+      octokat: '/assets/lib/octokat/dist/octokat',
       marked: '/assets/lib/marked/lib/marked',
+      base64: '/assets/lib/js-base64/base64',
       ace: '/assets/lib/ace/ace'
     },
 
@@ -25,6 +26,9 @@
       'github': {
         deps: ['_'],
         exports: 'Github'
+      },
+      'base64': {
+        exports: 'Base64'
       },
       'ace': {
         exports: 'ace'

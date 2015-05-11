@@ -111,11 +111,6 @@ a, blockquote {
     float: none;
 }
 
-#editor-dashboard {
-  position: fixed;
-  left: 0;
-  top: 50%;
-}
 
 /**
  * @see [pygments 高亮]{@link https://github.com/richleland/pygments-css}
