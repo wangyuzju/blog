@@ -3,7 +3,7 @@ layout: default
 title: 基于 Github 搭建增强版的 jekyll 博客系统
 ---
 
->Github 的 gh-pages 相信大家都不陌生，使用 jekyll 来实现静态博客系统，代码完全存放在github上，不用担心服务器的配置和迁移问题，
+Github 的 gh-pages 相信大家都不陌生，使用 jekyll 来实现静态博客系统，代码完全存放在github上，不用担心服务器的配置和迁移问题，
 然而相比起 wordpress，纯静态的gh-pages并不能很好的满足需求，比如：
 
 + 没有搜索功能
