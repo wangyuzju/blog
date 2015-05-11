@@ -20,7 +20,7 @@ Github 的 gh-pages 相信大家都不陌生，使用 jekyll 来实现静态博�
 
 最终的搜索效果如下图所示：
 
-![搜索效果图](http://labs.hellofe.com/upload/image/blog/96/87/5a/34f9b1b648f071eb084ac85da7.png)
+![搜索效果图](http://labs.hellofe.com/upload/image/blog/8c/d6/08/717c7799ad7296b2329dd79e85.png)
 
 
 ## 2. 文章编辑系统
