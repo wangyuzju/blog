@@ -30,7 +30,7 @@
 
     var btn = document.getElementById('gh-oauth-login');
     var oHref = btn.getAttribute('href');
-    var nHref = oHref + '&redirect_uri=http://localhost:3000/github/oauth_callback?client_url=' +
+    var nHref = oHref + '&redirect_uri=http://labs.hellofe.com/github/oauth_callback?client_url=' +
       location.protocol + '//' + location.host + location.pathname;
     btn.setAttribute('href', nHref);
   }());
