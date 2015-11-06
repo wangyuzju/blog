@@ -1,6 +1,6 @@
 ---
 layout: default
-title: window 对象上的只读属性
+title: ES6 中的一些新特性
 category: fe
 tags:
 ---
