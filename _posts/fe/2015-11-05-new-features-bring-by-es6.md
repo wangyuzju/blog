@@ -62,3 +62,24 @@ Symbol.for('foo') === Symbol.for('foo') // true
 ```
 
 <hr>
+## Map
+Map 是新的数据结构，能对内部含有的值进行`set`, `get`, `search`等操作。最重要的是不像对象哈希那样只
+接受字符串作为 key，Map 接受任何类型的 key 且不会将其转换为字符串。其初始化语法如下：
+
+```js
+let map = new Map([
+    ['name', 'david'],
+    [true, 'false'],
+    [{}, 'object'],
+    [function () {}, 'function']
+]);
+
+for (let key of map.keys()) {
+    console.log(typeof key);
+    // > string, boolean, number, object, function
+}
+
+for (let [key, value] of map.entries()) {
+    console.log(key, value);
+}
+```
