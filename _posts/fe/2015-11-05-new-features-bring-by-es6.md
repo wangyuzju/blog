@@ -7,6 +7,8 @@ tags: null
 
 随着 nodejs 和 iojs 的合并，[原生支持 ECMAScript2015(ES6)](https://nodejs.org/en/docs/es6/) 的特性让人看到了ES6在实际运用的良好条件。而浏览器端，则有类似于 [Babel](https://babeljs.io/repl/) 之类的编译器，将 ES6 转换为 ES5 供普通浏览器使用，尤其是移动端基本上都支持ES5。本文记录ES6中的一些新特性
 
+
+
 # Block-Scope
 + let 声明的变量仅在 `{ }` 内部可见
 + 声明在 `{  }` 内的函数对外不可见
@@ -21,4 +23,17 @@ tags: null
 + `function(x, y, ...a)` 此时多余的参数变量会被放在数组a中
 + `f(...params)` 会将参数params进行拆分，数组变成每个元素，字符串变成每个字符 [--es_staging]
 
-# test save
+# Spread Operator
+
+`...` 作用在数组和对象前面时，执行 spread 运算，具体表现为：
++ 将数组对象展开为函数所需要的参数
+
+```javascript
+    Math.max(...[1, 5, 8, 10]) // == Math.max(1, 5, 8, 10)
+```
++ 展开数组对象到当前数组中
+
+```javascript
+    let cities = ['San Francisco', 'Los Angeles'];
+    let places = ['Miami', ...cities, 'Chicago']; // ['Miami', 'San Francisco', 'Los Angeles', 'Chicago']
+```
