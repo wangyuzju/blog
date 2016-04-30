@@ -83,3 +83,7 @@ for (let [key, value] of map.entries()) {
     console.log(key, value);
 }
 ```
+
+## WeakMap
+WeakMap 对象相比 Map 对象，其key是弱引用的，因此只能是对象，当这个key指向的对象被删除的时候，
+这个weakmap里关联的value会被自动清除。在进行一些dom相关的cache时，尤为有用。
