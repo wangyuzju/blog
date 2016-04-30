@@ -23,7 +23,8 @@ tags: null
 + `function(x, y, ...a)` 此时多余的参数变量会被放在数组a中
 + `f(...params)` 会将参数params进行拆分，数组变成每个元素，字符串变成每个字符 [--es_staging]
 
-# Spread Operator
+<hr>
+## Spread Operator
 
 `...` 作用在数组和对象前面时，执行 spread 运算，具体表现为：
 + 将数组对象展开为函数所需要的参数
@@ -37,3 +38,27 @@ tags: null
     let cities = ['San Francisco', 'Los Angeles'];
     let places = ['Miami', ...cities, 'Chicago']; // ['Miami', 'San Francisco', 'Los Angeles', 'Chicago']
 ```
+
+<hr>
+## Symbol
+symbol 是唯一且不变的数据类型，能作为对象属性的标识符，即作为哈希对象的键值，其使用示例如下
+
+```javascript
+var obj = {};
+
+obj[Symbol("a")] = "a";
+obj[Symbol.for("b")] = "b";
+obj["c"] = "c";
+obj.d = "d";
+
+for (var i in obj) {
+   console.log(i); // logs "c" and "d"
+}
+
+// 
+Symbol('foo') === Symbol('foo') // false
+Symbol.for('foo') === Symbol('foo') // false
+Symbol.for('foo') === Symbol.for('foo') // true
+```
+
+<hr>
