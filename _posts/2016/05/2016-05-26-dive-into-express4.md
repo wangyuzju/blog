@@ -7,7 +7,7 @@ tags:
   - NodeJS
 ---
 
-# 1. 基础
+## 1. 基础
 
 express 是基于nodejs的web框架，而一个传统的nodejs server 处理一个http请求的逻辑是这样的
 
@@ -53,21 +53,21 @@ response的原型给app.request, app.response 属性。`init, use, route, engine
 
 app._router 为Router实例，决定了每个请求的行为。
 
-# 2. app.use 
+## 2. app.use 
 我们知道，express的middleware 和router都是通过app.use生效的，
 
-## 2.1 middleware
+### 2.1 middleware
 所有的express middleware，都是一个 `(req, res, next) => { ... next(); }` 结构的函数，
 调用app.use(middleware)的时候，实际上是 app._router.use('/', middleware)。
 按照`express.Router()`声明的路由比如users, admin, ...本质上也是middleware，也被
 `app._router.use('/', users)` 进行定义。    
     
 
-## 2.2 路由
+### 2.2 路由
 大部分的路由，是一个个Router实例，其本质上也是middleware, 通过 `app._router.use('/', routerN)`
 挂载到app._router对象。
 
-### 2.2.1 路由内部的路由
+#### 2.2.1 路由内部的路由
 看一个实际的例子
 
 ```js
@@ -81,17 +81,10 @@ router.HTTP\_VERBS 实际上调用了 router.route(HTTP\_VERBS)。
 假如在 user 相关的 Router routerU 上注册一个路由 `routerU.get('/test', fn)`, 过程如下：
 
 1. 创建一个和路径 `/test` 相关的 Route 实例 routeT
-2. 创建一个和路径 `/test` 相关的 Layer 实例 layerT, layerT 的 handle 被设置为 routeT.dispatch
-3. layerT.route = routeT, routerU.stack.push(layerT)
-4. // routeT.get(fn) ==>
-5. routeT 创建一个路径为 `/` 的 layerFn, layerFn.handle 被设置为 fn, layerFn.method = get
-6. routeT.methods.get = true
-7. routeT.stack.push(layerFn)
+2. 在routeT.stack 中插入一个新建的 路径为 '/', method 为 'GET' 的LayerFn
+2. 创建一个和路径 `/test` 相关的 Layer 实例 layerT, layerT 的 handle 被设置为 routeT.dispatch，
+将layerT push 到routerU.stack 中
 
-
-3. app._router.use(path, fn)
-    对每一个fn, 创建一个layer，`new Layer(path, opt_option, fn)`，然后将该layer push到当前Router的stack中去。
-举例来说
 
 ```
     app._router.stack
@@ -116,31 +109,8 @@ router.HTTP\_VERBS 实际上调用了 router.route(HTTP\_VERBS)。
 
 ```
 
-![示例图1](http://labs.hellofe.com/upload/image/blog/bd/24/6b/efc5d1f1d9736a581f8444b153.png)
-
 ![示例图2](http://labs.hellofe.com/upload/image/blog/5b/91/73/5b10c9eba4357a1445b5e3119d.png)
 
 
 注意：node-inspector 在 node v6.2 下有bug，调试异步回调的时候出现 [**Internal Error: Illegal Access**](https://github.com/node-inspector/node-inspector/issues/864) 的报错，
 将node版本切换到 v5.0 之后，就可以正常调试了
-
-4. app.handle => app._router.handle
-    app._router.handle 是处理每一个请求的入口，
-
-5. 
-    可以把每一个express的中间件看成是一个挂载在 '/' 目录
-
- 
-3. 
-
-app.use 是express中最重要的方法，
-
-3. 
-
-    
-
-3. 
-
-3. 
-
-3.
