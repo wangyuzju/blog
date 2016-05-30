@@ -51,23 +51,21 @@ function createApplication() {
 函数，处理http模块派发的每一个请求，同时给这个对象加入了事件派发，默认的方法，并暴露request和
 response的原型给app.request, app.response 属性。`init, use, route, engine, param, set, enabled,  disabled, enable, disable, all, [http_methods], render, listen` 等属性也被添加进去。
 
-app._router 为Router实例，决定了每个请求的行为。
+app.\_router 为Router实例，决定了每个请求的行为。
 
 ## 2. app.use 
 我们知道，express的middleware 和router都是通过app.use生效的，
 
 ### 2.1 middleware
 所有的express middleware，都是一个 `(req, res, next) => { ... next(); }` 结构的函数，
-调用app.use(middleware)的时候，实际上是 app._router.use('/', middleware)。
-按照`express.Router()`声明的路由比如users, admin, ...本质上也是middleware，也被
-`app._router.use('/', users)` 进行定义。    
+调用app.use(middleware)的时候，实际上是 app.\_router.use('/', middleware)。
+ 
     
-
 ### 2.2 路由
-大部分的路由，是一个个Router实例，其本质上也是middleware, 通过 `app._router.use('/', routerN)`
-挂载到app._router对象。
+按照`express.Router()`声明的路由本质上也是middleware， 通过 `app._router.use('/', routerN)`
+挂载到app.\_router对象。
 
-#### 2.2.1 路由内部的路由
+#### 2.2.1 路由内部的派发
 看一个实际的例子
 
 ```js
